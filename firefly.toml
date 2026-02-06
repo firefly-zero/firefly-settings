@@ -1,0 +1,5 @@
+author_id = "sys"
+app_id = "settings"
+author_name = "System"
+app_name = "System Settings"
+lang = "rust"
