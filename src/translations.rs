@@ -29,7 +29,7 @@ impl Message {
         match self {
             Self::Language => "Language",
             Self::Timezone => "Timezone",
-            Self::Time => "Time",
+            Self::Time => "Date and time",
             Self::Screen => "Screen",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
@@ -43,7 +43,7 @@ impl Message {
         match self {
             Self::Language => "Taal",
             Self::Timezone => "Tijdzone",
-            Self::Time => "Tijd",
+            Self::Time => "Datum en tijd",
             Self::Screen => "Beeldscherm",
             Self::Interface => "Interface",
             Self::Misc => "Diversen",
@@ -57,7 +57,7 @@ impl Message {
         match self {
             Self::Language => "Язык",
             Self::Timezone => "Часовой пояс",
-            Self::Time => "Время",
+            Self::Time => "Дата и время",
             Self::Screen => "Экран",
             Self::Interface => "Интерфейс",
             Self::Misc => "Разное",

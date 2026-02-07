@@ -11,6 +11,8 @@ pub struct State {
     pub page: Page,
     pub theme: Theme,
     pub lang: Language,
+    pub cursor: u8,
+    pub dpad: DPad4,
 }
 
 impl State {
@@ -36,6 +38,8 @@ pub fn load_state() {
         page: Page::Language,
         theme,
         lang,
+        cursor: 0,
+        dpad: DPad4::default(),
     };
     #[allow(static_mut_refs)]
     unsafe { STATE.set(state) }.ok().unwrap();

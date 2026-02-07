@@ -26,7 +26,36 @@ extern "C" fn boot() {
 #[unsafe(no_mangle)]
 extern "C" fn update() {
     let state = get_state();
+    handle_pad(state);
     update_bg(state);
+}
+
+fn handle_pad(state: &mut State) {
+    // Generally, you never want to use "get_me" peer
+    // for anything but visual rendering. However,
+    // the settings app is special. Settings must be
+    // applied only on one device.
+    let peer = get_me();
+
+    let pad = read_pad(peer).unwrap_or_default();
+    let dpad = pad.as_dpad4();
+    let pressed = dpad.just_pressed(state.dpad);
+    state.dpad = dpad;
+    match pressed {
+        DPad4::Left => {
+            if state.cursor == 0 {
+                state.page = state.page.prev()
+            }
+        }
+        DPad4::Right => {
+            if state.cursor == 0 {
+                state.page = state.page.next()
+            }
+        }
+        DPad4::Up => {}
+        DPad4::Down => {}
+        DPad4::None => {}
+    }
 }
 
 #[unsafe(no_mangle)]
