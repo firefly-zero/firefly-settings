@@ -2,6 +2,7 @@ pub enum Language {
     English,
     Dutch,
     Russian,
+    Ukrainian,
 }
 
 impl Language {
@@ -9,6 +10,7 @@ impl Language {
         match (b[0], b[1]) {
             (b'e', b'n') => Self::English,
             (b'n', b'l') => Self::Dutch,
+            (b'u', b'a') => Self::Ukrainian,
             (b'r', b'u') => Self::Russian,
             _ => Self::English,
         }

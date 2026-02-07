@@ -23,7 +23,12 @@ impl Page {
 
     pub fn lines(&self) -> &'static [Message] {
         match self {
-            Page::Language => &[Message::English, Message::Dutch, Message::Russian],
+            Page::Language => &[
+                Message::English,
+                Message::Dutch,
+                Message::Ukrainian,
+                Message::Russian,
+            ],
             Page::Timezone => &[],
             Page::Time => &[],
             Page::Screen => &[],

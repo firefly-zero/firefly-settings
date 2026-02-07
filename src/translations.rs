@@ -13,6 +13,7 @@ pub enum Message {
     // Languages
     English,
     Dutch,
+    Ukrainian,
     Russian,
 }
 
@@ -21,6 +22,7 @@ impl Message {
         match lang {
             Language::English => self.translate_english(),
             Language::Dutch => self.translate_dutch(),
+            Language::Ukrainian => self.translate_ukrainian(),
             Language::Russian => self.translate_russian(),
         }
     }
@@ -35,6 +37,7 @@ impl Message {
             Self::Misc => "Misc",
             Self::English => "English",
             Self::Dutch => "Dutch",
+            Self::Ukrainian => "Ukrainian",
             Self::Russian => "Russian",
         }
     }
@@ -49,6 +52,7 @@ impl Message {
             Self::Misc => "Diversen",
             Self::English => "Engels",
             Self::Dutch => "Nederlands",
+            Self::Ukrainian => "Oekraïens",
             Self::Russian => "Russisch",
         }
     }
@@ -63,7 +67,23 @@ impl Message {
             Self::Misc => "Разное",
             Self::English => "Английский",
             Self::Dutch => "Голландский",
+            Self::Ukrainian => "Украинский",
             Self::Russian => "Русский",
+        }
+    }
+
+    fn translate_ukrainian(&self) -> &'static str {
+        match self {
+            Self::Language => "Мова",
+            Self::Timezone => "Часовий пояс",
+            Self::Time => "Дата та час",
+            Self::Screen => "Екран",
+            Self::Interface => "Інтерфейс",
+            Self::Misc => "Різне",
+            Self::English => "Англійська",
+            Self::Dutch => "Голландська",
+            Self::Ukrainian => "Українська",
+            Self::Russian => "Російська",
         }
     }
 }
