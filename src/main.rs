@@ -80,7 +80,7 @@ fn draw_lines(state: &State) {
     let font = state.font.as_font();
     for (line, i) in state.page.lines().iter().zip(2..) {
         let point = Point::new(
-            PAGE_MARGIN,
+            PAGE_MARGIN + CURSOR_MARGIN,
             PAGE_MARGIN + i * (font.char_height() as i32 + CURSOR_MARGIN),
         );
         let line = state.translate(*line);

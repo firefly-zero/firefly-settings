@@ -16,6 +16,22 @@ pub enum Message {
     Ukrainian,
     Russian,
     TokiPona,
+
+    // Timezones
+    EuropeAmsterdam,
+
+    // Misc
+    Empty,
+    RotateScreen,
+    ScreenBrightness,
+    ReduceFlashing,
+    Contrast,
+    AutoLock,
+    EasterEggs,
+    ColorScheme,
+    LedsBrightness,
+    GamepadMode,
+    Telemetry,
 }
 
 impl Message {
@@ -42,6 +58,18 @@ impl Message {
             Self::Ukrainian => "Ukrainian",
             Self::Russian => "Russian",
             Self::TokiPona => "Toki Pona",
+            Self::EuropeAmsterdam => "Europe/Amsterdam",
+            Self::Empty => "",
+            Self::RotateScreen => "rotate screen",
+            Self::ScreenBrightness => "screen brightness",
+            Self::ReduceFlashing => "reduce flashing",
+            Self::Contrast => "contrast",
+            Self::AutoLock => "auto lock",
+            Self::EasterEggs => "easter eggs",
+            Self::ColorScheme => "color scheme",
+            Self::LedsBrightness => "LEDs brightness",
+            Self::GamepadMode => "gamepad mode",
+            Self::Telemetry => "telemetry",
         }
     }
 
@@ -58,6 +86,18 @@ impl Message {
             Self::Ukrainian => "Oekraïens",
             Self::Russian => "Russisch",
             Self::TokiPona => "Toki Pona",
+            Self::EuropeAmsterdam => "Europe/Amsterdam",
+            Self::Empty => "",
+            Self::RotateScreen => "Scherm draaien",
+            Self::ScreenBrightness => "Schermhelderheid",
+            Self::ReduceFlashing => "Knipperen verminderen",
+            Self::Contrast => "Contrast",
+            Self::AutoLock => "Automatische vergrendeling",
+            Self::EasterEggs => "Easter eggs",
+            Self::ColorScheme => "Kleurenschema",
+            Self::LedsBrightness => "LED-helderheid",
+            Self::GamepadMode => "Gamepadmodus",
+            Self::Telemetry => "Telemetrie",
         }
     }
 
@@ -74,6 +114,18 @@ impl Message {
             Self::Ukrainian => "Украинский",
             Self::Russian => "Русский",
             Self::TokiPona => "Токи Пона",
+            Self::EuropeAmsterdam => "Europe/Amsterdam",
+            Self::Empty => "",
+            Self::RotateScreen => "перевернуть изображение",
+            Self::ScreenBrightness => "яркость экрана",
+            Self::ReduceFlashing => "уменьшить мигание",
+            Self::Contrast => "контрастность",
+            Self::AutoLock => "автоматическая блокировка",
+            Self::EasterEggs => "пасхалки",
+            Self::ColorScheme => "цветовая схема",
+            Self::LedsBrightness => "яркость светодиодов",
+            Self::GamepadMode => "режим джойстика",
+            Self::Telemetry => "телеметрия",
         }
     }
 
@@ -90,15 +142,27 @@ impl Message {
             Self::Ukrainian => "Українська",
             Self::Russian => "Російська",
             Self::TokiPona => "Токі Пона",
+            Self::EuropeAmsterdam => "Europe/Amsterdam",
+            Self::Empty => "",
+            Self::RotateScreen => "поворот екрана",
+            Self::ScreenBrightness => "яскравість екрана",
+            Self::ReduceFlashing => "зменшення миготіння",
+            Self::Contrast => "контрастніст",
+            Self::AutoLock => "автоматичне блокування",
+            Self::EasterEggs => "пасхалки",
+            Self::ColorScheme => "колірна схема",
+            Self::LedsBrightness => "яскравість світлодіодів",
+            Self::GamepadMode => "режим геймпада",
+            Self::Telemetry => "телеметраці",
         }
     }
 
     fn translate_toki_pona(&self) -> &'static str {
         match self {
             Self::Language => "toki",
-            Self::Timezone => "ma tenpo",
+            Self::Timezone => "tenpo ma",
             Self::Time => "tenpo",
-            Self::Screen => "lukin",
+            Self::Screen => "supa lukin",
             Self::Interface => "pali",
             Self::Misc => "ale",
             Self::English => "toki Inli",
@@ -106,6 +170,18 @@ impl Message {
             Self::Ukrainian => "toki Ukrajini",
             Self::Russian => "toki Losi",
             Self::TokiPona => "toki Pona",
+            Self::EuropeAmsterdam => "Europe/Amsterdam",
+            Self::Empty => "",
+            Self::RotateScreen => "supa nasa",
+            Self::ScreenBrightness => "supa suno",
+            Self::ReduceFlashing => "suno lili",
+            Self::Contrast => "kule alte",
+            Self::AutoLock => "ilo pini kama",
+            Self::EasterEggs => "kijetesantakalu",
+            Self::ColorScheme => "kule",
+            Self::LedsBrightness => "suno kule suno",
+            Self::GamepadMode => "ilo musi",
+            Self::Telemetry => "lukin alasa",
         }
     }
 }

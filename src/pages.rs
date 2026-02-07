@@ -30,11 +30,25 @@ impl Page {
                 Message::Russian,
                 Message::TokiPona,
             ],
-            Page::Timezone => &[],
-            Page::Time => &[],
-            Page::Screen => &[],
-            Page::Interface => &[],
-            Page::Misc => &[],
+            Page::Timezone => &[Message::EuropeAmsterdam],
+            Page::Time => &[Message::Empty],
+            Page::Screen => &[
+                Message::RotateScreen,
+                Message::ScreenBrightness,
+                Message::ReduceFlashing,
+                Message::Contrast,
+            ],
+            Page::Interface => &[
+                //
+                Message::AutoLock,
+                Message::ColorScheme,
+                Message::EasterEggs,
+            ],
+            Page::Misc => &[
+                Message::LedsBrightness,
+                Message::GamepadMode,
+                Message::Telemetry,
+            ],
         }
     }
 
@@ -86,7 +100,7 @@ impl Page {
 // theme
 //     auto_lock
 //     easter_eggs
-//     color scheme
+//     color_scheme
 
 // misc
 //     leds_brightness

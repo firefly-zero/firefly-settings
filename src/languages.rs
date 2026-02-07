@@ -1,8 +1,13 @@
 pub enum Language {
+    /// en 🇬🇧 💂
     English,
+    /// nl 🇳🇱 🧀
     Dutch,
+    /// ua 🇺🇦 ✊
     Russian,
+    /// ru 🇷🇺 🪆
     Ukrainian,
+    /// tp 🇨🇦 🙂
     TokiPona,
 }
 
