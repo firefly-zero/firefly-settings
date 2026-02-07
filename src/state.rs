@@ -13,6 +13,7 @@ pub struct State {
     pub lang: Language,
     pub cursor: u8,
     pub dpad: DPad4,
+    pub btns: Buttons,
 }
 
 impl State {
@@ -40,6 +41,7 @@ pub fn load_state() {
         lang,
         cursor: 0,
         dpad: DPad4::default(),
+        btns: Buttons::default(),
     };
     #[allow(static_mut_refs)]
     unsafe { STATE.set(state) }.ok().unwrap();

@@ -28,6 +28,7 @@ extern "C" fn boot() {
 extern "C" fn update() {
     let state = get_state();
     handle_pad(state);
+    handle_btns(state);
 }
 
 fn handle_pad(state: &mut State) {
@@ -69,6 +70,17 @@ fn handle_pad(state: &mut State) {
     }
 }
 
+fn handle_btns(state: &mut State) {
+    // Generally, you never want to use "get_me" peer
+    // for anything but visual rendering. However,
+    // the settings app is special. Settings must be
+    // applied only on one device.
+    let peer = get_me();
+
+    let btns = read_buttons(peer);
+    state.btns = btns;
+}
+
 #[unsafe(no_mangle)]
 extern "C" fn render() {
     let state = get_state();
@@ -81,10 +93,14 @@ extern "C" fn render() {
 fn draw_title(state: &State) {
     let title = state.translate(state.page.title());
     let font = state.font.as_font();
-    let point = Point::new(
+    let mut point = Point::new(
         (WIDTH - font.line_width(title) as i32) / 2,
         PAGE_MARGIN + font.char_height() as i32,
     );
+    if state.cursor == 0 && state.btns.s || state.btns.e {
+        point.x += 1;
+        point.y += 1;
+    }
     draw_text(title, &font, point, state.theme.accent);
 }
 
@@ -92,10 +108,14 @@ fn draw_lines(state: &State) {
     let font = state.font.as_font();
     let line_h = font.char_height() as i32 + CURSOR_MARGIN;
     for (line, i) in state.page.lines().iter().zip(2..) {
-        let point = Point::new(
+        let mut point = Point::new(
             PAGE_MARGIN + CURSOR_MARGIN,
             PAGE_MARGIN + i * line_h - CURSOR_MARGIN,
         );
+        if i - 1 == state.cursor as i32 && state.btns.s || state.btns.e {
+            point.x += 1;
+            point.y += 1;
+        }
         let line = state.translate(*line);
         draw_text(line, &font, point, state.theme.primary);
     }
@@ -104,15 +124,27 @@ fn draw_lines(state: &State) {
 fn draw_cursor(state: &State) {
     let font = state.font.as_font();
     let line_h = font.char_height() as i32 + CURSOR_MARGIN;
-    let point = Point::new(PAGE_MARGIN, PAGE_MARGIN + state.cursor as i32 * line_h + 1);
+    let y = PAGE_MARGIN + state.cursor as i32 * line_h + 1;
+    let mut point = Point::new(PAGE_MARGIN, y);
     let bbox = Size::new(
         WIDTH - PAGE_MARGIN * 2,
         font.char_height() as i32 + CURSOR_MARGIN,
     );
+    let corner = Size::new(4, 4);
+
+    if state.btns.s || state.btns.e {
+        point.x += 1;
+        point.y += 1;
+    } else {
+        let style = Style::solid(state.theme.primary);
+        let shadow_point = Point::new(point.x + 1, point.y + 1);
+        draw_rounded_rect(shadow_point, bbox, corner, style);
+    }
+
     let style = Style {
         fill_color: state.theme.bg,
         stroke_color: state.theme.primary,
         stroke_width: 1,
     };
-    draw_rounded_rect(point, bbox, Size::new(4, 4), style);
+    draw_rounded_rect(point, bbox, corner, style);
 }
