@@ -28,6 +28,7 @@ impl Page {
                 Message::Dutch,
                 Message::Ukrainian,
                 Message::Russian,
+                Message::TokiPona,
             ],
             Page::Timezone => &[],
             Page::Time => &[],

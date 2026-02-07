@@ -3,6 +3,7 @@ pub enum Language {
     Dutch,
     Russian,
     Ukrainian,
+    TokiPona,
 }
 
 impl Language {
@@ -12,6 +13,7 @@ impl Language {
             (b'n', b'l') => Self::Dutch,
             (b'u', b'a') => Self::Ukrainian,
             (b'r', b'u') => Self::Russian,
+            (b't', b'p') => Self::TokiPona,
             _ => Self::English,
         }
     }

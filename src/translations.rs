@@ -15,6 +15,7 @@ pub enum Message {
     Dutch,
     Ukrainian,
     Russian,
+    TokiPona,
 }
 
 impl Message {
@@ -24,6 +25,7 @@ impl Message {
             Language::Dutch => self.translate_dutch(),
             Language::Ukrainian => self.translate_ukrainian(),
             Language::Russian => self.translate_russian(),
+            Language::TokiPona => self.translate_toki_pona(),
         }
     }
 
@@ -39,6 +41,7 @@ impl Message {
             Self::Dutch => "Dutch",
             Self::Ukrainian => "Ukrainian",
             Self::Russian => "Russian",
+            Self::TokiPona => "Toki Pona",
         }
     }
 
@@ -54,6 +57,7 @@ impl Message {
             Self::Dutch => "Nederlands",
             Self::Ukrainian => "Oekraïens",
             Self::Russian => "Russisch",
+            Self::TokiPona => "Toki Pona",
         }
     }
 
@@ -69,6 +73,7 @@ impl Message {
             Self::Dutch => "Голландский",
             Self::Ukrainian => "Украинский",
             Self::Russian => "Русский",
+            Self::TokiPona => "Токи Пона",
         }
     }
 
@@ -84,6 +89,23 @@ impl Message {
             Self::Dutch => "Голландська",
             Self::Ukrainian => "Українська",
             Self::Russian => "Російська",
+            Self::TokiPona => "Токі Пона",
+        }
+    }
+
+    fn translate_toki_pona(&self) -> &'static str {
+        match self {
+            Self::Language => "toki",
+            Self::Timezone => "ma tenpo",
+            Self::Time => "tenpo",
+            Self::Screen => "lukin",
+            Self::Interface => "pali",
+            Self::Misc => "ale",
+            Self::English => "toki Inli",
+            Self::Dutch => "toki Netelan",
+            Self::Ukrainian => "toki Ukrajini",
+            Self::Russian => "toki Losi",
+            Self::TokiPona => "toki Pona",
         }
     }
 }
