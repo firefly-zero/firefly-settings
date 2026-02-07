@@ -22,4 +22,14 @@ impl Language {
             _ => Self::English,
         }
     }
+
+    pub fn as_bytes(&self) -> [u8; 2] {
+        match self {
+            Self::English => [b'e', b'n'],
+            Self::Dutch => [b'n', b'l'],
+            Self::Ukrainian => [b'u', b'a'],
+            Self::Russian => [b'r', b'u'],
+            Self::TokiPona => [b't', b'p'],
+        }
+    }
 }

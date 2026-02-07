@@ -44,16 +44,27 @@ fn handle_pad(state: &mut State) {
     match pressed {
         DPad4::Left => {
             if state.cursor == 0 {
-                state.page = state.page.prev()
+                state.page = state.page.prev();
+            } else {
+                state.cursor = 0;
             }
         }
         DPad4::Right => {
             if state.cursor == 0 {
-                state.page = state.page.next()
+                state.page = state.page.next();
             }
         }
-        DPad4::Up => {}
-        DPad4::Down => {}
+        DPad4::Up => {
+            if state.cursor > 0 {
+                state.cursor -= 1;
+            }
+        }
+        DPad4::Down => {
+            let n_lines = state.page.lines().len() as u8;
+            if state.cursor < n_lines {
+                state.cursor += 1;
+            }
+        }
         DPad4::None => {}
     }
 }
@@ -62,6 +73,7 @@ fn handle_pad(state: &mut State) {
 extern "C" fn render() {
     let state = get_state();
     draw_bg(state);
+    draw_cursor(state);
     draw_title(state);
     draw_lines(state);
 }
@@ -71,19 +83,36 @@ fn draw_title(state: &State) {
     let font = state.font.as_font();
     let point = Point::new(
         (WIDTH - font.line_width(title) as i32) / 2,
-        PAGE_MARGIN + font.char_height() as i32 + CURSOR_MARGIN,
+        PAGE_MARGIN + font.char_height() as i32,
     );
     draw_text(title, &font, point, state.theme.accent);
 }
 
 fn draw_lines(state: &State) {
     let font = state.font.as_font();
+    let line_h = font.char_height() as i32 + CURSOR_MARGIN;
     for (line, i) in state.page.lines().iter().zip(2..) {
         let point = Point::new(
             PAGE_MARGIN + CURSOR_MARGIN,
-            PAGE_MARGIN + i * (font.char_height() as i32 + CURSOR_MARGIN),
+            PAGE_MARGIN + i * line_h - CURSOR_MARGIN,
         );
         let line = state.translate(*line);
         draw_text(line, &font, point, state.theme.primary);
     }
+}
+
+fn draw_cursor(state: &State) {
+    let font = state.font.as_font();
+    let line_h = font.char_height() as i32 + CURSOR_MARGIN;
+    let point = Point::new(PAGE_MARGIN, PAGE_MARGIN + state.cursor as i32 * line_h + 1);
+    let bbox = Size::new(
+        WIDTH - PAGE_MARGIN * 2,
+        font.char_height() as i32 + CURSOR_MARGIN,
+    );
+    let style = Style {
+        fill_color: state.theme.bg,
+        stroke_color: state.theme.primary,
+        stroke_width: 1,
+    };
+    draw_rounded_rect(point, bbox, Size::new(4, 4), style);
 }

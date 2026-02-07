@@ -36,12 +36,13 @@ pub enum Message {
 
 impl Message {
     pub fn translate(&self, lang: &Language) -> &'static str {
+        use Language::*;
         match lang {
-            Language::English => self.translate_english(),
-            Language::Dutch => self.translate_dutch(),
-            Language::Ukrainian => self.translate_ukrainian(),
-            Language::Russian => self.translate_russian(),
-            Language::TokiPona => self.translate_toki_pona(),
+            English => self.translate_english(),
+            Dutch => self.translate_dutch(),
+            Ukrainian => self.translate_ukrainian(),
+            Russian => self.translate_russian(),
+            TokiPona => self.translate_toki_pona(),
         }
     }
 
@@ -63,7 +64,7 @@ impl Message {
             Self::RotateScreen => "rotate screen",
             Self::ScreenBrightness => "screen brightness",
             Self::ReduceFlashing => "reduce flashing",
-            Self::Contrast => "contrast",
+            Self::Contrast => "high contrast",
             Self::AutoLock => "auto lock",
             Self::EasterEggs => "easter eggs",
             Self::ColorScheme => "color scheme",

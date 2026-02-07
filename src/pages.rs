@@ -53,56 +53,26 @@ impl Page {
     }
 
     pub fn next(&self) -> Self {
+        use Page::*;
         match self {
-            Page::Language => Page::Timezone,
-            Page::Timezone => Page::Time,
-            Page::Time => Page::Screen,
-            Page::Screen => Page::Interface,
-            Page::Interface => Page::Misc,
-            Page::Misc => Page::Language,
+            Language => Timezone,
+            Timezone => Time,
+            Time => Screen,
+            Screen => Interface,
+            Interface => Misc,
+            Misc => Language,
         }
     }
 
     pub fn prev(&self) -> Self {
+        use Page::*;
         match self {
-            Page::Language => Page::Interface,
-            Page::Timezone => Page::Language,
-            Page::Time => Page::Timezone,
-            Page::Screen => Page::Time,
-            Page::Interface => Page::Screen,
-            Page::Misc => Page::Interface,
+            Language => Interface,
+            Timezone => Language,
+            Time => Timezone,
+            Screen => Time,
+            Interface => Screen,
+            Misc => Interface,
         }
     }
 }
-
-// xp
-// badges
-// name
-
-// lang
-//     English
-//     Dutch
-// timezone
-//     Europe
-//     USA
-//     Asia
-// time
-
-// screen
-//     rotate_screen
-//     screen_brightness
-//     reduce_flashing
-//     contrast
-
-// speakers_volume
-// headphones_volume
-
-// theme
-//     auto_lock
-//     easter_eggs
-//     color_scheme
-
-// misc
-//     leds_brightness
-//     gamepad_mode
-//     telemetry
