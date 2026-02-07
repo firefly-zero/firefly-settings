@@ -1,12 +1,19 @@
 use crate::*;
 
+#[derive(Clone, Copy)]
 pub enum Message {
+    // Pages
     Language,
     Timezone,
     Time,
     Screen,
     Interface,
     Misc,
+
+    // Languages
+    English,
+    Dutch,
+    Russian,
 }
 
 impl Message {
@@ -26,6 +33,9 @@ impl Message {
             Self::Screen => "Screen",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
+            Self::English => "English",
+            Self::Dutch => "Dutch",
+            Self::Russian => "Russian",
         }
     }
 
@@ -37,6 +47,9 @@ impl Message {
             Self::Screen => "Beeldscherm",
             Self::Interface => "Interface",
             Self::Misc => "Diversen",
+            Self::English => "Engels",
+            Self::Dutch => "Nederlands",
+            Self::Russian => "Russisch",
         }
     }
 
@@ -48,6 +61,9 @@ impl Message {
             Self::Screen => "Экран",
             Self::Interface => "Интерфейс",
             Self::Misc => "Разное",
+            Self::English => "Английский",
+            Self::Dutch => "Голландский",
+            Self::Russian => "Русский",
         }
     }
 }
