@@ -10,6 +10,13 @@ pub struct State {
     pub font: FileBuf,
     pub page: Page,
     pub theme: Theme,
+    pub lang: Language,
+}
+
+impl State {
+    pub fn translate(&self, m: Message) -> &'static str {
+        m.translate(&self.lang)
+    }
 }
 
 pub fn get_state() -> &'static mut State {
@@ -22,11 +29,13 @@ pub fn load_state() {
     let raw_settings = sudo::load_file_buf("sys/config").unwrap();
     let settings = Settings::decode(raw_settings.as_bytes()).unwrap();
     let theme = THEMES[settings.theme as usize];
+    let lang = Language::from_bytes(settings.lang);
     let state = State {
         settings,
         font,
         page: Page::Language,
         theme,
+        lang,
     };
     #[allow(static_mut_refs)]
     unsafe { STATE.set(state) }.ok().unwrap();

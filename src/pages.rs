@@ -1,3 +1,5 @@
+use crate::*;
+
 pub enum Page {
     Language,
     Timezone,
@@ -8,14 +10,14 @@ pub enum Page {
 }
 
 impl Page {
-    pub fn title(&self) -> &'static str {
+    pub fn title(&self) -> Message {
         match self {
-            Page::Language => "Language",
-            Page::Timezone => "Timezone",
-            Page::Time => "Time",
-            Page::Screen => "Screen",
-            Page::Interface => "Interface",
-            Page::Misc => "Misc",
+            Page::Language => Message::Language,
+            Page::Timezone => Message::Timezone,
+            Page::Time => Message::Time,
+            Page::Screen => Message::Screen,
+            Page::Interface => Message::Interface,
+            Page::Misc => Message::Misc,
         }
     }
 
