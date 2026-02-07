@@ -129,7 +129,7 @@ fn draw_title(state: &State) {
     let title = state.translate(state.page.title());
     let font = state.font.as_font();
     let mut point = Point::new(
-        (WIDTH - font.line_width(title) as i32) / 2,
+        (WIDTH - line_width(&font, title)) / 2,
         PAGE_MARGIN + font.char_height() as i32,
     );
     if state.cursor == 0 && (state.btns.s || state.btns.e) {
@@ -205,4 +205,12 @@ fn draw_cursor(state: &State) {
         stroke_width: 1,
     };
     draw_rounded_rect(point, bbox, corner, style);
+}
+
+/// Calculate the width in pixels of the given text.
+///
+/// The SDK has [`Font::line_width`] out of the box
+/// but it only works with ASCII text.
+fn line_width(font: &Font, t: &str) -> i32 {
+    t.chars().count() as i32 * font.char_width() as i32
 }
