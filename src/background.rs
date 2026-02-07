@@ -1,10 +1,6 @@
 use crate::*;
 use firefly_rust::*;
 
-pub fn update_bg(state: &State) {
-    // ...
-}
-
 pub fn draw_bg(state: &State) {
     draw_bg_grid(state);
     draw_bg_box(state);
