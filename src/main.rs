@@ -5,7 +5,11 @@ mod pages;
 mod state;
 
 use crate::background::*;
+use crate::pages::*;
 use crate::state::*;
+use firefly_rust::*;
+
+const MARGIN: i32 = 20;
 
 #[unsafe(no_mangle)]
 extern "C" fn boot() {
@@ -22,4 +26,12 @@ extern "C" fn update() {
 extern "C" fn render() {
     let state = get_state();
     draw_bg(state);
+    draw_title(state);
+}
+
+fn draw_title(state: &State) {
+    let title = state.page.title();
+    let font = state.font.as_font();
+    let point = Point::new(MARGIN, MARGIN + font.char_height() as i32);
+    draw_text(title, &font, point, Color::Black);
 }

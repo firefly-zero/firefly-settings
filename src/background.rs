@@ -1,4 +1,4 @@
-use crate::state::*;
+use crate::*;
 use firefly_rust::*;
 
 pub fn update_bg(state: &State) {
@@ -12,6 +12,7 @@ pub fn draw_bg(state: &State) {
 
 fn draw_bg_grid() {
     const CELL_SIZE: i32 = 10;
+
     clear_screen(Color::White);
     let style = LineStyle::new(Color::LightGray, 1);
     for x in (CELL_SIZE..WIDTH).step_by(CELL_SIZE as _) {
@@ -24,6 +25,7 @@ fn draw_bg_grid() {
 
 fn draw_bg_box() {
     const MARGIN: i32 = 15;
+
     let size = Size::new(WIDTH - MARGIN * 2, HEIGHT - MARGIN * 2);
     draw_rounded_rect(
         Point::new(MARGIN + 1, MARGIN + 1),
