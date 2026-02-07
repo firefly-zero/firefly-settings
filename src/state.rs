@@ -28,11 +28,11 @@ pub fn get_state() -> &'static mut State {
 }
 
 pub fn load_state() {
-    let font = load_file_buf("font").unwrap();
     let raw_settings = sudo::load_file_buf("sys/config").unwrap();
     let settings = Settings::decode(raw_settings.as_bytes()).unwrap();
     let theme = THEMES[settings.theme as usize];
     let lang = Language::from_bytes(settings.lang);
+    let font = load_file_buf(lang.encoding()).unwrap();
     let state = State {
         settings,
         font,

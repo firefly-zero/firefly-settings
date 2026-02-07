@@ -101,6 +101,10 @@ fn select_option(state: &mut State) {
                 _ => Language::English,
             };
             state.settings.lang = lang.as_bytes();
+            let encoding = lang.encoding();
+            if encoding != state.lang.encoding() {
+                state.font = load_file_buf(encoding).unwrap();
+            }
             state.lang = lang;
         }
         Page::Timezone => {}

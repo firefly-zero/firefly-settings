@@ -1,3 +1,4 @@
+#[derive(PartialEq)]
 pub enum Language {
     /// en 🇬🇧 💂
     English,
@@ -30,6 +31,14 @@ impl Language {
             Self::Ukrainian => [b'u', b'a'],
             Self::Russian => [b'r', b'u'],
             Self::TokiPona => [b't', b'p'],
+        }
+    }
+
+    pub fn encoding(&self) -> &'static str {
+        use Language::*;
+        match self {
+            Language::Russian | Ukrainian => "iso_8859_5",
+            _ => "ascii",
         }
     }
 }

@@ -6,4 +6,5 @@ lang = "rust"
 sudo = true
 
 [files]
-font = { path = "eg_6x9.fff", url = "https://fonts.fireflyzero.com/fonts/ascii/eg_6x9.fff", sha256 = "b07e868a74a070efcf4ca65d18839da883d1e273b646d8c54261fadec638c77" }
+ascii = { path = "ascii.fff", url = "https://fonts.fireflyzero.com/fonts/ascii/eg_6x9.fff", sha256 = "b07e868a74a070efcf4ca65d18839da883d1e273b646d8c54261fadec638c77" }
+iso_8859_5 = { path = "iso_8859_5.fff", url = "https://fonts.fireflyzero.com/fonts/iso_8859_5/eg_6x9.fff", sha256 = "7ac2ffb6922980c37391d4a3593d87965ac935d5359fa873691abeee2a72ea" }
