@@ -78,6 +78,12 @@ fn handle_btns(state: &mut State) {
     let peer = get_me();
 
     let btns = read_buttons(peer);
+    let released = btns.just_released(&state.btns);
+    if released.s || released.e {
+        if state.cursor == 0 {
+            state.page = state.page.next();
+        }
+    }
     state.btns = btns;
 }
 
@@ -87,6 +93,7 @@ extern "C" fn render() {
     draw_bg(state);
     draw_cursor(state);
     draw_title(state);
+    draw_title_arrows(state);
     draw_lines(state);
 }
 
@@ -97,11 +104,34 @@ fn draw_title(state: &State) {
         (WIDTH - font.line_width(title) as i32) / 2,
         PAGE_MARGIN + font.char_height() as i32,
     );
-    if state.cursor == 0 && state.btns.s || state.btns.e {
+    if state.cursor == 0 && (state.btns.s || state.btns.e) {
         point.x += 1;
         point.y += 1;
     }
     draw_text(title, &font, point, state.theme.accent);
+}
+
+fn draw_title_arrows(state: &State) {
+    let style = Style::solid(state.theme.accent);
+    let mut p = Point::new(PAGE_MARGIN + CURSOR_MARGIN, PAGE_MARGIN + 3);
+    if state.cursor == 0 && (state.btns.s || state.btns.e) {
+        p.x += 1;
+        p.y += 1;
+    }
+    draw_triangle(
+        Point::new(p.x, p.y + 4),
+        Point::new(p.x + 4, p.y),
+        Point::new(p.x + 4, p.y + 8),
+        style,
+    );
+
+    p.x += WIDTH - 2 * (PAGE_MARGIN + CURSOR_MARGIN) - 1;
+    draw_triangle(
+        Point::new(p.x, p.y + 4),
+        Point::new(p.x - 4, p.y),
+        Point::new(p.x - 4, p.y + 8),
+        style,
+    );
 }
 
 fn draw_lines(state: &State) {
@@ -112,7 +142,7 @@ fn draw_lines(state: &State) {
             PAGE_MARGIN + CURSOR_MARGIN,
             PAGE_MARGIN + i * line_h - CURSOR_MARGIN,
         );
-        if i - 1 == state.cursor as i32 && state.btns.s || state.btns.e {
+        if i - 1 == state.cursor as i32 && (state.btns.s || state.btns.e) {
             point.x += 1;
             point.y += 1;
         }
