@@ -82,9 +82,33 @@ fn handle_btns(state: &mut State) {
     if released.s || released.e {
         if state.cursor == 0 {
             state.page = state.page.next();
+        } else {
+            select_option(state);
         }
     }
     state.btns = btns;
+}
+
+fn select_option(state: &mut State) {
+    match state.page {
+        Page::Language => {
+            let lang = match state.cursor {
+                1 => Language::English,
+                2 => Language::Dutch,
+                3 => Language::Ukrainian,
+                4 => Language::Russian,
+                5 => Language::TokiPona,
+                _ => Language::English,
+            };
+            state.settings.lang = lang.as_bytes();
+            state.lang = lang;
+        }
+        Page::Timezone => {}
+        Page::Time => {}
+        Page::Screen => {}
+        Page::Interface => {}
+        Page::Misc => {}
+    }
 }
 
 #[unsafe(no_mangle)]

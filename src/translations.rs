@@ -84,7 +84,7 @@ impl Message {
             Self::Misc => "Diversen",
             Self::English => "Engels",
             Self::Dutch => "Nederlands",
-            Self::Ukrainian => "Oekraïens",
+            Self::Ukrainian => "Oekraiens",
             Self::Russian => "Russisch",
             Self::TokiPona => "Toki Pona",
             Self::EuropeAmsterdam => "Europe/Amsterdam",
