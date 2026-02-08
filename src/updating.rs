@@ -1,5 +1,6 @@
 use crate::*;
 use firefly_rust::*;
+use firefly_types::Settings;
 
 pub fn update_state(state: &mut State) {
     handle_pad(state);
@@ -126,6 +127,10 @@ fn select_option(state: &mut State) {
         Page::Misc => match state.cursor {
             1 => s.gamepad_mode = !s.gamepad_mode,
             2 => s.telemetry = !s.telemetry,
+            3 => {
+                *s = Settings::default();
+                state.refresh();
+            }
             _ => {}
         },
     }

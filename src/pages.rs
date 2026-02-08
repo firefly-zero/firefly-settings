@@ -45,7 +45,12 @@ impl Page {
                 Message::ColorScheme,
                 Message::EasterEggs,
             ],
-            Page::Misc => &[Message::GamepadMode, Message::Telemetry],
+            Page::Misc => &[
+                //
+                Message::GamepadMode,
+                Message::Telemetry,
+                Message::ResetAll,
+            ],
         }
     }
 

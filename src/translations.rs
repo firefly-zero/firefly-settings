@@ -32,6 +32,7 @@ pub enum Message {
     LedsBrightness,
     GamepadMode,
     Telemetry,
+    ResetAll,
 }
 
 impl Message {
@@ -71,6 +72,7 @@ impl Message {
             Self::LedsBrightness => "LEDs brightness",
             Self::GamepadMode => "gamepad mode",
             Self::Telemetry => "telemetry",
+            Self::ResetAll => "reset all settings",
         }
     }
 
@@ -89,16 +91,17 @@ impl Message {
             Self::TokiPona => "Toki Pona",
             Self::EuropeAmsterdam => "Europe/Amsterdam",
             Self::Empty => "",
-            Self::RotateScreen => "Scherm draaien",
-            Self::ScreenBrightness => "Schermhelderheid",
-            Self::ReduceFlashing => "Knipperen verminderen",
-            Self::Contrast => "Contrast",
-            Self::AutoLock => "Automatische vergrendeling",
-            Self::EasterEggs => "Easter eggs",
-            Self::ColorScheme => "Kleurenschema",
+            Self::RotateScreen => "scherm draaien",
+            Self::ScreenBrightness => "schermhelderheid",
+            Self::ReduceFlashing => "knipperen verminderen",
+            Self::Contrast => "contrast",
+            Self::AutoLock => "automatische vergrendeling",
+            Self::EasterEggs => "paaseieren",
+            Self::ColorScheme => "kleurenschema",
             Self::LedsBrightness => "LED-helderheid",
-            Self::GamepadMode => "Gamepadmodus",
-            Self::Telemetry => "Telemetrie",
+            Self::GamepadMode => "gamepadmodus",
+            Self::Telemetry => "telemetrie",
+            Self::ResetAll => "alle instellingen resetten",
         }
     }
 
@@ -127,6 +130,7 @@ impl Message {
             Self::LedsBrightness => "яркость светодиодов",
             Self::GamepadMode => "режим джойстика",
             Self::Telemetry => "телеметрия",
+            Self::ResetAll => "reset all settings",
         }
     }
 
@@ -155,6 +159,7 @@ impl Message {
             Self::LedsBrightness => "яскравість світлодіодів",
             Self::GamepadMode => "режим геймпада",
             Self::Telemetry => "телеметраці",
+            Self::ResetAll => "reset all settings",
         }
     }
 
@@ -164,8 +169,8 @@ impl Message {
             Self::Timezone => "tenpo ma",
             Self::Time => "tenpo",
             Self::Screen => "supa lukin",
-            Self::Interface => "pali",
-            Self::Misc => "ale",
+            Self::Interface => "namako",
+            Self::Misc => "ante",
             Self::English => "toki Inli",
             Self::Dutch => "toki Netelan",
             Self::Ukrainian => "toki Ukrajini",
@@ -183,6 +188,7 @@ impl Message {
             Self::LedsBrightness => "suno kule suno",
             Self::GamepadMode => "ilo musi",
             Self::Telemetry => "lukin alasa",
+            Self::ResetAll => "ale li sin",
         }
     }
 }

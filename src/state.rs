@@ -25,6 +25,12 @@ impl State {
         let raw = self.settings.encode_vec().unwrap();
         sudo::dump_file("sys/config", &raw);
     }
+
+    pub fn refresh(&mut self) {
+        self.theme = THEMES[self.settings.theme as usize];
+        self.lang = Language::from_bytes(self.settings.lang);
+        self.font = load_file_buf(self.lang.encoding()).unwrap();
+    }
 }
 
 pub fn get_state() -> &'static mut State {
