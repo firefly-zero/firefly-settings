@@ -94,9 +94,15 @@ fn select_option(state: &mut State) {
             let lang = match state.cursor {
                 1 => Language::English,
                 2 => Language::Dutch,
-                3 => Language::Ukrainian,
-                4 => Language::Russian,
-                5 => Language::TokiPona,
+                3 => Language::French,
+                4 => Language::German,
+                5 => Language::Italian,
+                6 => Language::Polish,
+                7 => Language::Russian,
+                8 => Language::Spanish,
+                9 => Language::Turkish,
+                10 => Language::Ukrainian,
+                11 => Language::TokiPona,
                 _ => Language::English,
             };
             s.lang = lang.as_bytes();

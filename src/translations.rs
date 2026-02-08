@@ -13,8 +13,14 @@ pub enum Message {
     // Languages
     English,
     Dutch,
-    Ukrainian,
+    French,
+    German,
+    Italian,
+    Polish,
     Russian,
+    Spanish,
+    Turkish,
+    Ukrainian,
     TokiPona,
 
     // Timezones
@@ -40,8 +46,14 @@ impl Message {
         match lang {
             English => self.translate_english(),
             Dutch => self.translate_dutch(),
-            Ukrainian => self.translate_ukrainian(),
+            French => self.translate_french(),
+            German => self.translate_german(),
+            Italian => self.translate_italian(),
+            Polish => self.translate_polish(),
             Russian => self.translate_russian(),
+            Spanish => self.translate_spanish(),
+            Turkish => self.translate_turkish(),
+            Ukrainian => self.translate_ukrainian(),
             TokiPona => self.translate_toki_pona(),
         }
     }
@@ -54,11 +66,19 @@ impl Message {
             Self::Screen => "Screen",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
+
             Self::English => "English",
             Self::Dutch => "Dutch",
-            Self::Ukrainian => "Ukrainian",
+            Self::French => "French",
+            Self::German => "German",
+            Self::Italian => "Italian",
+            Self::Polish => "Polish",
             Self::Russian => "Russian",
+            Self::Spanish => "Spanish",
+            Self::Turkish => "Turkish",
+            Self::Ukrainian => "Ukrainian",
             Self::TokiPona => "Toki Pona",
+
             Self::EuropeAmsterdam => "Europe/Amsterdam",
             Self::Empty => "",
             Self::RotateScreen => "rotate screen",
@@ -82,23 +102,179 @@ impl Message {
             Self::Screen => "Beeldscherm",
             Self::Interface => "Interface",
             Self::Misc => "Diversen",
+
             Self::English => "Engels",
             Self::Dutch => "Nederlands",
-            Self::Ukrainian => "Oekraiens",
+            Self::French => "French",   // TODO: translate
+            Self::German => "German",   // TODO: translate
+            Self::Italian => "Italian", // TODO: translate
+            Self::Polish => "Polish",   // TODO: translate
             Self::Russian => "Russisch",
+            Self::Spanish => "Spanish", // TODO: translate
+            Self::Turkish => "Turkish", // TODO: translate
+            Self::Ukrainian => "Oekraiens",
             Self::TokiPona => "Toki Pona",
+
             Self::EuropeAmsterdam => "Europe/Amsterdam",
             Self::Empty => "",
             Self::RotateScreen => "scherm draaien",
             Self::ScreenBrightness => "schermhelderheid",
             Self::ReduceFlashing => "knipperen verminderen",
-            Self::Contrast => "contrast",
+            Self::Contrast => "hoog contrast",
             Self::AutoLock => "automatische vergrendeling",
             Self::EasterEggs => "paaseieren",
             Self::ColorScheme => "kleurenschema",
             Self::GamepadMode => "gamepadmodus",
             Self::Telemetry => "telemetrie",
             Self::ResetAll => "alle instellingen resetten",
+        }
+    }
+
+    fn translate_french(&self) -> &'static str {
+        // TODO: translate
+        match self {
+            Self::Language => "Language",
+            Self::Timezone => "Timezone",
+            Self::Time => "Date and time",
+            Self::Screen => "Screen",
+            Self::Interface => "Interface",
+            Self::Misc => "Misc",
+
+            Self::English => "English",
+            Self::Dutch => "Dutch",
+            Self::French => "French",
+            Self::German => "German",
+            Self::Italian => "Italian",
+            Self::Polish => "Polish",
+            Self::Russian => "Russian",
+            Self::Spanish => "Spanish",
+            Self::Turkish => "Turkish",
+            Self::Ukrainian => "Ukrainian",
+            Self::TokiPona => "Toki Pona",
+
+            Self::EuropeAmsterdam => "Europe/Amsterdam",
+            Self::Empty => "",
+            Self::RotateScreen => "rotate screen",
+            Self::ScreenBrightness => "screen brightness",
+            Self::ReduceFlashing => "reduce flashing",
+            Self::Contrast => "high contrast",
+            Self::AutoLock => "auto lock",
+            Self::EasterEggs => "easter eggs",
+            Self::ColorScheme => "color scheme",
+            Self::GamepadMode => "gamepad mode",
+            Self::Telemetry => "telemetry",
+            Self::ResetAll => "reset all settings",
+        }
+    }
+
+    fn translate_german(&self) -> &'static str {
+        // TODO: translate
+        match self {
+            Self::Language => "Language",
+            Self::Timezone => "Timezone",
+            Self::Time => "Date and time",
+            Self::Screen => "Screen",
+            Self::Interface => "Interface",
+            Self::Misc => "Misc",
+
+            Self::English => "English",
+            Self::Dutch => "Dutch",
+            Self::French => "French",
+            Self::German => "German",
+            Self::Italian => "Italian",
+            Self::Polish => "Polish",
+            Self::Russian => "Russian",
+            Self::Spanish => "Spanish",
+            Self::Turkish => "Turkish",
+            Self::Ukrainian => "Ukrainian",
+            Self::TokiPona => "Toki Pona",
+
+            Self::EuropeAmsterdam => "Europe/Amsterdam",
+            Self::Empty => "",
+            Self::RotateScreen => "rotate screen",
+            Self::ScreenBrightness => "screen brightness",
+            Self::ReduceFlashing => "reduce flashing",
+            Self::Contrast => "high contrast",
+            Self::AutoLock => "auto lock",
+            Self::EasterEggs => "easter eggs",
+            Self::ColorScheme => "color scheme",
+            Self::GamepadMode => "gamepad mode",
+            Self::Telemetry => "telemetry",
+            Self::ResetAll => "reset all settings",
+        }
+    }
+
+    fn translate_italian(&self) -> &'static str {
+        // TODO: translate
+        match self {
+            Self::Language => "Language",
+            Self::Timezone => "Timezone",
+            Self::Time => "Date and time",
+            Self::Screen => "Screen",
+            Self::Interface => "Interface",
+            Self::Misc => "Misc",
+
+            Self::English => "English",
+            Self::Dutch => "Dutch",
+            Self::French => "French",
+            Self::German => "German",
+            Self::Italian => "Italian",
+            Self::Polish => "Polish",
+            Self::Russian => "Russian",
+            Self::Spanish => "Spanish",
+            Self::Turkish => "Turkish",
+            Self::Ukrainian => "Ukrainian",
+            Self::TokiPona => "Toki Pona",
+
+            Self::EuropeAmsterdam => "Europe/Amsterdam",
+            Self::Empty => "",
+            Self::RotateScreen => "rotate screen",
+            Self::ScreenBrightness => "screen brightness",
+            Self::ReduceFlashing => "reduce flashing",
+            Self::Contrast => "high contrast",
+            Self::AutoLock => "auto lock",
+            Self::EasterEggs => "easter eggs",
+            Self::ColorScheme => "color scheme",
+            Self::GamepadMode => "gamepad mode",
+            Self::Telemetry => "telemetry",
+            Self::ResetAll => "reset all settings",
+        }
+    }
+
+    fn translate_polish(&self) -> &'static str {
+        // TODO: translate
+        match self {
+            Self::Language => "Language",
+            Self::Timezone => "Timezone",
+            Self::Time => "Date and time",
+            Self::Screen => "Screen",
+            Self::Interface => "Interface",
+            Self::Misc => "Misc",
+
+            Self::English => "English",
+            Self::Dutch => "Dutch",
+            Self::French => "French",
+            Self::German => "German",
+            Self::Italian => "Italian",
+            Self::Polish => "Polish",
+            Self::Russian => "Russian",
+            Self::Spanish => "Spanish",
+            Self::Turkish => "Turkish",
+            Self::Ukrainian => "Ukrainian",
+            Self::TokiPona => "Toki Pona",
+
+            Self::EuropeAmsterdam => "Europe/Amsterdam",
+            Self::Empty => "",
+            Self::RotateScreen => "rotate screen",
+            Self::ScreenBrightness => "screen brightness",
+            Self::ReduceFlashing => "reduce flashing",
+            Self::Contrast => "high contrast",
+            Self::AutoLock => "auto lock",
+            Self::EasterEggs => "easter eggs",
+            Self::ColorScheme => "color scheme",
+            Self::GamepadMode => "gamepad mode",
+            Self::Telemetry => "telemetry",
+            Self::ResetAll => "reset all settings",
         }
     }
 
@@ -110,11 +286,19 @@ impl Message {
             Self::Screen => "Экран",
             Self::Interface => "Интерфейс",
             Self::Misc => "Разное",
+
             Self::English => "Английский",
             Self::Dutch => "Голландский",
-            Self::Ukrainian => "Украинский",
+            Self::French => "French",   // TODO: translate
+            Self::German => "German",   // TODO: translate
+            Self::Italian => "Italian", // TODO: translate
+            Self::Polish => "Polish",   // TODO: translate
             Self::Russian => "Русский",
+            Self::Spanish => "Spanish", // TODO: translate
+            Self::Turkish => "Turkish", // TODO: translate
+            Self::Ukrainian => "Украинский",
             Self::TokiPona => "Токи Пона",
+
             Self::EuropeAmsterdam => "Europe/Amsterdam",
             Self::Empty => "",
             Self::RotateScreen => "перевернуть изображение",
@@ -130,6 +314,80 @@ impl Message {
         }
     }
 
+    fn translate_spanish(&self) -> &'static str {
+        // TODO: translate
+        match self {
+            Self::Language => "Language",
+            Self::Timezone => "Timezone",
+            Self::Time => "Date and time",
+            Self::Screen => "Screen",
+            Self::Interface => "Interface",
+            Self::Misc => "Misc",
+
+            Self::English => "English",
+            Self::Dutch => "Dutch",
+            Self::French => "French",
+            Self::German => "German",
+            Self::Italian => "Italian",
+            Self::Polish => "Polish",
+            Self::Russian => "Russian",
+            Self::Spanish => "Spanish",
+            Self::Turkish => "Turkish",
+            Self::Ukrainian => "Ukrainian",
+            Self::TokiPona => "Toki Pona",
+
+            Self::EuropeAmsterdam => "Europe/Amsterdam",
+            Self::Empty => "",
+            Self::RotateScreen => "rotate screen",
+            Self::ScreenBrightness => "screen brightness",
+            Self::ReduceFlashing => "reduce flashing",
+            Self::Contrast => "high contrast",
+            Self::AutoLock => "auto lock",
+            Self::EasterEggs => "easter eggs",
+            Self::ColorScheme => "color scheme",
+            Self::GamepadMode => "gamepad mode",
+            Self::Telemetry => "telemetry",
+            Self::ResetAll => "reset all settings",
+        }
+    }
+
+    fn translate_turkish(&self) -> &'static str {
+        // TODO: translate
+        match self {
+            Self::Language => "Language",
+            Self::Timezone => "Timezone",
+            Self::Time => "Date and time",
+            Self::Screen => "Screen",
+            Self::Interface => "Interface",
+            Self::Misc => "Misc",
+
+            Self::English => "English",
+            Self::Dutch => "Dutch",
+            Self::French => "French",
+            Self::German => "German",
+            Self::Italian => "Italian",
+            Self::Polish => "Polish",
+            Self::Russian => "Russian",
+            Self::Spanish => "Spanish",
+            Self::Turkish => "Turkish",
+            Self::Ukrainian => "Ukrainian",
+            Self::TokiPona => "Toki Pona",
+
+            Self::EuropeAmsterdam => "Europe/Amsterdam",
+            Self::Empty => "",
+            Self::RotateScreen => "rotate screen",
+            Self::ScreenBrightness => "screen brightness",
+            Self::ReduceFlashing => "reduce flashing",
+            Self::Contrast => "high contrast",
+            Self::AutoLock => "auto lock",
+            Self::EasterEggs => "easter eggs",
+            Self::ColorScheme => "color scheme",
+            Self::GamepadMode => "gamepad mode",
+            Self::Telemetry => "telemetry",
+            Self::ResetAll => "reset all settings",
+        }
+    }
+
     fn translate_ukrainian(&self) -> &'static str {
         match self {
             Self::Language => "Мова",
@@ -138,11 +396,19 @@ impl Message {
             Self::Screen => "Екран",
             Self::Interface => "Інтерфейс",
             Self::Misc => "Різне",
+
             Self::English => "Англійська",
             Self::Dutch => "Голландська",
-            Self::Ukrainian => "Українська",
+            Self::French => "French",   // TODO: translate
+            Self::German => "German",   // TODO: translate
+            Self::Italian => "Italian", // TODO: translate
+            Self::Polish => "Polish",   // TODO: translate
             Self::Russian => "Російська",
+            Self::Spanish => "Spanish", // TODO: translate
+            Self::Turkish => "Turkish", // TODO: translate
+            Self::Ukrainian => "Українська",
             Self::TokiPona => "Токі Пона",
+
             Self::EuropeAmsterdam => "Europe/Amsterdam",
             Self::Empty => "",
             Self::RotateScreen => "поворот екрана",
@@ -166,11 +432,19 @@ impl Message {
             Self::Screen => "supa lukin",
             Self::Interface => "namako",
             Self::Misc => "ante",
+
             Self::English => "toki Inli",
             Self::Dutch => "toki Netelan",
-            Self::Ukrainian => "toki Ukrajini",
+            Self::French => "French",   // TODO: translate
+            Self::German => "German",   // TODO: translate
+            Self::Italian => "Italian", // TODO: translate
+            Self::Polish => "Polish",   // TODO: translate
             Self::Russian => "toki Losi",
+            Self::Spanish => "Spanish", // TODO: translate
+            Self::Turkish => "Turkish", // TODO: translate
+            Self::Ukrainian => "toki Ukrajini",
             Self::TokiPona => "toki Pona",
+
             Self::EuropeAmsterdam => "Europe/Amsterdam",
             Self::Empty => "",
             Self::RotateScreen => "supa nasa",

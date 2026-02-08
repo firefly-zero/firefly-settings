@@ -116,9 +116,15 @@ fn draw_lang_selection(state: &State) {
     let idx: i32 = match state.lang {
         Language::English => 1,
         Language::Dutch => 2,
-        Language::Ukrainian => 3,
-        Language::Russian => 4,
-        Language::TokiPona => 5,
+        Language::French => 3,
+        Language::German => 4,
+        Language::Italian => 5,
+        Language::Polish => 6,
+        Language::Russian => 7,
+        Language::Spanish => 8,
+        Language::Turkish => 9,
+        Language::Ukrainian => 10,
+        Language::TokiPona => 11,
     };
     draw_marker(state, idx);
 }
