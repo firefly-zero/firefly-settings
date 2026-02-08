@@ -20,6 +20,11 @@ impl State {
     pub fn translate(&self, m: Message) -> &'static str {
         m.translate(&self.lang)
     }
+
+    pub fn save_settings(&mut self) {
+        let raw = self.settings.encode_vec().unwrap();
+        sudo::dump_file("sys/config", &raw);
+    }
 }
 
 pub fn get_state() -> &'static mut State {

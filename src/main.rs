@@ -31,6 +31,12 @@ extern "C" fn update() {
     handle_btns(state);
 }
 
+#[unsafe(no_mangle)]
+extern "C" fn before_exit() {
+    let state = get_state();
+    state.save_settings();
+}
+
 fn handle_pad(state: &mut State) {
     // Generally, you never want to use "get_me" peer
     // for anything but visual rendering. However,
