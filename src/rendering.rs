@@ -144,8 +144,8 @@ fn draw_marker(state: &State, idx: i32) {
     let font = state.font.as_font();
     let h = font.char_height() as i32;
     let x = WIDTH - CURSOR_X - h;
-    let line_h = font.char_height() as i32 + LINE_M - 1;
-    let y = CURSOR_X + idx * line_h;
+    let line_h = font.char_height() as i32 + LINE_M;
+    let y = CURSOR_X + idx * line_h - 1;
     let mut point = Point::new(x, y);
     if idx == state.cursor as i32 && (state.btns.s || state.btns.e) {
         point.x += 1;

@@ -65,6 +65,7 @@ fn handle_btns(state: &mut State) {
 }
 
 fn select_option(state: &mut State) {
+    let s = &mut state.settings;
     match state.page {
         Page::Language => {
             let lang = match state.cursor {
@@ -75,7 +76,7 @@ fn select_option(state: &mut State) {
                 5 => Language::TokiPona,
                 _ => Language::English,
             };
-            state.settings.lang = lang.as_bytes();
+            s.lang = lang.as_bytes();
             let encoding = lang.encoding();
             if encoding != state.lang.encoding() {
                 state.font = load_file_buf(encoding).unwrap();
@@ -85,19 +86,20 @@ fn select_option(state: &mut State) {
         Page::Timezone => {}
         Page::Time => {}
         Page::Screen => match state.cursor {
-            1 => state.settings.rotate_screen = !state.settings.rotate_screen,
-            3 => state.settings.reduce_flashing = !state.settings.reduce_flashing,
-            4 => state.settings.contrast = !state.settings.contrast,
+            1 => s.rotate_screen = !s.rotate_screen,
+            2 => s.screen_brightness = s.screen_brightness.wrapping_add(64),
+            3 => s.reduce_flashing = !s.reduce_flashing,
+            4 => s.contrast = !s.contrast,
             _ => {}
         },
         Page::Interface => match state.cursor {
-            1 => state.settings.auto_lock = if state.settings.auto_lock != 0 { 0 } else { 5 },
-            3 => state.settings.easter_eggs = !state.settings.easter_eggs,
+            1 => s.auto_lock = if s.auto_lock != 0 { 0 } else { 5 },
+            3 => s.easter_eggs = !s.easter_eggs,
             _ => {}
         },
         Page::Misc => match state.cursor {
-            1 => state.settings.gamepad_mode = !state.settings.gamepad_mode,
-            2 => state.settings.telemetry = !state.settings.telemetry,
+            1 => s.gamepad_mode = !s.gamepad_mode,
+            2 => s.telemetry = !s.telemetry,
             _ => {}
         },
     }
