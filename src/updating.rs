@@ -33,6 +33,7 @@ fn handle_pad(state: &mut State) {
                     state.settings.theme = new_theme;
                     state.theme = THEMES[new_theme as usize];
                 } else {
+                    state.scroll = 0;
                     state.cursor = 0;
                 }
             }
@@ -51,6 +52,9 @@ fn handle_pad(state: &mut State) {
         }
         DPad4::Up => {
             if state.cursor > 0 {
+                if state.cursor <= 6 && state.scroll != 0 {
+                    state.scroll -= 1;
+                }
                 state.cursor -= 1;
             }
         }
@@ -61,6 +65,9 @@ fn handle_pad(state: &mut State) {
                 n_lines -= 1;
             }
             if state.cursor < n_lines {
+                if state.cursor > 6 {
+                    state.scroll += 1;
+                }
                 state.cursor += 1;
             }
         }

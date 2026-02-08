@@ -64,6 +64,10 @@ fn draw_lines(state: &State) {
     if state.page == Page::Language && !state.settings.easter_eggs {
         lines = &lines[..lines.len() - 1];
     }
+    lines = &lines[state.scroll as usize..];
+    if lines.len() > 8 {
+        lines = &lines[..8];
+    }
     for (line, i) in lines.iter().zip(2..) {
         let mut point = Point::new(CURSOR_X, BOX_Y + i * line_h - LINE_M);
         if i - 1 == state.cursor as i32 && (state.btns.s || state.btns.e) {
@@ -78,7 +82,7 @@ fn draw_lines(state: &State) {
 fn draw_cursor(state: &State) {
     let font = state.font.as_font();
     let line_h = font.char_height() as i32 + LINE_M;
-    let y = BOX_MT + state.cursor as i32 * line_h + 1;
+    let y = BOX_MT + (state.cursor - state.scroll) as i32 * line_h + 1;
     let mut point = Point::new(BOX_ML, y);
     let bbox = Size::new(WIDTH - BOX_ML - BOX_MR, font.char_height() as i32 + LINE_M);
     let corner = Size::new(4, 4);
@@ -113,7 +117,7 @@ fn draw_selections(state: &State) {
 
 /// Render selection marker next to the currently active language.
 fn draw_lang_selection(state: &State) {
-    let idx: i32 = match state.lang {
+    let mut idx: i32 = match state.lang {
         Language::English => 1,
         Language::Dutch => 2,
         Language::French => 3,
@@ -126,6 +130,11 @@ fn draw_lang_selection(state: &State) {
         Language::Ukrainian => 10,
         Language::TokiPona => 11,
     };
+    idx -= state.scroll as i32;
+    #[expect(clippy::manual_range_contains)]
+    if idx < 1 || idx > 8 {
+        return;
+    }
     draw_marker(state, idx);
 }
 
