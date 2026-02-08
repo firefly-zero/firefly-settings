@@ -1,7 +1,6 @@
 #![no_std]
 #![no_main]
 mod background;
-mod languages;
 mod pages;
 mod rendering;
 mod state;
@@ -10,7 +9,6 @@ mod translations;
 mod updating;
 
 use crate::background::*;
-use crate::languages::*;
 use crate::pages::*;
 use crate::rendering::render_state;
 use crate::state::*;

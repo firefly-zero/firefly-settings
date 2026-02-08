@@ -35,6 +35,9 @@ impl Page {
                 Message::Spanish,
                 Message::Turkish,
                 Message::Ukrainian,
+                // Keep Toki Pona last in the list of languages.
+                // It is a conlang without native speakers
+                // and it is hidden behind the Easter Eggs feature flag.
                 Message::TokiPona,
             ],
             Page::Timezone => &[Message::EuropeAmsterdam],

@@ -1,4 +1,4 @@
-use crate::*;
+use firefly_rust::Language;
 
 #[derive(Clone, Copy)]
 pub enum Message {
@@ -42,19 +42,18 @@ pub enum Message {
 
 impl Message {
     pub fn translate(&self, lang: &Language) -> &'static str {
-        use Language::*;
         match lang {
-            English => self.translate_english(),
-            Dutch => self.translate_dutch(),
-            French => self.translate_french(),
-            German => self.translate_german(),
-            Italian => self.translate_italian(),
-            Polish => self.translate_polish(),
-            Russian => self.translate_russian(),
-            Spanish => self.translate_spanish(),
-            Turkish => self.translate_turkish(),
-            Ukrainian => self.translate_ukrainian(),
-            TokiPona => self.translate_toki_pona(),
+            Language::English => self.translate_english(),
+            Language::Dutch => self.translate_dutch(),
+            Language::French => self.translate_french(),
+            Language::German => self.translate_german(),
+            Language::Italian => self.translate_italian(),
+            Language::Polish => self.translate_polish(),
+            Language::Russian => self.translate_russian(),
+            Language::Spanish => self.translate_spanish(),
+            Language::Turkish => self.translate_turkish(),
+            Language::Ukrainian => self.translate_ukrainian(),
+            Language::TokiPona => self.translate_toki_pona(),
         }
     }
 

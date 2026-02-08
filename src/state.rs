@@ -29,7 +29,7 @@ impl State {
 
     pub fn refresh(&mut self) {
         self.theme = THEMES[self.settings.theme as usize];
-        self.lang = Language::from_bytes(self.settings.lang);
+        self.lang = Language::from_code(self.settings.lang).unwrap_or_default();
         self.font = load_file_buf(self.lang.encoding()).unwrap();
         self.apply_contrast();
     }
@@ -54,8 +54,9 @@ pub fn load_state() {
     let raw_settings = sudo::load_file_buf("sys/config").unwrap();
     let settings = Settings::decode(raw_settings.as_bytes()).unwrap();
     let theme = THEMES[settings.theme as usize];
-    let lang = Language::from_bytes(settings.lang);
-    let font = load_file_buf(lang.encoding()).unwrap();
+    let lang = Language::from_code(settings.lang).unwrap_or_default();
+    let encoding = lang.encoding();
+    let font = load_file_buf(encoding).unwrap();
     let state = State {
         settings,
         font,

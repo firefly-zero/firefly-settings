@@ -112,7 +112,7 @@ fn select_option(state: &mut State) {
                 11 => Language::TokiPona,
                 _ => Language::English,
             };
-            s.lang = lang.as_bytes();
+            s.lang = lang.code_array();
             let encoding = lang.encoding();
             if encoding != state.lang.encoding() {
                 state.font = load_file_buf(encoding).unwrap();
