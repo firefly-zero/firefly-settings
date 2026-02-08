@@ -84,8 +84,21 @@ fn select_option(state: &mut State) {
         }
         Page::Timezone => {}
         Page::Time => {}
-        Page::Screen => {}
-        Page::Interface => {}
-        Page::Misc => {}
+        Page::Screen => match state.cursor {
+            1 => state.settings.rotate_screen = !state.settings.rotate_screen,
+            3 => state.settings.reduce_flashing = !state.settings.reduce_flashing,
+            4 => state.settings.contrast = !state.settings.contrast,
+            _ => {}
+        },
+        Page::Interface => match state.cursor {
+            1 => state.settings.auto_lock = if state.settings.auto_lock != 0 { 0 } else { 5 },
+            3 => state.settings.easter_eggs = !state.settings.easter_eggs,
+            _ => {}
+        },
+        Page::Misc => match state.cursor {
+            1 => state.settings.gamepad_mode = !state.settings.gamepad_mode,
+            2 => state.settings.telemetry = !state.settings.telemetry,
+            _ => {}
+        },
     }
 }

@@ -137,7 +137,7 @@ fn draw_interface_selections(state: &State) {
 
 fn draw_misc_selections(state: &State) {
     draw_switch(state, 1, state.settings.gamepad_mode);
-    draw_switch(state, 3, state.settings.telemetry);
+    draw_switch(state, 2, state.settings.telemetry);
 }
 
 fn draw_marker(state: &State, idx: i32) {
