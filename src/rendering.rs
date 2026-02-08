@@ -98,7 +98,7 @@ fn draw_cursor(state: &State) {
 fn draw_selections(state: &State) {
     match state.page {
         Page::Language => draw_lang_selection(state),
-        Page::Timezone => {}
+        Page::Timezone => draw_tz_selection(state),
         Page::Time => {}
         Page::Screen => {}
         Page::Interface => {}
@@ -115,19 +115,27 @@ fn draw_lang_selection(state: &State) {
         Language::Russian => 4,
         Language::TokiPona => 5,
     };
+    draw_marker_at(state, idx);
+}
 
+fn draw_tz_selection(state: &State) {
+    if state.settings.timezone == "Europe/Amsterdam" {
+        draw_marker_at(state, 1);
+    }
+}
+
+fn draw_marker_at(state: &State, idx: i32) {
     let font = state.font.as_font();
-    let x = WIDTH - CURSOR_X - 7;
-    let line_h = font.char_height() as i32 + LINE_M;
+    let x = WIDTH - CURSOR_X - 9;
+    let line_h = font.char_height() as i32 + LINE_M - 1;
     let y = CURSOR_X + idx * line_h;
     let mut point = Point::new(x, y);
     if idx == state.cursor as i32 && (state.btns.s || state.btns.e) {
         point.x += 1;
         point.y += 1;
     }
-
     let style = Style::solid(state.theme.accent);
-    draw_circle(point, 7, style);
+    draw_circle(point, 9, style);
 }
 
 /// Calculate the width in pixels of the given text.
