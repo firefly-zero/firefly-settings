@@ -100,9 +100,9 @@ fn draw_selections(state: &State) {
         Page::Language => draw_lang_selection(state),
         Page::Timezone => draw_tz_selection(state),
         Page::Time => {}
-        Page::Screen => {}
-        Page::Interface => {}
-        Page::Misc => {}
+        Page::Screen => draw_screen_selections(state),
+        Page::Interface => draw_interface_selections(state),
+        Page::Misc => draw_misc_selections(state),
     }
 }
 
@@ -115,18 +115,35 @@ fn draw_lang_selection(state: &State) {
         Language::Russian => 4,
         Language::TokiPona => 5,
     };
-    draw_marker_at(state, idx);
+    draw_marker(state, idx);
 }
 
 fn draw_tz_selection(state: &State) {
     if state.settings.timezone == "Europe/Amsterdam" {
-        draw_marker_at(state, 1);
+        draw_marker(state, 1);
     }
 }
 
-fn draw_marker_at(state: &State, idx: i32) {
+fn draw_screen_selections(state: &State) {
+    draw_switch(state, 1, state.settings.rotate_screen);
+    draw_switch(state, 3, state.settings.reduce_flashing);
+    draw_switch(state, 4, state.settings.contrast);
+}
+
+fn draw_interface_selections(state: &State) {
+    draw_switch(state, 1, state.settings.auto_lock != 0);
+    draw_switch(state, 3, state.settings.easter_eggs);
+}
+
+fn draw_misc_selections(state: &State) {
+    draw_switch(state, 1, state.settings.gamepad_mode);
+    draw_switch(state, 3, state.settings.telemetry);
+}
+
+fn draw_marker(state: &State, idx: i32) {
     let font = state.font.as_font();
-    let x = WIDTH - CURSOR_X - 9;
+    let h = font.char_height() as i32;
+    let x = WIDTH - CURSOR_X - h;
     let line_h = font.char_height() as i32 + LINE_M - 1;
     let y = CURSOR_X + idx * line_h;
     let mut point = Point::new(x, y);
@@ -135,7 +152,35 @@ fn draw_marker_at(state: &State, idx: i32) {
         point.y += 1;
     }
     let style = Style::solid(state.theme.accent);
-    draw_circle(point, 9, style);
+    draw_circle(point, h, style);
+}
+
+fn draw_switch(state: &State, idx: i32, is_on: bool) {
+    let font = state.font.as_font();
+    let h = font.char_height() as i32;
+    let x = WIDTH - CURSOR_X - h * 2;
+    let line_h = font.char_height() as i32 + LINE_M;
+    let y = CURSOR_X + idx * line_h - 1;
+    let mut point = Point::new(x, y);
+    if idx == state.cursor as i32 && (state.btns.s || state.btns.e) {
+        point.x += 1;
+        point.y += 1;
+    }
+
+    {
+        let mut switch_point = point;
+        let mut color = state.theme.secondary;
+        if is_on {
+            switch_point.x += h;
+            color = state.theme.accent;
+        }
+        let style = Style::solid(color);
+        draw_circle(switch_point, h, style);
+    }
+
+    let style = Style::outlined(state.theme.primary, 1);
+    let corner = Size::new(h / 2, h / 2);
+    draw_rounded_rect(point, Size::new(h * 2, h), corner, style);
 }
 
 /// Calculate the width in pixels of the given text.

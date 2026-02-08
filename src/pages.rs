@@ -67,7 +67,7 @@ impl Page {
     pub fn prev(&self) -> Self {
         use Page::*;
         match self {
-            Language => Interface,
+            Language => Misc,
             Timezone => Language,
             Time => Timezone,
             Screen => Time,
