@@ -59,7 +59,12 @@ fn draw_title_arrows(state: &State) {
 fn draw_lines(state: &State) {
     let font = state.font.as_font();
     let line_h = font.char_height() as i32 + LINE_M;
-    for (line, i) in state.page.lines().iter().zip(2..) {
+    let mut lines = state.page.lines();
+    // Hide Toki Pona if Easter Eggs are disabled.
+    if state.page == Page::Language && !state.settings.easter_eggs {
+        lines = &lines[..lines.len() - 1];
+    }
+    for (line, i) in lines.iter().zip(2..) {
         let mut point = Point::new(CURSOR_X, BOX_Y + i * line_h - LINE_M);
         if i - 1 == state.cursor as i32 && (state.btns.s || state.btns.e) {
             point.x += 1;

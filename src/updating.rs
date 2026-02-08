@@ -54,7 +54,11 @@ fn handle_pad(state: &mut State) {
             }
         }
         DPad4::Down => {
-            let n_lines = state.page.lines().len() as u8;
+            let mut n_lines = state.page.lines().len() as u8;
+            // Hide Toki Pona if Easter Eggs are disabled.
+            if state.page == Page::Language && !state.settings.easter_eggs {
+                n_lines -= 1;
+            }
             if state.cursor < n_lines {
                 state.cursor += 1;
             }

@@ -95,7 +95,7 @@ pub static THEMES: &[Theme] = &[
         bg: Color::Black,
     },
     Theme {
-        name: "dark very blue",
+        name: "dark-bu-dee",
         primary: Color::LightBlue,
         secondary: Color::DarkBlue,
         accent: Color::Blue,
