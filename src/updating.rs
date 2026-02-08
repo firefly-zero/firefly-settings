@@ -52,7 +52,7 @@ fn handle_pad(state: &mut State) {
         }
         DPad4::Up => {
             if state.cursor > 0 {
-                if state.cursor <= 6 && state.scroll != 0 {
+                if state.cursor <= 5 && state.scroll != 0 {
                     state.scroll -= 1;
                 }
                 state.cursor -= 1;
@@ -65,7 +65,7 @@ fn handle_pad(state: &mut State) {
                 n_lines -= 1;
             }
             if state.cursor < n_lines {
-                if state.cursor > 6 {
+                if state.cursor - state.scroll > 6 {
                     state.scroll += 1;
                 }
                 state.cursor += 1;
