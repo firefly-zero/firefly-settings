@@ -123,6 +123,7 @@ extern "C" fn render() {
     draw_title(state);
     draw_title_arrows(state);
     draw_lines(state);
+    draw_selections(state);
 }
 
 fn draw_title(state: &State) {
@@ -141,7 +142,7 @@ fn draw_title(state: &State) {
 
 fn draw_title_arrows(state: &State) {
     let style = Style::solid(state.theme.accent);
-    let mut p = Point::new(PAGE_MARGIN + CURSOR_MARGIN, PAGE_MARGIN + 3);
+    let mut p = Point::new(PAGE_MARGIN + CURSOR_MARGIN + 1, PAGE_MARGIN + 3);
     if state.cursor == 0 && (state.btns.s || state.btns.e) {
         p.x += 1;
         p.y += 1;
@@ -153,7 +154,7 @@ fn draw_title_arrows(state: &State) {
         style,
     );
 
-    p.x += WIDTH - 2 * (PAGE_MARGIN + CURSOR_MARGIN) - 1;
+    p.x += WIDTH - 2 * (PAGE_MARGIN + CURSOR_MARGIN) - 3;
     draw_triangle(
         Point::new(p.x, p.y + 4),
         Point::new(p.x - 4, p.y),
@@ -205,6 +206,41 @@ fn draw_cursor(state: &State) {
         stroke_width: 1,
     };
     draw_rounded_rect(point, bbox, corner, style);
+}
+
+fn draw_selections(state: &State) {
+    match state.page {
+        Page::Language => draw_lang_selection(state),
+        Page::Timezone => {}
+        Page::Time => {}
+        Page::Screen => {}
+        Page::Interface => {}
+        Page::Misc => {}
+    }
+}
+
+/// Render selection marker next to the currently active language.
+fn draw_lang_selection(state: &State) {
+    let idx: i32 = match state.lang {
+        Language::English => 1,
+        Language::Dutch => 2,
+        Language::Ukrainian => 3,
+        Language::Russian => 4,
+        Language::TokiPona => 5,
+    };
+
+    let font = state.font.as_font();
+    let x = WIDTH - PAGE_MARGIN - CURSOR_MARGIN - 7;
+    let line_h = font.char_height() as i32 + CURSOR_MARGIN;
+    let y = PAGE_MARGIN + CURSOR_MARGIN + idx * line_h;
+    let mut point = Point::new(x, y);
+    if idx == state.cursor as i32 && (state.btns.s || state.btns.e) {
+        point.x += 1;
+        point.y += 1;
+    }
+
+    let style = Style::solid(state.theme.accent);
+    draw_circle(point, 7, style);
 }
 
 /// Calculate the width in pixels of the given text.
