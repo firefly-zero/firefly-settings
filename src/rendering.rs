@@ -10,6 +10,8 @@ const CURSOR_ML: i32 = 4;
 const LINE_M: i32 = 4;
 const CURSOR_X: i32 = BOX_ML + CURSOR_ML;
 
+const PER_PAGE: usize = 8;
+
 pub fn render_state(state: &State) {
     draw_bg(state);
     draw_cursor(state);
@@ -57,17 +59,20 @@ fn draw_title_arrows(state: &State) {
 }
 
 fn draw_lines(state: &State) {
-    let font = state.font.as_font();
-    let line_h = font.char_height() as i32 + LINE_M;
+    // Get the list of settings lines to display.
     let mut lines = state.page.lines();
-    // Hide Toki Pona if Easter Eggs are disabled.
     if state.page == Page::Language && !state.settings.easter_eggs {
+        // Hide Toki Pona if Easter Eggs are disabled.
         lines = &lines[..lines.len() - 1];
     }
     lines = &lines[state.scroll as usize..];
-    if lines.len() > 8 {
-        lines = &lines[..8];
+    let has_more = lines.len() > PER_PAGE;
+    if has_more {
+        lines = &lines[..PER_PAGE];
     }
+
+    let font = state.font.as_font();
+    let line_h = font.char_height() as i32 + LINE_M;
     for (line, i) in lines.iter().zip(2..) {
         let mut point = Point::new(CURSOR_X, BOX_Y + i * line_h - LINE_M);
         if i - 1 == state.cursor as i32 && (state.btns.s || state.btns.e) {
@@ -76,6 +81,16 @@ fn draw_lines(state: &State) {
         }
         let line = state.translate(*line);
         draw_text(line, &font, point, state.theme.primary);
+    }
+
+    if has_more {
+        let y = HEIGHT - BOX_Y - 2;
+        draw_triangle(
+            Point::new(CURSOR_X, y),
+            Point::new(CURSOR_X + 4, y + 4),
+            Point::new(CURSOR_X + 8, y),
+            Style::solid(state.theme.accent),
+        );
     }
 }
 
@@ -131,8 +146,7 @@ fn draw_lang_selection(state: &State) {
         Language::TokiPona => 11,
     };
     idx -= state.scroll as i32;
-    #[expect(clippy::manual_range_contains)]
-    if idx < 1 || idx > 8 {
+    if idx < 1 || idx > PER_PAGE as i32 {
         return;
     }
     draw_marker(state, idx);
