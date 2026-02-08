@@ -125,7 +125,10 @@ fn select_option(state: &mut State) {
             1 => s.rotate_screen = !s.rotate_screen,
             2 => s.screen_brightness = s.screen_brightness.wrapping_add(64),
             3 => s.reduce_flashing = !s.reduce_flashing,
-            4 => s.contrast = !s.contrast,
+            4 => {
+                s.contrast = !s.contrast;
+                state.apply_contrast();
+            }
             _ => {}
         },
         Page::Interface => match state.cursor {

@@ -31,6 +31,17 @@ impl State {
         self.theme = THEMES[self.settings.theme as usize];
         self.lang = Language::from_bytes(self.settings.lang);
         self.font = load_file_buf(self.lang.encoding()).unwrap();
+        self.apply_contrast();
+    }
+
+    pub fn apply_contrast(&self) {
+        if self.settings.contrast {
+            set_color(Color::Black, RGB::new(0, 0, 0));
+            set_color(Color::White, RGB::new(255, 255, 255));
+        } else {
+            set_color(Color::Black, RGB::new(0x1a, 0x1c, 0x2c));
+            set_color(Color::White, RGB::new(0xf4, 0xf4, 0xf4));
+        }
     }
 }
 
@@ -56,6 +67,7 @@ pub fn load_state() {
         dpad: DPad4::default(),
         btns: Buttons::default(),
     };
+    state.apply_contrast();
     #[allow(static_mut_refs)]
     unsafe { STATE.set(state) }.ok().unwrap();
 }
