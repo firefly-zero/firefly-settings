@@ -94,6 +94,10 @@ fn select_option(state: &mut State) {
         },
         Page::Interface => match state.cursor {
             1 => s.auto_lock = if s.auto_lock != 0 { 0 } else { 5 },
+            2 => {
+                s.theme = (s.theme + 1) % THEMES.len() as u8;
+                state.theme = THEMES[s.theme as usize];
+            }
             3 => s.easter_eggs = !s.easter_eggs,
             _ => {}
         },
