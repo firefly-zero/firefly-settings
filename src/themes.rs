@@ -23,7 +23,7 @@ pub static THEMES: &[Theme] = &[
         bg: Color::White,
     },
     Theme {
-        name: "high contrast",
+        name: "light contrast",
         primary: Color::Black,
         secondary: Color::Black,
         accent: Color::Red,
@@ -105,6 +105,13 @@ pub static THEMES: &[Theme] = &[
         name: "dark gray",
         primary: Color::White,
         secondary: Color::DarkGray,
+        accent: Color::LightGray,
+        bg: Color::Black,
+    },
+    Theme {
+        name: "dark contrast",
+        primary: Color::White,
+        secondary: Color::White,
         accent: Color::LightGray,
         bg: Color::Black,
     },
