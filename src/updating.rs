@@ -121,29 +121,26 @@ fn select_option(state: &mut State) {
         }
         Page::Timezone => {}
         Page::Time => {}
-        Page::Screen => match state.cursor {
-            1 => s.rotate_screen = !s.rotate_screen,
-            2 => s.screen_brightness = s.screen_brightness.wrapping_add(64),
-            3 => s.reduce_flashing = !s.reduce_flashing,
-            4 => {
-                s.contrast = !s.contrast;
-                state.apply_contrast();
-            }
-            _ => {}
-        },
         Page::Interface => match state.cursor {
-            1 => s.auto_lock = if s.auto_lock != 0 { 0 } else { 5 },
-            2 => {
+            1 => {
                 s.theme = (s.theme + 1) % THEMES.len() as u8;
                 state.theme = THEMES[s.theme as usize];
             }
-            3 => s.easter_eggs = !s.easter_eggs,
+            2 => {
+                s.contrast = !s.contrast;
+                state.apply_contrast();
+            }
+            3 => s.screen_brightness = s.screen_brightness.wrapping_add(64),
+            4 => s.reduce_flashing = !s.reduce_flashing,
+            5 => s.rotate_screen = !s.rotate_screen,
+            6 => s.auto_lock = if s.auto_lock != 0 { 0 } else { 5 },
             _ => {}
         },
         Page::Misc => match state.cursor {
             1 => s.gamepad_mode = !s.gamepad_mode,
             2 => s.telemetry = !s.telemetry,
-            3 => {
+            3 => s.easter_eggs = !s.easter_eggs,
+            4 => {
                 *s = Settings::default();
                 state.refresh();
             }

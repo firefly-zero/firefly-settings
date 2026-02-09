@@ -6,7 +6,6 @@ pub enum Message {
     Language,
     Timezone,
     Time,
-    Screen,
     Interface,
     Misc,
 
@@ -62,7 +61,6 @@ impl Message {
             Self::Language => "Language",
             Self::Timezone => "Timezone",
             Self::Time => "Date and time",
-            Self::Screen => "Screen",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
 
@@ -98,7 +96,6 @@ impl Message {
             Self::Language => "Taal",
             Self::Timezone => "Tijdzone",
             Self::Time => "Datum en tijd",
-            Self::Screen => "Beeldscherm",
             Self::Interface => "Interface",
             Self::Misc => "Diversen",
 
@@ -135,7 +132,6 @@ impl Message {
             Self::Language => "Language",
             Self::Timezone => "Timezone",
             Self::Time => "Date and time",
-            Self::Screen => "Screen",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
 
@@ -172,7 +168,6 @@ impl Message {
             Self::Language => "Language",
             Self::Timezone => "Timezone",
             Self::Time => "Date and time",
-            Self::Screen => "Screen",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
 
@@ -209,7 +204,6 @@ impl Message {
             Self::Language => "Language",
             Self::Timezone => "Timezone",
             Self::Time => "Date and time",
-            Self::Screen => "Screen",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
 
@@ -246,7 +240,6 @@ impl Message {
             Self::Language => "Language",
             Self::Timezone => "Timezone",
             Self::Time => "Date and time",
-            Self::Screen => "Screen",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
 
@@ -282,7 +275,6 @@ impl Message {
             Self::Language => "Язык",
             Self::Timezone => "Часовой пояс",
             Self::Time => "Дата и время",
-            Self::Screen => "Экран",
             Self::Interface => "Интерфейс",
             Self::Misc => "Разное",
 
@@ -319,7 +311,6 @@ impl Message {
             Self::Language => "Language",
             Self::Timezone => "Timezone",
             Self::Time => "Date and time",
-            Self::Screen => "Screen",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
 
@@ -356,7 +347,6 @@ impl Message {
             Self::Language => "Language",
             Self::Timezone => "Timezone",
             Self::Time => "Date and time",
-            Self::Screen => "Screen",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
 
@@ -392,7 +382,6 @@ impl Message {
             Self::Language => "Мова",
             Self::Timezone => "Часовий пояс",
             Self::Time => "Дата та час",
-            Self::Screen => "Екран",
             Self::Interface => "Інтерфейс",
             Self::Misc => "Різне",
 
@@ -428,7 +417,6 @@ impl Message {
             Self::Language => "toki",
             Self::Timezone => "tenpo ma",
             Self::Time => "tenpo",
-            Self::Screen => "supa lukin",
             Self::Interface => "namako",
             Self::Misc => "ante",
 

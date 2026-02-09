@@ -5,7 +5,6 @@ pub enum Page {
     Language,
     Timezone,
     Time,
-    Screen,
     Interface,
     Misc,
 }
@@ -16,7 +15,6 @@ impl Page {
             Page::Language => Message::Language,
             Page::Timezone => Message::Timezone,
             Page::Time => Message::Time,
-            Page::Screen => Message::Screen,
             Page::Interface => Message::Interface,
             Page::Misc => Message::Misc,
         }
@@ -42,22 +40,18 @@ impl Page {
             ],
             Page::Timezone => &[Message::EuropeAmsterdam],
             Page::Time => &[Message::Empty],
-            Page::Screen => &[
-                Message::RotateScreen,
+            Page::Interface => &[
+                Message::ColorScheme,
+                Message::Contrast,
                 Message::ScreenBrightness,
                 Message::ReduceFlashing,
-                Message::Contrast,
-            ],
-            Page::Interface => &[
-                //
+                Message::RotateScreen,
                 Message::AutoLock,
-                Message::ColorScheme,
-                Message::EasterEggs,
             ],
             Page::Misc => &[
-                //
                 Message::GamepadMode,
                 Message::Telemetry,
+                Message::EasterEggs,
                 Message::ResetAll,
             ],
         }
@@ -68,8 +62,7 @@ impl Page {
         match self {
             Language => Timezone,
             Timezone => Time,
-            Time => Screen,
-            Screen => Interface,
+            Time => Interface,
             Interface => Misc,
             Misc => Language,
         }
@@ -81,8 +74,7 @@ impl Page {
             Language => Misc,
             Timezone => Language,
             Time => Timezone,
-            Screen => Time,
-            Interface => Screen,
+            Interface => Time,
             Misc => Interface,
         }
     }
