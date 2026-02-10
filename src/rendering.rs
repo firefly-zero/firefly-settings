@@ -122,7 +122,7 @@ fn draw_cursor(state: &State) {
 fn draw_selections(state: &State) {
     match state.page {
         Page::Language => draw_lang_selection(state),
-        Page::DateTime => {}
+        Page::DateTime => draw_datetime_selections(state),
         Page::Interface => draw_interface_selections(state),
         Page::Misc => draw_misc_selections(state),
     }
@@ -150,12 +150,18 @@ fn draw_lang_selection(state: &State) {
     draw_marker(state, idx);
 }
 
+fn draw_datetime_selections(state: &State) {
+    draw_text_selection(state, 2, "??:??:??");
+    draw_text_selection(state, 3, "2026-??-??");
+    draw_text_selection(state, 4, &state.settings.timezone);
+}
+
 fn draw_interface_selections(state: &State) {
     draw_switch(state, 2, state.settings.contrast);
     draw_switch(state, 4, state.settings.reduce_flashing);
     draw_switch(state, 5, state.settings.rotate_screen);
     draw_switch(state, 6, state.settings.auto_lock != 0);
-    draw_theme_selection(state);
+    draw_text_selection(state, 2, state.theme.name);
 }
 
 fn draw_misc_selections(state: &State) {
@@ -164,18 +170,17 @@ fn draw_misc_selections(state: &State) {
     draw_switch(state, 3, state.settings.easter_eggs);
 }
 
-fn draw_theme_selection(state: &State) {
+fn draw_text_selection(state: &State, idx: i32, text: &str) {
     let font = state.font.as_font();
-    let idx = 2;
     let line_h = font.char_height() as i32 + LINE_M;
-    let x = WIDTH - CURSOR_X - font.line_width(state.theme.name) as i32;
+    let x = WIDTH - CURSOR_X - font.line_width(text) as i32;
     let y = BOX_Y + idx * line_h - LINE_M;
     let mut point = Point::new(x, y);
     if idx - 1 == state.cursor as i32 && (state.btns.s || state.btns.e) {
         point.x += 1;
         point.y += 1;
     }
-    draw_text(state.theme.name, &font, point, state.theme.accent);
+    draw_text(text, &font, point, state.theme.accent);
 }
 
 fn draw_marker(state: &State, idx: i32) {
