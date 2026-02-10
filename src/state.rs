@@ -79,10 +79,27 @@ pub fn load_state() {
     let lang = Language::from_code(settings.lang).unwrap_or_default();
     let encoding = lang.encoding();
     let font = load_file_buf(encoding).unwrap();
+
+    // On the first launch, show the "Language" page,
+    // so that if the user has a wrong language selected by default
+    // and stumbles around trying to fin the language selector,
+    // we land them right away to the right page.
+    // This is also the reason why language selection
+    // takes the whole page instead of one line like "color scheme".
+    //
+    // On subsequent launches, the user is unlikely to keep
+    // changing languages, so we land them to the "Interface" page.
+    let page = if get_file_size("launched") != 0 {
+        Page::Interface
+    } else {
+        Page::Language
+    };
+    dump_file("launched", b"y");
+
     let state = State {
         settings,
         font,
-        page: Page::Language,
+        page,
         theme,
         lang,
         scroll: 0,
