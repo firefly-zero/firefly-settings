@@ -22,13 +22,24 @@ impl State {
         m.translate(&self.lang)
     }
 
+    pub fn set_theme(&mut self, idx: u8) {
+        let t = THEMES[usize::from(idx)];
+        self.theme = t;
+        let encoded: u32 = encode_color(t.primary);
+        let encoded = encoded << 4 | encode_color(t.secondary);
+        let encoded = encoded << 4 | encode_color(t.accent);
+        let encoded = encoded << 4 | encode_color(t.bg);
+        let encoded = encoded << 8 | u32::from(idx);
+        self.settings.theme = encoded;
+    }
+
     pub fn save_settings(&mut self) {
         let raw = self.settings.encode_vec().unwrap();
         sudo::dump_file("sys/config", &raw);
     }
 
     pub fn refresh(&mut self) {
-        self.theme = THEMES[self.settings.theme as usize];
+        self.theme = THEMES[self.settings.theme as u8 as usize];
         self.lang = Language::from_code(self.settings.lang).unwrap_or_default();
         self.font = load_file_buf(self.lang.encoding()).unwrap();
         self.apply_contrast();
@@ -45,6 +56,10 @@ impl State {
     }
 }
 
+fn encode_color(c: Color) -> u32 {
+    u32::from(u8::from(c) - 1)
+}
+
 pub fn get_state() -> &'static mut State {
     #[allow(static_mut_refs)]
     unsafe { STATE.get_mut() }.unwrap()
@@ -53,7 +68,7 @@ pub fn get_state() -> &'static mut State {
 pub fn load_state() {
     let raw_settings = sudo::load_file_buf("sys/config").unwrap();
     let settings = Settings::decode(raw_settings.as_bytes()).unwrap();
-    let theme = THEMES[settings.theme as usize];
+    let theme = THEMES[settings.theme as u8 as usize];
     let lang = Language::from_code(settings.lang).unwrap_or_default();
     let encoding = lang.encoding();
     let font = load_file_buf(encoding).unwrap();

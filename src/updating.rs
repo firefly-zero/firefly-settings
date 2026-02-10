@@ -25,13 +25,13 @@ fn handle_pad(state: &mut State) {
             } else {
                 let on_theme = state.page == Page::Interface && state.cursor == 1;
                 if on_theme {
-                    let new_theme = if state.settings.theme == 0 {
+                    let old_theme = state.settings.theme as u8;
+                    let new_theme = if old_theme == 0 {
                         THEMES.len() as u8 - 1
                     } else {
-                        state.settings.theme - 1
+                        old_theme - 1
                     };
-                    state.settings.theme = new_theme;
-                    state.theme = THEMES[new_theme as usize];
+                    state.set_theme(new_theme);
                 } else {
                     state.scroll = 0;
                     state.cursor = 0;
@@ -44,9 +44,8 @@ fn handle_pad(state: &mut State) {
             } else {
                 let on_theme = state.page == Page::Interface && state.cursor == 1;
                 if on_theme {
-                    let new_theme = (state.settings.theme + 1) % THEMES.len() as u8;
-                    state.settings.theme = new_theme;
-                    state.theme = THEMES[new_theme as usize];
+                    let new_theme = (state.settings.theme as u8 + 1) % THEMES.len() as u8;
+                    state.set_theme(new_theme);
                 }
             }
         }
@@ -123,8 +122,8 @@ fn select_option(state: &mut State) {
         Page::Time => {}
         Page::Interface => match state.cursor {
             1 => {
-                s.theme = (s.theme + 1) % THEMES.len() as u8;
-                state.theme = THEMES[s.theme as usize];
+                let new_theme = (s.theme as u8 + 1) % THEMES.len() as u8;
+                state.set_theme(new_theme);
             }
             2 => {
                 s.contrast = !s.contrast;
