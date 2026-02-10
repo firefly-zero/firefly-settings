@@ -98,13 +98,13 @@ impl Message {
 
             Self::English => "Engels",
             Self::Dutch => "Nederlands",
-            Self::French => "French",   // TODO: translate
-            Self::German => "German",   // TODO: translate
-            Self::Italian => "Italian", // TODO: translate
-            Self::Polish => "Polish",   // TODO: translate
+            Self::French => "Frans",
+            Self::German => "Duits",
+            Self::Italian => "Italiaans",
+            Self::Polish => "Pools",
             Self::Russian => "Russisch",
-            Self::Spanish => "Spanish", // TODO: translate
-            Self::Turkish => "Turkish", // TODO: translate
+            Self::Spanish => "Spaans",
+            Self::Turkish => "Turks",
             Self::Ukrainian => "Oekraiens",
             Self::TokiPona => "Toki Pona",
 
@@ -275,17 +275,17 @@ impl Message {
             Self::Interface => "Интерфейс",
             Self::Misc => "Разное",
 
-            Self::English => "Английский",
-            Self::Dutch => "Голландский",
-            Self::French => "French",   // TODO: translate
-            Self::German => "German",   // TODO: translate
-            Self::Italian => "Italian", // TODO: translate
-            Self::Polish => "Polish",   // TODO: translate
-            Self::Russian => "Русский",
-            Self::Spanish => "Spanish", // TODO: translate
-            Self::Turkish => "Turkish", // TODO: translate
-            Self::Ukrainian => "Украинский",
-            Self::TokiPona => "Токи Пона",
+            Self::English => "английский",
+            Self::Dutch => "голландский",
+            Self::French => "французский",
+            Self::German => "немецкий",
+            Self::Italian => "итальянский",
+            Self::Polish => "польский",
+            Self::Russian => "русский",
+            Self::Spanish => "испанский",
+            Self::Turkish => "турецкий",
+            Self::Ukrainian => "украинский",
+            Self::TokiPona => "токи пона",
 
             Self::Date => "дата",
             Self::Time => "время",
@@ -299,7 +299,7 @@ impl Message {
             Self::ColorScheme => "цветовая схема",
             Self::GamepadMode => "режим джойстика",
             Self::Telemetry => "телеметрия",
-            Self::ResetAll => "reset all settings",
+            Self::ResetAll => "сбросить все настройки",
         }
     }
 
@@ -382,17 +382,17 @@ impl Message {
             Self::Interface => "Інтерфейс",
             Self::Misc => "Різне",
 
-            Self::English => "Англійська",
-            Self::Dutch => "Голландська",
-            Self::French => "French",   // TODO: translate
-            Self::German => "German",   // TODO: translate
-            Self::Italian => "Italian", // TODO: translate
-            Self::Polish => "Polish",   // TODO: translate
-            Self::Russian => "Російська",
-            Self::Spanish => "Spanish", // TODO: translate
-            Self::Turkish => "Turkish", // TODO: translate
-            Self::Ukrainian => "Українська",
-            Self::TokiPona => "Токі Пона",
+            Self::English => "англійська",
+            Self::Dutch => "голландська",
+            Self::French => "французька",
+            Self::German => "німецький",
+            Self::Italian => "італійська",
+            Self::Polish => "польський",
+            Self::Russian => "російська",
+            Self::Spanish => "іспанська",
+            Self::Turkish => "турецька",
+            Self::Ukrainian => "українська",
+            Self::TokiPona => "токі пона",
 
             Self::Date => "дата",
             Self::Time => "час",
@@ -406,7 +406,7 @@ impl Message {
             Self::ColorScheme => "колірна схема",
             Self::GamepadMode => "режим геймпада",
             Self::Telemetry => "телеметраці",
-            Self::ResetAll => "reset all settings",
+            Self::ResetAll => "скинути всі налаштування",
         }
     }
 
@@ -419,13 +419,13 @@ impl Message {
 
             Self::English => "toki Inli",
             Self::Dutch => "toki Netelan",
-            Self::French => "French",   // TODO: translate
-            Self::German => "German",   // TODO: translate
-            Self::Italian => "Italian", // TODO: translate
-            Self::Polish => "Polish",   // TODO: translate
+            Self::French => "toki Kanse",
+            Self::German => "toki Tosi",
+            Self::Italian => "toki Italija",
+            Self::Polish => "toki Posuka",
             Self::Russian => "toki Losi",
-            Self::Spanish => "Spanish", // TODO: translate
-            Self::Turkish => "Turkish", // TODO: translate
+            Self::Spanish => "toki Epanja",
+            Self::Turkish => "toki Tuki",
             Self::Ukrainian => "toki Ukrajini",
             Self::TokiPona => "toki Pona",
 
@@ -440,7 +440,7 @@ impl Message {
             Self::EasterEggs => "kijetesantakalu",
             Self::ColorScheme => "kule",
             Self::GamepadMode => "ilo musi",
-            Self::Telemetry => "lukin alasa",
+            Self::Telemetry => "owe",
             Self::ResetAll => "ale li sin",
         }
     }
