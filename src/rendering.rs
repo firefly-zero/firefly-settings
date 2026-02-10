@@ -122,7 +122,7 @@ fn draw_cursor(state: &State) {
 fn draw_selections(state: &State) {
     match state.page {
         Page::Language => draw_lang_selection(state),
-        Page::Time => {}
+        Page::DateTime => {}
         Page::Interface => draw_interface_selections(state),
         Page::Misc => draw_misc_selections(state),
     }

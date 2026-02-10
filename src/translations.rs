@@ -4,8 +4,7 @@ use firefly_rust::Language;
 pub enum Message {
     // Pages
     Language,
-    Timezone,
-    Time,
+    DateTime,
     Interface,
     Misc,
 
@@ -24,6 +23,7 @@ pub enum Message {
 
     // Misc
     Empty,
+    Timezone,
     RotateScreen,
     ScreenBrightness,
     ReduceFlashing,
@@ -57,7 +57,7 @@ impl Message {
         match self {
             Self::Language => "Language",
             Self::Timezone => "Timezone",
-            Self::Time => "Date and time",
+            Self::DateTime => "Date and time",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
 
@@ -91,7 +91,7 @@ impl Message {
         match self {
             Self::Language => "Taal",
             Self::Timezone => "Tijdzone",
-            Self::Time => "Datum en tijd",
+            Self::DateTime => "Datum en tijd",
             Self::Interface => "Interface",
             Self::Misc => "Diversen",
 
@@ -126,7 +126,7 @@ impl Message {
         match self {
             Self::Language => "Language",
             Self::Timezone => "Timezone",
-            Self::Time => "Date and time",
+            Self::DateTime => "Date and time",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
 
@@ -161,7 +161,7 @@ impl Message {
         match self {
             Self::Language => "Language",
             Self::Timezone => "Timezone",
-            Self::Time => "Date and time",
+            Self::DateTime => "Date and time",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
 
@@ -196,7 +196,7 @@ impl Message {
         match self {
             Self::Language => "Language",
             Self::Timezone => "Timezone",
-            Self::Time => "Date and time",
+            Self::DateTime => "Date and time",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
 
@@ -231,7 +231,7 @@ impl Message {
         match self {
             Self::Language => "Language",
             Self::Timezone => "Timezone",
-            Self::Time => "Date and time",
+            Self::DateTime => "Date and time",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
 
@@ -265,7 +265,7 @@ impl Message {
         match self {
             Self::Language => "Язык",
             Self::Timezone => "Часовой пояс",
-            Self::Time => "Дата и время",
+            Self::DateTime => "Дата и время",
             Self::Interface => "Интерфейс",
             Self::Misc => "Разное",
 
@@ -300,7 +300,7 @@ impl Message {
         match self {
             Self::Language => "Language",
             Self::Timezone => "Timezone",
-            Self::Time => "Date and time",
+            Self::DateTime => "Date and time",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
 
@@ -335,7 +335,7 @@ impl Message {
         match self {
             Self::Language => "Language",
             Self::Timezone => "Timezone",
-            Self::Time => "Date and time",
+            Self::DateTime => "Date and time",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
 
@@ -369,7 +369,7 @@ impl Message {
         match self {
             Self::Language => "Мова",
             Self::Timezone => "Часовий пояс",
-            Self::Time => "Дата та час",
+            Self::DateTime => "Дата та час",
             Self::Interface => "Інтерфейс",
             Self::Misc => "Різне",
 
@@ -403,7 +403,7 @@ impl Message {
         match self {
             Self::Language => "toki",
             Self::Timezone => "tenpo ma",
-            Self::Time => "tenpo",
+            Self::DateTime => "tenpo",
             Self::Interface => "namako",
             Self::Misc => "ante",
 

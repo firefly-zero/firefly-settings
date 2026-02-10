@@ -3,7 +3,7 @@ use crate::*;
 #[derive(PartialEq)]
 pub enum Page {
     Language,
-    Time,
+    DateTime,
     Interface,
     Misc,
 }
@@ -12,7 +12,7 @@ impl Page {
     pub fn title(&self) -> Message {
         match self {
             Page::Language => Message::Language,
-            Page::Time => Message::Time,
+            Page::DateTime => Message::DateTime,
             Page::Interface => Message::Interface,
             Page::Misc => Message::Misc,
         }
@@ -36,7 +36,7 @@ impl Page {
                 // and it is hidden behind the Easter Eggs feature flag.
                 Message::TokiPona,
             ],
-            Page::Time => &[Message::Empty, Message::Timezone],
+            Page::DateTime => &[Message::Empty, Message::Timezone],
             Page::Interface => &[
                 Message::ColorScheme,
                 Message::Contrast,
@@ -57,8 +57,8 @@ impl Page {
     pub fn next(&self) -> Self {
         use Page::*;
         match self {
-            Language => Time,
-            Time => Interface,
+            Language => DateTime,
+            DateTime => Interface,
             Interface => Misc,
             Misc => Language,
         }
@@ -68,8 +68,8 @@ impl Page {
         use Page::*;
         match self {
             Language => Misc,
-            Time => Language,
-            Interface => Time,
+            DateTime => Language,
+            Interface => DateTime,
             Misc => Interface,
         }
     }
