@@ -140,7 +140,21 @@ fn select_option(state: &mut State) {
             2 => s.telemetry = !s.telemetry,
             3 => s.easter_eggs = !s.easter_eggs,
             4 => {
-                *s = Settings::default();
+                // Reset settings to default.
+                // We only reset settings that are configurable
+                // through this app. Other settings, like device name
+                // and earned xp, should stay untouched.
+                let def = Settings::default();
+                s.lang = def.lang;
+                s.theme = def.theme;
+                s.contrast = def.contrast;
+                s.screen_brightness = def.screen_brightness;
+                s.reduce_flashing = def.reduce_flashing;
+                s.rotate_screen = def.rotate_screen;
+                s.auto_lock = def.auto_lock;
+                s.gamepad_mode = def.gamepad_mode;
+                s.telemetry = def.telemetry;
+                s.easter_eggs = def.easter_eggs;
                 state.refresh();
             }
             _ => {}
