@@ -172,7 +172,7 @@ impl Message {
             Self::French => "Französisch",
             Self::German => "Deutsch",
             Self::Italian => "Italienisch",
-            Self::Polish => "Polisch",
+            Self::Polish => "Polnisch",
             Self::Russian => "Russisch",
             Self::Spanish => "Spanisch",
             Self::Turkish => "Türkisch",
