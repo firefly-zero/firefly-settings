@@ -162,12 +162,27 @@ fn draw_interface_selections(state: &State) {
     draw_switch(state, 4, state.settings.reduce_flashing);
     draw_switch(state, 5, state.settings.rotate_screen);
     draw_switch(state, 6, state.settings.auto_lock != 0);
+    draw_theme_selection(state);
 }
 
 fn draw_misc_selections(state: &State) {
     draw_switch(state, 1, state.settings.gamepad_mode);
     draw_switch(state, 2, state.settings.telemetry);
     draw_switch(state, 3, state.settings.easter_eggs);
+}
+
+fn draw_theme_selection(state: &State) {
+    let font = state.font.as_font();
+    let idx = 2;
+    let line_h = font.char_height() as i32 + LINE_M;
+    let x = WIDTH - CURSOR_X - font.line_width(state.theme.name) as i32;
+    let y = BOX_Y + idx * line_h - LINE_M;
+    let mut point = Point::new(x, y);
+    if idx - 1 == state.cursor as i32 && (state.btns.s || state.btns.e) {
+        point.x += 1;
+        point.y += 1;
+    }
+    draw_text(state.theme.name, &font, point, state.theme.accent);
 }
 
 fn draw_marker(state: &State, idx: i32) {

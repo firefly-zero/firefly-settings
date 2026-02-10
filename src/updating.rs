@@ -23,7 +23,7 @@ fn handle_pad(state: &mut State) {
             if state.cursor == 0 {
                 state.page = state.page.prev();
             } else {
-                let on_theme = state.page == Page::Interface && state.cursor == 2;
+                let on_theme = state.page == Page::Interface && state.cursor == 1;
                 if on_theme {
                     let new_theme = if state.settings.theme == 0 {
                         THEMES.len() as u8 - 1
@@ -42,7 +42,7 @@ fn handle_pad(state: &mut State) {
             if state.cursor == 0 {
                 state.page = state.page.next();
             } else {
-                let on_theme = state.page == Page::Interface && state.cursor == 2;
+                let on_theme = state.page == Page::Interface && state.cursor == 1;
                 if on_theme {
                     let new_theme = (state.settings.theme + 1) % THEMES.len() as u8;
                     state.settings.theme = new_theme;
