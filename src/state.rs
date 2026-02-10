@@ -54,6 +54,13 @@ impl State {
             set_color(Color::White, RGB::new(0xf4, 0xf4, 0xf4));
         }
     }
+
+    pub fn hide_toki_pona(&self) -> bool {
+        if self.page != Page::Language {
+            return false;
+        }
+        !self.settings.easter_eggs && self.settings.lang != [b't', b'p']
+    }
 }
 
 fn encode_color(c: Color) -> u32 {

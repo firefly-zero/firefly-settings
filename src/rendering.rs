@@ -61,7 +61,7 @@ fn draw_title_arrows(state: &State) {
 fn draw_lines(state: &State) {
     // Get the list of settings lines to display.
     let mut lines = state.page.lines();
-    if state.page == Page::Language && !state.settings.easter_eggs {
+    if state.hide_toki_pona() {
         // Hide Toki Pona if Easter Eggs are disabled.
         lines = &lines[..lines.len() - 1];
     }
