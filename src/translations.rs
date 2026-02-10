@@ -22,9 +22,6 @@ pub enum Message {
     Ukrainian,
     TokiPona,
 
-    // Timezones
-    EuropeAmsterdam,
-
     // Misc
     Empty,
     RotateScreen,
@@ -76,7 +73,6 @@ impl Message {
             Self::Ukrainian => "Ukrainian",
             Self::TokiPona => "Toki Pona",
 
-            Self::EuropeAmsterdam => "Europe/Amsterdam",
             Self::Empty => "",
             Self::RotateScreen => "rotate screen",
             Self::ScreenBrightness => "screen brightness",
@@ -111,7 +107,6 @@ impl Message {
             Self::Ukrainian => "Oekraiens",
             Self::TokiPona => "Toki Pona",
 
-            Self::EuropeAmsterdam => "Europe/Amsterdam",
             Self::Empty => "",
             Self::RotateScreen => "scherm draaien",
             Self::ScreenBrightness => "schermhelderheid",
@@ -147,7 +142,6 @@ impl Message {
             Self::Ukrainian => "Ukrainian",
             Self::TokiPona => "Toki Pona",
 
-            Self::EuropeAmsterdam => "Europe/Amsterdam",
             Self::Empty => "",
             Self::RotateScreen => "rotate screen",
             Self::ScreenBrightness => "screen brightness",
@@ -183,7 +177,6 @@ impl Message {
             Self::Ukrainian => "Ukrainian",
             Self::TokiPona => "Toki Pona",
 
-            Self::EuropeAmsterdam => "Europe/Amsterdam",
             Self::Empty => "",
             Self::RotateScreen => "rotate screen",
             Self::ScreenBrightness => "screen brightness",
@@ -219,7 +212,6 @@ impl Message {
             Self::Ukrainian => "Ukrainian",
             Self::TokiPona => "Toki Pona",
 
-            Self::EuropeAmsterdam => "Europe/Amsterdam",
             Self::Empty => "",
             Self::RotateScreen => "rotate screen",
             Self::ScreenBrightness => "screen brightness",
@@ -255,7 +247,6 @@ impl Message {
             Self::Ukrainian => "Ukrainian",
             Self::TokiPona => "Toki Pona",
 
-            Self::EuropeAmsterdam => "Europe/Amsterdam",
             Self::Empty => "",
             Self::RotateScreen => "rotate screen",
             Self::ScreenBrightness => "screen brightness",
@@ -290,7 +281,6 @@ impl Message {
             Self::Ukrainian => "Украинский",
             Self::TokiPona => "Токи Пона",
 
-            Self::EuropeAmsterdam => "Europe/Amsterdam",
             Self::Empty => "",
             Self::RotateScreen => "перевернуть изображение",
             Self::ScreenBrightness => "яркость экрана",
@@ -326,7 +316,6 @@ impl Message {
             Self::Ukrainian => "Ukrainian",
             Self::TokiPona => "Toki Pona",
 
-            Self::EuropeAmsterdam => "Europe/Amsterdam",
             Self::Empty => "",
             Self::RotateScreen => "rotate screen",
             Self::ScreenBrightness => "screen brightness",
@@ -362,7 +351,6 @@ impl Message {
             Self::Ukrainian => "Ukrainian",
             Self::TokiPona => "Toki Pona",
 
-            Self::EuropeAmsterdam => "Europe/Amsterdam",
             Self::Empty => "",
             Self::RotateScreen => "rotate screen",
             Self::ScreenBrightness => "screen brightness",
@@ -397,7 +385,6 @@ impl Message {
             Self::Ukrainian => "Українська",
             Self::TokiPona => "Токі Пона",
 
-            Self::EuropeAmsterdam => "Europe/Amsterdam",
             Self::Empty => "",
             Self::RotateScreen => "поворот екрана",
             Self::ScreenBrightness => "яскравість екрана",
@@ -432,7 +419,6 @@ impl Message {
             Self::Ukrainian => "toki Ukrajini",
             Self::TokiPona => "toki Pona",
 
-            Self::EuropeAmsterdam => "Europe/Amsterdam",
             Self::Empty => "",
             Self::RotateScreen => "supa nasa",
             Self::ScreenBrightness => "supa suno",

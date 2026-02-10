@@ -122,7 +122,6 @@ fn draw_cursor(state: &State) {
 fn draw_selections(state: &State) {
     match state.page {
         Page::Language => draw_lang_selection(state),
-        Page::Timezone => draw_tz_selection(state),
         Page::Time => {}
         Page::Interface => draw_interface_selections(state),
         Page::Misc => draw_misc_selections(state),
@@ -149,12 +148,6 @@ fn draw_lang_selection(state: &State) {
         return;
     }
     draw_marker(state, idx);
-}
-
-fn draw_tz_selection(state: &State) {
-    if state.settings.timezone == "Europe/Amsterdam" {
-        draw_marker(state, 1);
-    }
 }
 
 fn draw_interface_selections(state: &State) {

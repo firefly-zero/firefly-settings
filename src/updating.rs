@@ -118,7 +118,6 @@ fn select_option(state: &mut State) {
             }
             state.lang = lang;
         }
-        Page::Timezone => {}
         Page::Time => {}
         Page::Interface => match state.cursor {
             1 => {
