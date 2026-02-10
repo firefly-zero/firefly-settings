@@ -22,7 +22,8 @@ pub enum Message {
     TokiPona,
 
     // Misc
-    Empty,
+    Date,
+    Time,
     Timezone,
     RotateScreen,
     ScreenBrightness,
@@ -56,7 +57,6 @@ impl Message {
     fn translate_english(&self) -> &'static str {
         match self {
             Self::Language => "Language",
-            Self::Timezone => "Timezone",
             Self::DateTime => "Date and time",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
@@ -73,7 +73,9 @@ impl Message {
             Self::Ukrainian => "Ukrainian",
             Self::TokiPona => "Toki Pona",
 
-            Self::Empty => "",
+            Self::Date => "date",
+            Self::Time => "time",
+            Self::Timezone => "timezone",
             Self::RotateScreen => "rotate screen",
             Self::ScreenBrightness => "screen brightness",
             Self::ReduceFlashing => "reduce flashing",
@@ -90,7 +92,6 @@ impl Message {
     fn translate_dutch(&self) -> &'static str {
         match self {
             Self::Language => "Taal",
-            Self::Timezone => "Tijdzone",
             Self::DateTime => "Datum en tijd",
             Self::Interface => "Interface",
             Self::Misc => "Diversen",
@@ -107,7 +108,9 @@ impl Message {
             Self::Ukrainian => "Oekraiens",
             Self::TokiPona => "Toki Pona",
 
-            Self::Empty => "",
+            Self::Date => "datum",
+            Self::Time => "tijd",
+            Self::Timezone => "tijdzone",
             Self::RotateScreen => "scherm draaien",
             Self::ScreenBrightness => "schermhelderheid",
             Self::ReduceFlashing => "knipperen verminderen",
@@ -125,7 +128,6 @@ impl Message {
         // TODO: translate
         match self {
             Self::Language => "Language",
-            Self::Timezone => "Timezone",
             Self::DateTime => "Date and time",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
@@ -142,7 +144,9 @@ impl Message {
             Self::Ukrainian => "Ukrainian",
             Self::TokiPona => "Toki Pona",
 
-            Self::Empty => "",
+            Self::Date => "date",
+            Self::Time => "time",
+            Self::Timezone => "timezone",
             Self::RotateScreen => "rotate screen",
             Self::ScreenBrightness => "screen brightness",
             Self::ReduceFlashing => "reduce flashing",
@@ -160,7 +164,6 @@ impl Message {
         // TODO: translate
         match self {
             Self::Language => "Language",
-            Self::Timezone => "Timezone",
             Self::DateTime => "Date and time",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
@@ -177,7 +180,9 @@ impl Message {
             Self::Ukrainian => "Ukrainian",
             Self::TokiPona => "Toki Pona",
 
-            Self::Empty => "",
+            Self::Date => "date",
+            Self::Time => "time",
+            Self::Timezone => "timezone",
             Self::RotateScreen => "rotate screen",
             Self::ScreenBrightness => "screen brightness",
             Self::ReduceFlashing => "reduce flashing",
@@ -195,7 +200,6 @@ impl Message {
         // TODO: translate
         match self {
             Self::Language => "Language",
-            Self::Timezone => "Timezone",
             Self::DateTime => "Date and time",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
@@ -212,7 +216,9 @@ impl Message {
             Self::Ukrainian => "Ukrainian",
             Self::TokiPona => "Toki Pona",
 
-            Self::Empty => "",
+            Self::Date => "date",
+            Self::Time => "time",
+            Self::Timezone => "timezone",
             Self::RotateScreen => "rotate screen",
             Self::ScreenBrightness => "screen brightness",
             Self::ReduceFlashing => "reduce flashing",
@@ -230,7 +236,6 @@ impl Message {
         // TODO: translate
         match self {
             Self::Language => "Language",
-            Self::Timezone => "Timezone",
             Self::DateTime => "Date and time",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
@@ -247,7 +252,9 @@ impl Message {
             Self::Ukrainian => "Ukrainian",
             Self::TokiPona => "Toki Pona",
 
-            Self::Empty => "",
+            Self::Date => "date",
+            Self::Time => "time",
+            Self::Timezone => "timezone",
             Self::RotateScreen => "rotate screen",
             Self::ScreenBrightness => "screen brightness",
             Self::ReduceFlashing => "reduce flashing",
@@ -264,7 +271,6 @@ impl Message {
     fn translate_russian(&self) -> &'static str {
         match self {
             Self::Language => "Язык",
-            Self::Timezone => "Часовой пояс",
             Self::DateTime => "Дата и время",
             Self::Interface => "Интерфейс",
             Self::Misc => "Разное",
@@ -281,7 +287,9 @@ impl Message {
             Self::Ukrainian => "Украинский",
             Self::TokiPona => "Токи Пона",
 
-            Self::Empty => "",
+            Self::Date => "дата",
+            Self::Time => "время",
+            Self::Timezone => "часовой пояс",
             Self::RotateScreen => "перевернуть изображение",
             Self::ScreenBrightness => "яркость экрана",
             Self::ReduceFlashing => "уменьшить мигание",
@@ -299,7 +307,6 @@ impl Message {
         // TODO: translate
         match self {
             Self::Language => "Language",
-            Self::Timezone => "Timezone",
             Self::DateTime => "Date and time",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
@@ -316,7 +323,9 @@ impl Message {
             Self::Ukrainian => "Ukrainian",
             Self::TokiPona => "Toki Pona",
 
-            Self::Empty => "",
+            Self::Date => "date",
+            Self::Time => "time",
+            Self::Timezone => "timezone",
             Self::RotateScreen => "rotate screen",
             Self::ScreenBrightness => "screen brightness",
             Self::ReduceFlashing => "reduce flashing",
@@ -334,7 +343,6 @@ impl Message {
         // TODO: translate
         match self {
             Self::Language => "Language",
-            Self::Timezone => "Timezone",
             Self::DateTime => "Date and time",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
@@ -351,7 +359,9 @@ impl Message {
             Self::Ukrainian => "Ukrainian",
             Self::TokiPona => "Toki Pona",
 
-            Self::Empty => "",
+            Self::Date => "date",
+            Self::Time => "time",
+            Self::Timezone => "timezone",
             Self::RotateScreen => "rotate screen",
             Self::ScreenBrightness => "screen brightness",
             Self::ReduceFlashing => "reduce flashing",
@@ -368,7 +378,6 @@ impl Message {
     fn translate_ukrainian(&self) -> &'static str {
         match self {
             Self::Language => "Мова",
-            Self::Timezone => "Часовий пояс",
             Self::DateTime => "Дата та час",
             Self::Interface => "Інтерфейс",
             Self::Misc => "Різне",
@@ -385,7 +394,9 @@ impl Message {
             Self::Ukrainian => "Українська",
             Self::TokiPona => "Токі Пона",
 
-            Self::Empty => "",
+            Self::Date => "дата",
+            Self::Time => "час",
+            Self::Timezone => "часовий пояс",
             Self::RotateScreen => "поворот екрана",
             Self::ScreenBrightness => "яскравість екрана",
             Self::ReduceFlashing => "зменшення миготіння",
@@ -402,7 +413,6 @@ impl Message {
     fn translate_toki_pona(&self) -> &'static str {
         match self {
             Self::Language => "toki",
-            Self::Timezone => "tenpo ma",
             Self::DateTime => "tenpo",
             Self::Interface => "namako",
             Self::Misc => "ante",
@@ -419,7 +429,9 @@ impl Message {
             Self::Ukrainian => "toki Ukrajini",
             Self::TokiPona => "toki Pona",
 
-            Self::Empty => "",
+            Self::Date => "tenpo suli",
+            Self::Time => "tenpo lili",
+            Self::Timezone => "tenpo ma",
             Self::RotateScreen => "supa nasa",
             Self::ScreenBrightness => "supa suno",
             Self::ReduceFlashing => "suno lili",

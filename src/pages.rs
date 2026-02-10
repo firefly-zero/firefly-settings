@@ -36,7 +36,7 @@ impl Page {
                 // and it is hidden behind the Easter Eggs feature flag.
                 Message::TokiPona,
             ],
-            Page::DateTime => &[Message::Empty, Message::Timezone],
+            Page::DateTime => &[Message::Date, Message::Time, Message::Timezone],
             Page::Interface => &[
                 Message::ColorScheme,
                 Message::Contrast,
