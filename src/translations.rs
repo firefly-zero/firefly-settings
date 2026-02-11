@@ -191,7 +191,7 @@ impl Message {
             Self::ColorScheme => "Farbschema",
             Self::GamepadMode => "Gamepadmodus",
             Self::Telemetry => "Telemetrie",
-            Self::ResetAll => "Werkseinstellungen wiederherstellen",
+            Self::ResetAll => "Alle Einstellungen zurücksetzen",
         }
     }
 
