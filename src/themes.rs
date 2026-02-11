@@ -1,7 +1,7 @@
 use firefly_rust::Color;
 
 #[derive(Clone, Copy)]
-pub struct Theme {
+pub struct ThemeInfo {
     pub name: &'static str,
     /// The main color of text and boxes.
     pub primary: Color,
@@ -13,16 +13,16 @@ pub struct Theme {
     pub bg: Color,
 }
 
-pub static THEMES: &[Theme] = &[
+pub static THEMES: &[ThemeInfo] = &[
     // -- PRIMARY THEMES -- //
-    Theme {
+    ThemeInfo {
         name: "default",
         primary: Color::Black,
         secondary: Color::LightGray,
         accent: Color::Green,
         bg: Color::White,
     },
-    Theme {
+    ThemeInfo {
         name: "light contrast",
         primary: Color::Black,
         secondary: Color::Black,
@@ -30,35 +30,35 @@ pub static THEMES: &[Theme] = &[
         bg: Color::White,
     },
     // -- LIGHT THEMES -- //
-    Theme {
+    ThemeInfo {
         name: "light green",
         primary: Color::DarkGreen,
         secondary: Color::LightGray,
         accent: Color::Green,
         bg: Color::White,
     },
-    Theme {
+    ThemeInfo {
         name: "light orange",
         primary: Color::Black,
         secondary: Color::Yellow,
         accent: Color::Orange,
         bg: Color::White,
     },
-    Theme {
+    ThemeInfo {
         name: "light red",
         primary: Color::Black,
         secondary: Color::LightGray,
         accent: Color::Red,
         bg: Color::White,
     },
-    Theme {
+    ThemeInfo {
         name: "light blue",
         primary: Color::DarkBlue,
         secondary: Color::LightGray,
         accent: Color::Blue,
         bg: Color::White,
     },
-    Theme {
+    ThemeInfo {
         name: "light gray",
         primary: Color::DarkGray,
         secondary: Color::LightGray,
@@ -66,49 +66,49 @@ pub static THEMES: &[Theme] = &[
         bg: Color::White,
     },
     // -- DARK THEMES -- //
-    Theme {
+    ThemeInfo {
         name: "dark green",
         primary: Color::White,
         secondary: Color::DarkGray,
         accent: Color::Green,
         bg: Color::Black,
     },
-    Theme {
+    ThemeInfo {
         name: "dark orange",
         primary: Color::White,
         secondary: Color::DarkGray,
         accent: Color::Orange,
         bg: Color::Black,
     },
-    Theme {
+    ThemeInfo {
         name: "dark red",
         primary: Color::White,
         secondary: Color::DarkGray,
         accent: Color::Red,
         bg: Color::Black,
     },
-    Theme {
+    ThemeInfo {
         name: "dark blue",
         primary: Color::White,
         secondary: Color::DarkBlue,
         accent: Color::Blue,
         bg: Color::Black,
     },
-    Theme {
+    ThemeInfo {
         name: "dark-bu-dee",
         primary: Color::LightBlue,
         secondary: Color::DarkBlue,
         accent: Color::Blue,
         bg: Color::Black,
     },
-    Theme {
+    ThemeInfo {
         name: "dark gray",
         primary: Color::White,
         secondary: Color::DarkGray,
         accent: Color::LightGray,
         bg: Color::Black,
     },
-    Theme {
+    ThemeInfo {
         name: "dark contrast",
         primary: Color::White,
         secondary: Color::White,

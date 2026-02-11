@@ -9,7 +9,7 @@ pub struct State {
     pub settings: Settings,
     pub font: FileBuf,
     pub page: Page,
-    pub theme: Theme,
+    pub theme: ThemeInfo,
     pub lang: Language,
     pub scroll: u8,
     pub cursor: u8,
