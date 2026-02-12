@@ -29,6 +29,7 @@ impl Page {
                 Message::Polish,
                 Message::Russian,
                 Message::Spanish,
+                Message::Swedish,
                 Message::Turkish,
                 Message::Ukrainian,
                 // Keep Toki Pona last in the list of languages.
