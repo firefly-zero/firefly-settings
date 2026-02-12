@@ -106,9 +106,10 @@ fn select_option(state: &mut State) {
                 6 => Language::Polish,
                 7 => Language::Russian,
                 8 => Language::Spanish,
-                9 => Language::Turkish,
-                10 => Language::Ukrainian,
-                11 => Language::TokiPona,
+                9 => Language::Swedish,
+                10 => Language::Turkish,
+                11 => Language::Ukrainian,
+                12 => Language::TokiPona,
                 _ => Language::English,
             };
             s.lang = lang.code_array();
