@@ -372,7 +372,7 @@ impl Message {
             Self::Timezone => "timezon",
             Self::RotateScreen => "rotera skärmen",
             Self::ScreenBrightness => "skärmljusstyrka",
-            Self::ReduceFlashing => "reducera flimmer",
+            Self::ReduceFlashing => "reducera skärmflimmer",
             Self::Contrast => "högkontrast",
             Self::AutoLock => "autolås",
             Self::EasterEggs => "påskägg",
