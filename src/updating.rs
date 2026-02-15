@@ -83,6 +83,10 @@ fn handle_btns(state: &mut State) {
 
     let btns = read_buttons(peer);
     let released = btns.just_released(&state.btns);
+    state.btns = btns;
+    if released.w {
+        quit();
+    }
     if released.s || released.e {
         if state.cursor == 0 {
             state.page = state.page.next();
@@ -90,7 +94,6 @@ fn handle_btns(state: &mut State) {
             select_option(state);
         }
     }
-    state.btns = btns;
 }
 
 fn select_option(state: &mut State) {
