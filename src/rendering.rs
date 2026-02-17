@@ -1,9 +1,9 @@
 use crate::*;
 use firefly_rust::*;
 
-const BOX_ML: i32 = 20;
+const BOX_ML: i32 = 16;
 const BOX_MR: i32 = BOX_ML;
-const BOX_MT: i32 = 20;
+const BOX_MT: i32 = 16;
 const BOX_Y: i32 = BOX_MT;
 
 const CURSOR_ML: i32 = 4;

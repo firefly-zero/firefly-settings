@@ -7,7 +7,7 @@ pub fn draw_bg(state: &State) {
 }
 
 fn draw_bg_grid(state: &State) {
-    const CELL_SIZE: i32 = 10;
+    const CELL_SIZE: i32 = 8;
 
     clear_screen(state.theme.bg);
     let style = LineStyle::new(state.theme.secondary, 1);
@@ -20,7 +20,7 @@ fn draw_bg_grid(state: &State) {
 }
 
 fn draw_bg_box(state: &State) {
-    const MARGIN: i32 = 15;
+    const MARGIN: i32 = 12;
 
     let size = Size::new(WIDTH - MARGIN * 2, HEIGHT - MARGIN * 2);
     draw_rounded_rect(
