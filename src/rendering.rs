@@ -137,12 +137,13 @@ fn draw_lang_selection(state: &State) {
         Language::German => 4,
         Language::Italian => 5,
         Language::Polish => 6,
-        Language::Russian => 7,
-        Language::Spanish => 8,
-        Language::Swedish => 9,
-        Language::Turkish => 10,
-        Language::Ukrainian => 11,
-        Language::TokiPona => 12,
+        Language::Romanian => 7,
+        Language::Russian => 8,
+        Language::Spanish => 9,
+        Language::Swedish => 10,
+        Language::Turkish => 11,
+        Language::Ukrainian => 12,
+        Language::TokiPona => 13,
     };
     idx -= state.scroll as i32;
     if idx < 1 || idx > PER_PAGE as i32 {

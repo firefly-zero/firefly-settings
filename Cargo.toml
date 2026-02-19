@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-firefly-rust = { version = "0.11.0", features = ["alloc", "talc", "sudo"] }
+firefly-rust = { version = "0.12.0", features = ["alloc", "talc", "sudo"] }
 firefly-types = "0.8.1"
 
 # https://github.com/johnthagen/min-sized-rust
@@ -12,6 +12,3 @@ firefly-types = "0.8.1"
 strip = true    # Automatically strip symbols from the binary.
 opt-level = "z" # Optimize for size.
 lto = true      # Enable link-time optimization
-
-[patch.crates-io]
-firefly-rust = { path = "../firefly-rust" }

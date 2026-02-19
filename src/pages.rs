@@ -27,6 +27,7 @@ impl Page {
                 Message::German,
                 Message::Italian,
                 Message::Polish,
+                Message::Romanian,
                 Message::Russian,
                 Message::Spanish,
                 Message::Swedish,

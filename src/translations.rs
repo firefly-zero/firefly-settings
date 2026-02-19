@@ -15,6 +15,7 @@ pub enum Message {
     German,
     Italian,
     Polish,
+    Romanian,
     Russian,
     Spanish,
     Swedish,
@@ -47,6 +48,7 @@ impl Message {
             Language::German => self.translate_german(),
             Language::Italian => self.translate_italian(),
             Language::Polish => self.translate_polish(),
+            Language::Romanian => self.translate_romanian(),
             Language::Russian => self.translate_russian(),
             Language::Spanish => self.translate_spanish(),
             Language::Swedish => self.translate_swedish(),
@@ -69,6 +71,7 @@ impl Message {
             Self::German => "German",
             Self::Italian => "Italian",
             Self::Polish => "Polish",
+            Self::Romanian => "Romanian", // TODO
             Self::Russian => "Russian",
             Self::Spanish => "Spanish",
             Self::Swedish => "Swedish",
@@ -105,6 +108,7 @@ impl Message {
             Self::German => "Duits",
             Self::Italian => "Italiaans",
             Self::Polish => "Pools",
+            Self::Romanian => "Romanian", // TODO
             Self::Russian => "Russisch",
             Self::Spanish => "Spaans",
             Self::Swedish => "Zweeds",
@@ -142,6 +146,7 @@ impl Message {
             Self::German => "Allemand",
             Self::Italian => "Italien",
             Self::Polish => "Polonais",
+            Self::Romanian => "Romanian", // TODO
             Self::Russian => "Russe",
             Self::Spanish => "Espagnol",
             Self::Swedish => "Suédois",
@@ -178,6 +183,7 @@ impl Message {
             Self::German => "Deutsch",
             Self::Italian => "Italienisch",
             Self::Polish => "Polnisch",
+            Self::Romanian => "Romanian", // TODO
             Self::Russian => "Russisch",
             Self::Spanish => "Spanisch",
             Self::Swedish => "Schwedisch",
@@ -215,6 +221,7 @@ impl Message {
             Self::German => "Tedesco",
             Self::Italian => "Italiano",
             Self::Polish => "Polacco",
+            Self::Romanian => "Romanian", // TODO
             Self::Russian => "Russo",
             Self::Spanish => "Spagnolo",
             Self::Swedish => "Svedese",
@@ -251,6 +258,7 @@ impl Message {
             Self::German => "niemiecki",
             Self::Italian => "włoski",
             Self::Polish => "polski",
+            Self::Romanian => "Romanian", // TODO
             Self::Russian => "rosyjski",
             Self::Spanish => "hiszpański",
             Self::Swedish => "szwedzki",
@@ -274,6 +282,44 @@ impl Message {
         }
     }
 
+    fn translate_romanian(&self) -> &'static str {
+        // TODO: Manually validate and correct the machine translation.
+        match self {
+            Self::Language => "Limbă",
+            Self::DateTime => "Data și ora",
+            Self::Interface => "Interfață",
+            Self::Misc => "Diverse",
+
+            Self::English => "Engleză",
+            Self::Dutch => "Olandeză",
+            Self::French => "Franceză",
+            Self::German => "Germană",
+            Self::Italian => "Italiană",
+            Self::Polish => "Poloneză",
+            Self::Romanian => "Română",
+            Self::Russian => "Rusă",
+            Self::Spanish => "Spaniolă",
+            Self::Swedish => "Suedeză",
+            Self::Turkish => "Turcă",
+            Self::Ukrainian => "Ucraineană",
+            Self::TokiPona => "Toki Pona",
+
+            Self::Date => "dată",
+            Self::Time => "oră",
+            Self::Timezone => "fus orar",
+            Self::RotateScreen => "rotire ecran",
+            Self::ScreenBrightness => "luminozitate ecran",
+            Self::ReduceFlashing => "reducere intermitență",
+            Self::Contrast => "contrast ridicat",
+            Self::AutoLock => "blocare automată",
+            Self::EasterEggs => "ouă de Paște",
+            Self::ColorScheme => "schemă de culori",
+            Self::GamepadMode => "mod gamepad",
+            Self::Telemetry => "telemetrie",
+            Self::ResetAll => "resetare toate setările",
+        }
+    }
+
     fn translate_russian(&self) -> &'static str {
         match self {
             Self::Language => "Язык",
@@ -287,6 +333,7 @@ impl Message {
             Self::German => "немецкий",
             Self::Italian => "итальянский",
             Self::Polish => "польский",
+            Self::Romanian => "румынский",
             Self::Russian => "русский",
             Self::Spanish => "испанский",
             Self::Swedish => "шведский",
@@ -324,6 +371,7 @@ impl Message {
             Self::German => "Alemán",
             Self::Italian => "Italiano",
             Self::Polish => "Polaco",
+            Self::Romanian => "Romanian", // TODO
             Self::Russian => "Ruso",
             Self::Spanish => "Español",
             Self::Swedish => "Sueco",
@@ -360,6 +408,7 @@ impl Message {
             Self::German => "Tyska",
             Self::Italian => "Italienska",
             Self::Polish => "Polska",
+            Self::Romanian => "Romanian", // TODO
             Self::Russian => "Ryska",
             Self::Spanish => "Spanska",
             Self::Swedish => "Svenska",
@@ -397,6 +446,7 @@ impl Message {
             Self::German => "Almanca",
             Self::Italian => "İtalyanca",
             Self::Polish => "Lehçe",
+            Self::Romanian => "Romanian", // TODO
             Self::Russian => "Rusça",
             Self::Spanish => "İspanyolca",
             Self::Swedish => "İsveççe",
@@ -433,6 +483,7 @@ impl Message {
             Self::German => "німецький",
             Self::Italian => "італійська",
             Self::Polish => "польський",
+            Self::Romanian => "Romanian", // TODO
             Self::Russian => "російська",
             Self::Spanish => "іспанська",
             Self::Swedish => "шведська",
@@ -469,6 +520,7 @@ impl Message {
             Self::German => "toki Tosi",
             Self::Italian => "toki Italija",
             Self::Polish => "toki Posuka",
+            Self::Romanian => "toki Lomani",
             Self::Russian => "toki Losi",
             Self::Spanish => "toki Epanja",
             Self::Swedish => "toki Wensa",

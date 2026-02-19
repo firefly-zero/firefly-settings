@@ -51,7 +51,7 @@ fn handle_pad(state: &mut State) {
         }
         DPad4::Up => {
             if state.cursor > 0 {
-                if state.cursor <= 6 && state.scroll != 0 {
+                if state.cursor <= 7 && state.scroll != 0 {
                     state.scroll -= 1;
                 }
                 state.cursor -= 1;
@@ -107,12 +107,13 @@ fn select_option(state: &mut State) {
                 4 => Language::German,
                 5 => Language::Italian,
                 6 => Language::Polish,
-                7 => Language::Russian,
-                8 => Language::Spanish,
-                9 => Language::Swedish,
-                10 => Language::Turkish,
-                11 => Language::Ukrainian,
-                12 => Language::TokiPona,
+                7 => Language::Romanian,
+                8 => Language::Russian,
+                9 => Language::Spanish,
+                10 => Language::Swedish,
+                11 => Language::Turkish,
+                12 => Language::Ukrainian,
+                13 => Language::TokiPona,
                 _ => Language::English,
             };
             s.lang = lang.code_array();
