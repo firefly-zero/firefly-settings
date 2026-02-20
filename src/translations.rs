@@ -258,7 +258,7 @@ impl Message {
             Self::German => "niemiecki",
             Self::Italian => "włoski",
             Self::Polish => "polski",
-            Self::Romanian => "Romanian", // TODO
+            Self::Romanian => "rumuński",
             Self::Russian => "rosyjski",
             Self::Spanish => "hiszpański",
             Self::Swedish => "szwedzki",
