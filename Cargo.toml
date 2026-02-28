@@ -4,7 +4,7 @@ version = "0.2.0"
 edition = "2024"
 
 [dependencies]
-firefly-rust = { version = "0.12.0", features = ["alloc", "talc", "sudo"] }
+firefly-rust = { version = "0.13.0", features = ["alloc", "talc", "sudo"] }
 firefly-types = "0.8.1"
 firefly-ui = { path = "../firefly-ui" }
 

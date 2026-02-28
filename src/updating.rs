@@ -3,17 +3,17 @@ use firefly_rust::*;
 use firefly_types::Settings;
 
 pub fn update_state(state: &mut State) {
-    handle_pad(state);
-    handle_btns(state);
-}
-
-fn handle_pad(state: &mut State) {
     // Generally, you never want to use "get_me" peer
     // for anything but visual rendering. However,
     // the settings app is special. Settings must be
-    // applied only on one device.
-    let peer = get_me();
+    // applied only on one device. The state drift is intentional.
+    let peer = unsafe { Peer::from_u8(get_me().into_u8()) };
 
+    handle_pad(state, peer);
+    handle_btns(state, peer);
+}
+
+fn handle_pad(state: &mut State, peer: Peer) {
     let pad = read_pad(peer).unwrap_or_default();
     let dpad = pad.as_dpad4();
     let pressed = dpad.just_pressed(state.dpad);
@@ -74,13 +74,7 @@ fn handle_pad(state: &mut State) {
     }
 }
 
-fn handle_btns(state: &mut State) {
-    // Generally, you never want to use "get_me" peer
-    // for anything but visual rendering. However,
-    // the settings app is special. Settings must be
-    // applied only on one device.
-    let peer = get_me();
-
+fn handle_btns(state: &mut State, peer: Peer) {
     let btns = read_buttons(peer);
     let released = btns.just_released(&state.btns);
     state.btns = btns;

@@ -37,7 +37,7 @@ fn draw_title(state: &State) {
     let title = state.translate(state.page.title());
     let font = state.font.as_font();
     let mut point = Point::new(
-        (WIDTH - line_width(&font, title)) / 2,
+        (WIDTH - font.line_width_utf8(title) as i32) / 2,
         BOX_Y + font.char_height() as i32,
     );
     if state.cursor == 0 && (state.btns.s || state.btns.e) {
@@ -162,7 +162,7 @@ fn draw_misc_selections(state: &State) {
 fn draw_text_selection(state: &State, idx: i32, text: &str) {
     let font = state.font.as_font();
     let line_h = font.char_height() as i32 + LINE_M;
-    let x = WIDTH - CURSOR_X - font.line_width(text) as i32;
+    let x = WIDTH - CURSOR_X - font.line_width_utf8(text) as i32;
     let y = BOX_Y + idx * line_h - LINE_M;
     let mut point = Point::new(x, y);
     if idx - 1 == state.cursor as i32 && (state.btns.s || state.btns.e) {
@@ -213,12 +213,4 @@ fn draw_switch(state: &State, idx: i32, is_on: bool) {
     let style = Style::outlined(state.theme.primary, 1);
     let corner = Size::new(h / 2, h / 2);
     draw_rounded_rect(point, Size::new(h * 2, h), corner, style);
-}
-
-/// Calculate the width in pixels of the given text.
-///
-/// The SDK has [`Font::line_width`] out of the box
-/// but it only works with ASCII text.
-fn line_width(font: &Font, t: &str) -> i32 {
-    t.chars().count() as i32 * font.char_width() as i32
 }
