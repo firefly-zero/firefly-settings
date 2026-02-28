@@ -2,7 +2,6 @@ use crate::*;
 use firefly_rust::*;
 
 const BOX_ML: i32 = 16;
-const BOX_MR: i32 = BOX_ML;
 const BOX_MT: i32 = 16;
 const BOX_Y: i32 = BOX_MT;
 
@@ -21,7 +20,13 @@ pub fn render_state(state: &State) {
         bg: state.theme.bg,
     };
     firefly_ui::draw_bg(theme);
-    draw_cursor(state);
+    let font = state.font.as_font();
+    firefly_ui::draw_cursor(
+        u32::from(state.cursor - state.scroll),
+        theme,
+        &font,
+        &state.btns,
+    );
     draw_title(state);
     draw_title_arrows(state);
     draw_lines(state);
@@ -99,31 +104,6 @@ fn draw_lines(state: &State) {
             Style::solid(state.theme.accent),
         );
     }
-}
-
-fn draw_cursor(state: &State) {
-    let font = state.font.as_font();
-    let line_h = font.char_height() as i32 + LINE_M;
-    let y = BOX_MT + (state.cursor - state.scroll) as i32 * line_h + 1;
-    let mut point = Point::new(BOX_ML, y);
-    let bbox = Size::new(WIDTH - BOX_ML - BOX_MR, font.char_height() as i32 + LINE_M);
-    let corner = Size::new(4, 4);
-
-    if state.btns.s || state.btns.e {
-        point.x += 1;
-        point.y += 1;
-    } else {
-        let style = Style::solid(state.theme.primary);
-        let shadow_point = Point::new(point.x + 1, point.y + 1);
-        draw_rounded_rect(shadow_point, bbox, corner, style);
-    }
-
-    let style = Style {
-        fill_color: state.theme.bg,
-        stroke_color: state.theme.primary,
-        stroke_width: 1,
-    };
-    draw_rounded_rect(point, bbox, corner, style);
 }
 
 fn draw_selections(state: &State) {
