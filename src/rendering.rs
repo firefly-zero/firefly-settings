@@ -13,7 +13,14 @@ const CURSOR_X: i32 = BOX_ML + CURSOR_ML;
 const PER_PAGE: usize = 8;
 
 pub fn render_state(state: &State) {
-    draw_bg(state);
+    let theme = Theme {
+        id: 0,
+        primary: state.theme.primary,
+        secondary: state.theme.secondary,
+        accent: state.theme.accent,
+        bg: state.theme.bg,
+    };
+    firefly_ui::draw_bg(theme);
     draw_cursor(state);
     draw_title(state);
     draw_title_arrows(state);
