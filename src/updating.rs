@@ -1,25 +1,12 @@
 use crate::*;
 use firefly_rust::*;
 use firefly_types::Settings;
+use firefly_ui::Input;
 
 pub fn update_state(state: &mut State) {
-    // Generally, you never want to use "get_me" peer
-    // for anything but visual rendering. However,
-    // the settings app is special. Settings must be
-    // applied only on one device. The state drift is intentional.
-    let peer = unsafe { Peer::from_u8(get_me().into_u8()) };
-
-    handle_pad(state, peer);
-    handle_btns(state, peer);
-}
-
-fn handle_pad(state: &mut State, peer: Peer) {
-    let pad = read_pad(peer).unwrap_or_default();
-    let dpad = pad.as_dpad4();
-    let pressed = dpad.just_pressed(state.dpad);
-    state.dpad = dpad;
-    match pressed {
-        DPad4::Left => {
+    state.input.update();
+    match state.input.get() {
+        Input::Left => {
             if state.cursor == 0 {
                 state.page = state.page.prev();
             } else {
@@ -38,7 +25,7 @@ fn handle_pad(state: &mut State, peer: Peer) {
                 }
             }
         }
-        DPad4::Right => {
+        Input::Right => {
             if state.cursor == 0 {
                 state.page = state.page.next();
             } else {
@@ -49,7 +36,7 @@ fn handle_pad(state: &mut State, peer: Peer) {
                 }
             }
         }
-        DPad4::Up => {
+        Input::Up => {
             if state.cursor > 0 {
                 if state.cursor <= 7 && state.scroll != 0 {
                     state.scroll -= 1;
@@ -57,7 +44,7 @@ fn handle_pad(state: &mut State, peer: Peer) {
                 state.cursor -= 1;
             }
         }
-        DPad4::Down => {
+        Input::Down => {
             let mut n_lines = state.page.lines().len() as u8;
             // Hide Toki Pona if Easter Eggs are disabled.
             if state.hide_toki_pona() {
@@ -70,23 +57,15 @@ fn handle_pad(state: &mut State, peer: Peer) {
                 state.cursor += 1;
             }
         }
-        DPad4::None => {}
-    }
-}
-
-fn handle_btns(state: &mut State, peer: Peer) {
-    let btns = read_buttons(peer);
-    let released = btns.just_released(&state.btns);
-    state.btns = btns;
-    if released.w {
-        quit();
-    }
-    if released.s || released.e {
-        if state.cursor == 0 {
-            state.page = state.page.next();
-        } else {
-            select_option(state);
+        Input::Select => {
+            if state.cursor == 0 {
+                state.page = state.page.next();
+            } else {
+                select_option(state);
+            }
         }
+        Input::Back => quit(),
+        Input::None => {}
     }
 }
 

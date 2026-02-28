@@ -2,20 +2,19 @@ use crate::*;
 use core::cell::OnceCell;
 use firefly_rust::*;
 use firefly_types::{Encode, Settings};
-use firefly_ui::Translate;
+use firefly_ui::{InputManager, Translate};
 
 static mut STATE: OnceCell<State> = OnceCell::new();
 
 pub struct State {
     pub settings: Settings,
     pub font: FileBuf,
+    pub input: InputManager,
     pub page: Page,
     pub theme: ThemeInfo,
     pub lang: Language,
     pub scroll: u8,
     pub cursor: u8,
-    pub dpad: DPad4,
-    pub btns: Buttons,
 }
 
 impl State {
@@ -97,16 +96,22 @@ pub fn load_state() {
     };
     dump_file("launched", b"y");
 
+    // Generally, you never want to use "get_me" peer
+    // for anything but visual rendering. However,
+    // the settings app is special. Settings must be
+    // applied only on one device. The state drift is intentional.
+    let mut input = InputManager::new();
+    input.peer = unsafe { Peer::from_u8(get_me().into_u8()) };
+
     let state = State {
         settings,
         font,
         page,
         theme,
         lang,
+        input,
         scroll: 0,
         cursor: 0,
-        dpad: DPad4::default(),
-        btns: Buttons::default(),
     };
     state.apply_contrast();
     #[allow(static_mut_refs)]

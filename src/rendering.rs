@@ -25,7 +25,7 @@ pub fn render_state(state: &State) {
         u32::from(state.cursor - state.scroll),
         theme,
         &font,
-        &state.btns,
+        state.input.pressed(),
     );
     draw_title(state);
     draw_title_arrows(state);
@@ -40,7 +40,7 @@ fn draw_title(state: &State) {
         (WIDTH - font.line_width_utf8(title) as i32) / 2,
         BOX_Y + font.char_height() as i32,
     );
-    if state.cursor == 0 && (state.btns.s || state.btns.e) {
+    if state.cursor == 0 && state.input.pressed() {
         point.x += 1;
         point.y += 1;
     }
@@ -50,7 +50,7 @@ fn draw_title(state: &State) {
 fn draw_title_arrows(state: &State) {
     let style = Style::solid(state.theme.accent);
     let mut p = Point::new(CURSOR_X + 1, BOX_Y + 3);
-    if state.cursor == 0 && (state.btns.s || state.btns.e) {
+    if state.cursor == 0 && state.input.pressed() {
         p.x += 1;
         p.y += 1;
     }
@@ -87,7 +87,7 @@ fn draw_lines(state: &State) {
     let line_h = font.char_height() as i32 + LINE_M;
     for (line, i) in lines.iter().zip(2..) {
         let mut point = Point::new(CURSOR_X, BOX_Y + i * line_h - LINE_M);
-        if i - 1 == state.cursor as i32 && (state.btns.s || state.btns.e) {
+        if i - 1 == state.cursor as i32 && state.input.pressed() {
             point.x += 1;
             point.y += 1;
         }
@@ -165,7 +165,7 @@ fn draw_text_selection(state: &State, idx: i32, text: &str) {
     let x = WIDTH - CURSOR_X - font.line_width_utf8(text) as i32;
     let y = BOX_Y + idx * line_h - LINE_M;
     let mut point = Point::new(x, y);
-    if idx - 1 == state.cursor as i32 && (state.btns.s || state.btns.e) {
+    if idx - 1 == state.cursor as i32 && state.input.pressed() {
         point.x += 1;
         point.y += 1;
     }
@@ -179,7 +179,7 @@ fn draw_marker(state: &State, idx: i32) {
     let line_h = font.char_height() as i32 + LINE_M;
     let y = CURSOR_X + idx * line_h - 1;
     let mut point = Point::new(x, y);
-    if idx == state.cursor as i32 && (state.btns.s || state.btns.e) {
+    if idx == state.cursor as i32 && state.input.pressed() {
         point.x += 1;
         point.y += 1;
     }
@@ -194,7 +194,7 @@ fn draw_switch(state: &State, idx: i32, is_on: bool) {
     let line_h = font.char_height() as i32 + LINE_M;
     let y = CURSOR_X + idx * line_h - 1;
     let mut point = Point::new(x, y);
-    if idx == state.cursor as i32 && (state.btns.s || state.btns.e) {
+    if idx == state.cursor as i32 && state.input.pressed() {
         point.x += 1;
         point.y += 1;
     }
