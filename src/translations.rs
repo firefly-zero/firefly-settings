@@ -1,4 +1,4 @@
-use firefly_rust::Language;
+use firefly_ui::Translate;
 
 #[derive(Clone, Copy)]
 pub enum Message {
@@ -39,25 +39,7 @@ pub enum Message {
     ResetAll,
 }
 
-impl Message {
-    pub fn translate(&self, lang: &Language) -> &'static str {
-        match lang {
-            Language::English => self.translate_english(),
-            Language::Dutch => self.translate_dutch(),
-            Language::French => self.translate_french(),
-            Language::German => self.translate_german(),
-            Language::Italian => self.translate_italian(),
-            Language::Polish => self.translate_polish(),
-            Language::Romanian => self.translate_romanian(),
-            Language::Russian => self.translate_russian(),
-            Language::Spanish => self.translate_spanish(),
-            Language::Swedish => self.translate_swedish(),
-            Language::Turkish => self.translate_turkish(),
-            Language::Ukrainian => self.translate_ukrainian(),
-            Language::TokiPona => self.translate_toki_pona(),
-        }
-    }
-
+impl Translate<'static> for Message {
     fn translate_english(&self) -> &'static str {
         match self {
             Self::Language => "Language",

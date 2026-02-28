@@ -2,6 +2,7 @@ use crate::*;
 use core::cell::OnceCell;
 use firefly_rust::*;
 use firefly_types::{Encode, Settings};
+use firefly_ui::Translate;
 
 static mut STATE: OnceCell<State> = OnceCell::new();
 
@@ -19,7 +20,7 @@ pub struct State {
 
 impl State {
     pub fn translate(&self, m: Message) -> &'static str {
-        m.translate(&self.lang)
+        m.translate(self.lang)
     }
 
     pub fn set_theme(&mut self, idx: u8) {
