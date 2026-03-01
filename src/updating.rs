@@ -5,6 +5,14 @@ use firefly_ui::Input;
 
 pub fn update_state(state: &mut State) {
     state.input.update();
+
+    let mut n_lines = state.page.lines().len() as u8;
+    // Hide Toki Pona if Easter Eggs are disabled.
+    if state.hide_toki_pona() {
+        n_lines -= 1;
+    }
+    state.hitting_wall = state.cursor == n_lines;
+
     match state.input.get() {
         Input::Left => {
             if state.cursor == 0 {
@@ -45,11 +53,6 @@ pub fn update_state(state: &mut State) {
             }
         }
         Input::Down => {
-            let mut n_lines = state.page.lines().len() as u8;
-            // Hide Toki Pona if Easter Eggs are disabled.
-            if state.hide_toki_pona() {
-                n_lines -= 1;
-            }
             if state.cursor < n_lines {
                 if state.cursor - state.scroll > 6 {
                     state.scroll += 1;

@@ -21,11 +21,13 @@ pub fn render_state(state: &State) {
     };
     firefly_ui::draw_bg(theme);
     let font = state.font.as_font();
+    let jitter = state.input.jitter(state.hitting_wall);
     firefly_ui::draw_cursor(
         u32::from(state.cursor - state.scroll),
         theme,
         &font,
         state.input.pressed(),
+        jitter,
     );
     draw_title(state);
     draw_title_arrows(state);

@@ -15,6 +15,7 @@ pub struct State {
     pub lang: Language,
     pub scroll: u8,
     pub cursor: u8,
+    pub hitting_wall: bool,
 }
 
 impl State {
@@ -112,6 +113,7 @@ pub fn load_state() {
         input,
         scroll: 0,
         cursor: 0,
+        hitting_wall: false,
     };
     state.apply_contrast();
     #[allow(static_mut_refs)]
