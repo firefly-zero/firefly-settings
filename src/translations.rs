@@ -90,7 +90,7 @@ impl Translate<'static> for Message {
             Self::German => "Duits",
             Self::Italian => "Italiaans",
             Self::Polish => "Pools",
-            Self::Romanian => "Romanian", // TODO
+            Self::Romanian => "Roemeens",
             Self::Russian => "Russisch",
             Self::Spanish => "Spaans",
             Self::Swedish => "Zweeds",
@@ -128,7 +128,7 @@ impl Translate<'static> for Message {
             Self::German => "Allemand",
             Self::Italian => "Italien",
             Self::Polish => "Polonais",
-            Self::Romanian => "Romanian", // TODO
+            Self::Romanian => "Roumain", 
             Self::Russian => "Russe",
             Self::Spanish => "Espagnol",
             Self::Swedish => "Suédois",
@@ -165,7 +165,7 @@ impl Translate<'static> for Message {
             Self::German => "Deutsch",
             Self::Italian => "Italienisch",
             Self::Polish => "Polnisch",
-            Self::Romanian => "Romanian", // TODO
+            Self::Romanian => "Rumänisch", 
             Self::Russian => "Russisch",
             Self::Spanish => "Spanisch",
             Self::Swedish => "Schwedisch",
@@ -203,7 +203,7 @@ impl Translate<'static> for Message {
             Self::German => "Tedesco",
             Self::Italian => "Italiano",
             Self::Polish => "Polacco",
-            Self::Romanian => "Romanian", // TODO
+            Self::Romanian => "Rumeno", 
             Self::Russian => "Russo",
             Self::Spanish => "Spagnolo",
             Self::Swedish => "Svedese",
@@ -265,7 +265,7 @@ impl Translate<'static> for Message {
     }
 
     fn translate_romanian(&self) -> &'static str {
-        // TODO: Manually validate and correct the machine translation.
+
         match self {
             Self::Language => "Limbă",
             Self::DateTime => "Data și ora",
@@ -294,11 +294,11 @@ impl Translate<'static> for Message {
             Self::ReduceFlashing => "reducere intermitență",
             Self::Contrast => "contrast ridicat",
             Self::AutoLock => "blocare automată",
-            Self::EasterEggs => "ouă de Paște",
-            Self::ColorScheme => "schemă de culori",
+            Self::EasterEggs => "easter eggs",
+            Self::ColorScheme => "teme de culori",
             Self::GamepadMode => "mod gamepad",
             Self::Telemetry => "telemetrie",
-            Self::ResetAll => "resetare toate setările",
+            Self::ResetAll => "resetează toate setările",
         }
     }
 
@@ -353,7 +353,7 @@ impl Translate<'static> for Message {
             Self::German => "Alemán",
             Self::Italian => "Italiano",
             Self::Polish => "Polaco",
-            Self::Romanian => "Romanian", // TODO
+            Self::Romanian => "Rumano",
             Self::Russian => "Ruso",
             Self::Spanish => "Español",
             Self::Swedish => "Sueco",
@@ -390,7 +390,7 @@ impl Translate<'static> for Message {
             Self::German => "Tyska",
             Self::Italian => "Italienska",
             Self::Polish => "Polska",
-            Self::Romanian => "Romanian", // TODO
+            Self::Romanian => "Rumänska", 
             Self::Russian => "Ryska",
             Self::Spanish => "Spanska",
             Self::Swedish => "Svenska",
@@ -428,7 +428,7 @@ impl Translate<'static> for Message {
             Self::German => "Almanca",
             Self::Italian => "İtalyanca",
             Self::Polish => "Lehçe",
-            Self::Romanian => "Romanian", // TODO
+            Self::Romanian => "Romence", 
             Self::Russian => "Rusça",
             Self::Spanish => "İspanyolca",
             Self::Swedish => "İsveççe",
@@ -465,7 +465,7 @@ impl Translate<'static> for Message {
             Self::German => "німецький",
             Self::Italian => "італійська",
             Self::Polish => "польський",
-            Self::Romanian => "Romanian", // TODO
+            Self::Romanian => "румунська", 
             Self::Russian => "російська",
             Self::Spanish => "іспанська",
             Self::Swedish => "шведська",
