@@ -12,13 +12,7 @@ const CURSOR_X: i32 = BOX_ML + CURSOR_ML;
 const PER_PAGE: usize = 8;
 
 pub fn render_state(state: &State) {
-    let theme = Theme {
-        id: 0,
-        primary: state.theme.primary,
-        secondary: state.theme.secondary,
-        accent: state.theme.accent,
-        bg: state.theme.bg,
-    };
+    let theme = cast_theme(state.theme);
     firefly_ui::draw_bg(theme);
     let font = state.font.as_font();
     let jitter = state.input.jitter(state.hitting_wall);
@@ -36,17 +30,11 @@ pub fn render_state(state: &State) {
 }
 
 fn draw_title(state: &State) {
-    let title = state.translate(state.page.title());
+    let text = state.translate(state.page.title());
     let font = state.font.as_font();
-    let mut point = Point::new(
-        (WIDTH - font.line_width_utf8(title) as i32) / 2,
-        BOX_Y + font.char_height() as i32,
-    );
-    if state.cursor == 0 && state.input.pressed() {
-        point.x += 1;
-        point.y += 1;
-    }
-    draw_text(title, &font, point, state.theme.accent);
+    let pressed = state.cursor == 0 && state.input.pressed();
+    let color = state.theme.accent;
+    firefly_ui::draw_title(text, pressed, &font, color);
 }
 
 fn draw_title_arrows(state: &State) {
@@ -89,7 +77,7 @@ fn draw_lines(state: &State) {
     let line_h = font.char_height() as i32 + LINE_M;
     for (line, i) in lines.iter().zip(2..) {
         let mut point = Point::new(CURSOR_X, BOX_Y + i * line_h - LINE_M);
-        if i - 1 == state.cursor as i32 && state.input.pressed() {
+        if i - 1 == i32::from(state.cursor) && state.input.pressed() {
             point.x += 1;
             point.y += 1;
         }
@@ -167,7 +155,7 @@ fn draw_text_selection(state: &State, idx: i32, text: &str) {
     let x = WIDTH - CURSOR_X - font.line_width_utf8(text) as i32;
     let y = BOX_Y + idx * line_h - LINE_M;
     let mut point = Point::new(x, y);
-    if idx - 1 == state.cursor as i32 && state.input.pressed() {
+    if idx - 1 == i32::from(state.cursor) && state.input.pressed() {
         point.x += 1;
         point.y += 1;
     }
@@ -181,7 +169,7 @@ fn draw_marker(state: &State, idx: i32) {
     let line_h = font.char_height() as i32 + LINE_M;
     let y = CURSOR_X + idx * line_h - 1;
     let mut point = Point::new(x, y);
-    if idx == state.cursor as i32 && state.input.pressed() {
+    if idx == i32::from(state.cursor) && state.input.pressed() {
         point.x += 1;
         point.y += 1;
     }
@@ -191,28 +179,17 @@ fn draw_marker(state: &State, idx: i32) {
 
 fn draw_switch(state: &State, idx: i32, is_on: bool) {
     let font = state.font.as_font();
-    let h = font.char_height() as i32;
-    let x = WIDTH - CURSOR_X - h * 2;
-    let line_h = font.char_height() as i32 + LINE_M;
-    let y = CURSOR_X + idx * line_h - 1;
-    let mut point = Point::new(x, y);
-    if idx == state.cursor as i32 && state.input.pressed() {
-        point.x += 1;
-        point.y += 1;
-    }
+    let pressed = idx == i32::from(state.cursor) && state.input.pressed();
+    let theme = cast_theme(state.theme);
+    firefly_ui::draw_switch(idx, is_on, pressed, &font, theme);
+}
 
-    {
-        let mut switch_point = point;
-        let mut color = state.theme.secondary;
-        if is_on {
-            switch_point.x += h;
-            color = state.theme.accent;
-        }
-        let style = Style::solid(color);
-        draw_circle(switch_point, h, style);
+fn cast_theme(theme: ThemeInfo) -> Theme {
+    Theme {
+        id: 0,
+        primary: theme.primary,
+        secondary: theme.secondary,
+        accent: theme.accent,
+        bg: theme.bg,
     }
-
-    let style = Style::outlined(state.theme.primary, 1);
-    let corner = Size::new(h / 2, h / 2);
-    draw_rounded_rect(point, Size::new(h * 2, h), corner, style);
 }
