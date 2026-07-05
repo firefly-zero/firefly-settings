@@ -7,6 +7,7 @@ pub enum Message {
     DateTime,
     Interface,
     Misc,
+    SystemInfo,
 
     // Languages
     English,
@@ -37,6 +38,12 @@ pub enum Message {
     GamepadMode,
     Telemetry,
     ResetAll,
+
+    // System info
+    Name,
+    SerialNumber,
+    OS,
+    Drivers,
 }
 
 impl Translate<'static> for Message {
@@ -46,6 +53,7 @@ impl Translate<'static> for Message {
             Self::DateTime => "Date and time",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
+            Self::SystemInfo => "System info",
 
             Self::English => "English",
             Self::Dutch => "Dutch",
@@ -74,6 +82,11 @@ impl Translate<'static> for Message {
             Self::GamepadMode => "gamepad mode",
             Self::Telemetry => "telemetry",
             Self::ResetAll => "reset all settings",
+
+            Self::Name => "name",
+            Self::SerialNumber => "serial number",
+            Self::OS => "OS",
+            Self::Drivers => "drivers",
         }
     }
 
@@ -83,6 +96,7 @@ impl Translate<'static> for Message {
             Self::DateTime => "Datum en tijd",
             Self::Interface => "Interface",
             Self::Misc => "Diversen",
+            Self::SystemInfo => "System info",
 
             Self::English => "Engels",
             Self::Dutch => "Nederlands",
@@ -111,6 +125,11 @@ impl Translate<'static> for Message {
             Self::GamepadMode => "gamepadmodus",
             Self::Telemetry => "telemetrie",
             Self::ResetAll => "alle instellingen resetten",
+
+            Self::Name => "name",
+            Self::SerialNumber => "serial number",
+            Self::OS => "OS",
+            Self::Drivers => "drivers",
         }
     }
 
@@ -121,6 +140,7 @@ impl Translate<'static> for Message {
             Self::DateTime => "Date et heure",
             Self::Interface => "Interface",
             Self::Misc => "Divers",
+            Self::SystemInfo => "System info",
 
             Self::English => "Anglais",
             Self::Dutch => "Néerlandais",
@@ -128,7 +148,7 @@ impl Translate<'static> for Message {
             Self::German => "Allemand",
             Self::Italian => "Italien",
             Self::Polish => "Polonais",
-            Self::Romanian => "Roumain", 
+            Self::Romanian => "Roumain",
             Self::Russian => "Russe",
             Self::Spanish => "Espagnol",
             Self::Swedish => "Suédois",
@@ -149,6 +169,11 @@ impl Translate<'static> for Message {
             Self::GamepadMode => "mode manette",
             Self::Telemetry => "télémétrie",
             Self::ResetAll => "réinitialiser tous les paramètres",
+
+            Self::Name => "name",
+            Self::SerialNumber => "serial number",
+            Self::OS => "OS",
+            Self::Drivers => "drivers",
         }
     }
 
@@ -158,6 +183,7 @@ impl Translate<'static> for Message {
             Self::DateTime => "Datum und Uhrzeit",
             Self::Interface => "Schnittstelle",
             Self::Misc => "Verschiedenes",
+            Self::SystemInfo => "System info",
 
             Self::English => "Englisch",
             Self::Dutch => "Niederländisch",
@@ -165,7 +191,7 @@ impl Translate<'static> for Message {
             Self::German => "Deutsch",
             Self::Italian => "Italienisch",
             Self::Polish => "Polnisch",
-            Self::Romanian => "Rumänisch", 
+            Self::Romanian => "Rumänisch",
             Self::Russian => "Russisch",
             Self::Spanish => "Spanisch",
             Self::Swedish => "Schwedisch",
@@ -186,6 +212,11 @@ impl Translate<'static> for Message {
             Self::GamepadMode => "Gamepadmodus",
             Self::Telemetry => "Telemetrie",
             Self::ResetAll => "Alle Einstellungen zurücksetzen",
+
+            Self::Name => "name",
+            Self::SerialNumber => "serial number",
+            Self::OS => "OS",
+            Self::Drivers => "drivers",
         }
     }
 
@@ -196,6 +227,7 @@ impl Translate<'static> for Message {
             Self::DateTime => "Data e ora",
             Self::Interface => "Interfaccia",
             Self::Misc => "Varie",
+            Self::SystemInfo => "System info",
 
             Self::English => "Inglese",
             Self::Dutch => "Olandese",
@@ -203,7 +235,7 @@ impl Translate<'static> for Message {
             Self::German => "Tedesco",
             Self::Italian => "Italiano",
             Self::Polish => "Polacco",
-            Self::Romanian => "Rumeno", 
+            Self::Romanian => "Rumeno",
             Self::Russian => "Russo",
             Self::Spanish => "Spagnolo",
             Self::Swedish => "Svedese",
@@ -224,6 +256,11 @@ impl Translate<'static> for Message {
             Self::GamepadMode => "modalità gamepad",
             Self::Telemetry => "telemetria",
             Self::ResetAll => "ripristina tutte le impostazioni",
+
+            Self::Name => "name",
+            Self::SerialNumber => "serial number",
+            Self::OS => "OS",
+            Self::Drivers => "drivers",
         }
     }
 
@@ -233,6 +270,7 @@ impl Translate<'static> for Message {
             Self::DateTime => "Data i czas",
             Self::Interface => "Interfejs",
             Self::Misc => "Pozostałe",
+            Self::SystemInfo => "System info",
 
             Self::English => "angielski",
             Self::Dutch => "holenderski",
@@ -261,16 +299,21 @@ impl Translate<'static> for Message {
             Self::GamepadMode => "tryb gamepada",
             Self::Telemetry => "telemetria",
             Self::ResetAll => "zresetuj ustawienia",
+
+            Self::Name => "name",
+            Self::SerialNumber => "serial number",
+            Self::OS => "OS",
+            Self::Drivers => "drivers",
         }
     }
 
     fn translate_romanian(&self) -> &'static str {
-
         match self {
             Self::Language => "Limbă",
             Self::DateTime => "Data și ora",
             Self::Interface => "Interfață",
             Self::Misc => "Diverse",
+            Self::SystemInfo => "System info",
 
             Self::English => "Engleză",
             Self::Dutch => "Olandeză",
@@ -299,6 +342,11 @@ impl Translate<'static> for Message {
             Self::GamepadMode => "mod gamepad",
             Self::Telemetry => "telemetrie",
             Self::ResetAll => "resetează toate setările",
+
+            Self::Name => "name",
+            Self::SerialNumber => "serial number",
+            Self::OS => "OS",
+            Self::Drivers => "drivers",
         }
     }
 
@@ -308,6 +356,7 @@ impl Translate<'static> for Message {
             Self::DateTime => "Дата и время",
             Self::Interface => "Интерфейс",
             Self::Misc => "Разное",
+            Self::SystemInfo => "System info",
 
             Self::English => "английский",
             Self::Dutch => "голландский",
@@ -336,6 +385,11 @@ impl Translate<'static> for Message {
             Self::GamepadMode => "режим джойстика",
             Self::Telemetry => "телеметрия",
             Self::ResetAll => "сбросить все настройки",
+
+            Self::Name => "name",
+            Self::SerialNumber => "serial number",
+            Self::OS => "OS",
+            Self::Drivers => "drivers",
         }
     }
 
@@ -346,6 +400,7 @@ impl Translate<'static> for Message {
             Self::DateTime => "Fecha y hora",
             Self::Interface => "Interfaz",
             Self::Misc => "Varios",
+            Self::SystemInfo => "System info",
 
             Self::English => "Inglés",
             Self::Dutch => "Holandés",
@@ -374,6 +429,11 @@ impl Translate<'static> for Message {
             Self::GamepadMode => "modo gamepad",
             Self::Telemetry => "telemetría",
             Self::ResetAll => "restablecer todos los ajustes",
+
+            Self::Name => "name",
+            Self::SerialNumber => "serial number",
+            Self::OS => "OS",
+            Self::Drivers => "drivers",
         }
     }
 
@@ -383,6 +443,7 @@ impl Translate<'static> for Message {
             Self::DateTime => "Datum och tid",
             Self::Interface => "Gränssnitt",
             Self::Misc => "Övrigt",
+            Self::SystemInfo => "System info",
 
             Self::English => "Engelska",
             Self::Dutch => "Holländska",
@@ -390,7 +451,7 @@ impl Translate<'static> for Message {
             Self::German => "Tyska",
             Self::Italian => "Italienska",
             Self::Polish => "Polska",
-            Self::Romanian => "Rumänska", 
+            Self::Romanian => "Rumänska",
             Self::Russian => "Ryska",
             Self::Spanish => "Spanska",
             Self::Swedish => "Svenska",
@@ -411,6 +472,11 @@ impl Translate<'static> for Message {
             Self::GamepadMode => "handkontrollsläge",
             Self::Telemetry => "telemetri",
             Self::ResetAll => "återställ alla inställningar",
+
+            Self::Name => "name",
+            Self::SerialNumber => "serial number",
+            Self::OS => "OS",
+            Self::Drivers => "drivers",
         }
     }
 
@@ -421,6 +487,7 @@ impl Translate<'static> for Message {
             Self::DateTime => "Tarih ve saat",
             Self::Interface => "Arayüz",
             Self::Misc => "Diğer",
+            Self::SystemInfo => "System info",
 
             Self::English => "İngilizce",
             Self::Dutch => "Hollandaca",
@@ -428,7 +495,7 @@ impl Translate<'static> for Message {
             Self::German => "Almanca",
             Self::Italian => "İtalyanca",
             Self::Polish => "Lehçe",
-            Self::Romanian => "Romence", 
+            Self::Romanian => "Romence",
             Self::Russian => "Rusça",
             Self::Spanish => "İspanyolca",
             Self::Swedish => "İsveççe",
@@ -449,6 +516,11 @@ impl Translate<'static> for Message {
             Self::GamepadMode => "oyun kumandası modu",
             Self::Telemetry => "telemetri",
             Self::ResetAll => "tüm ayarları sıfırla",
+
+            Self::Name => "name",
+            Self::SerialNumber => "serial number",
+            Self::OS => "OS",
+            Self::Drivers => "drivers",
         }
     }
 
@@ -458,6 +530,7 @@ impl Translate<'static> for Message {
             Self::DateTime => "Дата та час",
             Self::Interface => "Інтерфейс",
             Self::Misc => "Різне",
+            Self::SystemInfo => "System info",
 
             Self::English => "англійська",
             Self::Dutch => "голландська",
@@ -465,7 +538,7 @@ impl Translate<'static> for Message {
             Self::German => "німецький",
             Self::Italian => "італійська",
             Self::Polish => "польський",
-            Self::Romanian => "румунська", 
+            Self::Romanian => "румунська",
             Self::Russian => "російська",
             Self::Spanish => "іспанська",
             Self::Swedish => "шведська",
@@ -486,6 +559,11 @@ impl Translate<'static> for Message {
             Self::GamepadMode => "режим геймпада",
             Self::Telemetry => "телеметраці",
             Self::ResetAll => "скинути всі налаштування",
+
+            Self::Name => "name",
+            Self::SerialNumber => "serial number",
+            Self::OS => "OS",
+            Self::Drivers => "drivers",
         }
     }
 
@@ -495,6 +573,7 @@ impl Translate<'static> for Message {
             Self::DateTime => "tenpo",
             Self::Interface => "namako",
             Self::Misc => "ante",
+            Self::SystemInfo => "System info",
 
             Self::English => "toki Inli",
             Self::Dutch => "toki Netelan",
@@ -523,6 +602,11 @@ impl Translate<'static> for Message {
             Self::GamepadMode => "ilo musi",
             Self::Telemetry => "owe",
             Self::ResetAll => "ale li sin",
+
+            Self::Name => "name",
+            Self::SerialNumber => "serial number",
+            Self::OS => "OS",
+            Self::Drivers => "drivers",
         }
     }
 }

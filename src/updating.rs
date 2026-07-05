@@ -11,6 +11,9 @@ pub fn update_state(state: &mut State) {
     if state.hide_toki_pona() {
         n_lines -= 1;
     }
+    if state.page == Page::SystemInfo {
+        n_lines = 0;
+    }
     state.hitting_wall = state.cursor == n_lines;
 
     match state.input.get() {
@@ -139,5 +142,6 @@ fn select_option(state: &mut State) {
             }
             _ => {}
         },
+        Page::SystemInfo => {}
     }
 }

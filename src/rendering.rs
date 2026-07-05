@@ -102,6 +102,7 @@ fn draw_selections(state: &State) {
         Page::DateTime => draw_datetime_selections(state),
         Page::Interface => draw_interface_selections(state),
         Page::Misc => draw_misc_selections(state),
+        Page::SystemInfo => {}
     }
 }
 

@@ -6,6 +6,7 @@ pub enum Page {
     DateTime,
     Interface,
     Misc,
+    SystemInfo,
 }
 
 impl Page {
@@ -15,6 +16,7 @@ impl Page {
             Page::DateTime => Message::DateTime,
             Page::Interface => Message::Interface,
             Page::Misc => Message::Misc,
+            Page::SystemInfo => Message::SystemInfo,
         }
     }
 
@@ -58,6 +60,12 @@ impl Page {
                 Message::EasterEggs,
                 Message::ResetAll,
             ],
+            Page::SystemInfo => &[
+                Message::Name,
+                Message::SerialNumber,
+                Message::OS,
+                Message::Drivers,
+            ],
         }
     }
 
@@ -67,17 +75,19 @@ impl Page {
             Language => DateTime,
             DateTime => Interface,
             Interface => Misc,
-            Misc => Language,
+            Misc => SystemInfo,
+            SystemInfo => Language,
         }
     }
 
     pub fn prev(&self) -> Self {
         use Page::*;
         match self {
-            Language => Misc,
+            Language => SystemInfo,
             DateTime => Language,
             Interface => DateTime,
             Misc => Interface,
+            SystemInfo => Misc,
         }
     }
 }
