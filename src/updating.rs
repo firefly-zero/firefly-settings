@@ -102,7 +102,6 @@ fn select_option(state: &mut State) {
             }
             state.lang = lang;
         }
-        Page::DateTime => {}
         Page::Interface => match state.cursor {
             1 => {
                 let new_theme = (s.theme as u8 + 1) % THEMES.len() as u8;

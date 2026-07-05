@@ -3,7 +3,6 @@ use crate::*;
 #[derive(PartialEq)]
 pub enum Page {
     Language,
-    DateTime,
     Interface,
     Misc,
     SystemInfo,
@@ -13,7 +12,6 @@ impl Page {
     pub fn title(&self) -> Message {
         match self {
             Page::Language => Message::Language,
-            Page::DateTime => Message::DateTime,
             Page::Interface => Message::Interface,
             Page::Misc => Message::Misc,
             Page::SystemInfo => Message::SystemInfo,
@@ -39,12 +37,6 @@ impl Page {
                 // It is a conlang without native speakers
                 // and it is hidden behind the Easter Eggs feature flag.
                 Message::TokiPona,
-            ],
-            Page::DateTime => &[
-                //
-                Message::Date,
-                Message::Time,
-                Message::Timezone,
             ],
             Page::Interface => &[
                 Message::ColorScheme,
@@ -72,8 +64,7 @@ impl Page {
     pub fn next(&self) -> Self {
         use Page::*;
         match self {
-            Language => DateTime,
-            DateTime => Interface,
+            Language => Interface,
             Interface => Misc,
             Misc => SystemInfo,
             SystemInfo => Language,
@@ -84,8 +75,7 @@ impl Page {
         use Page::*;
         match self {
             Language => SystemInfo,
-            DateTime => Language,
-            Interface => DateTime,
+            Interface => Language,
             Misc => Interface,
             SystemInfo => Misc,
         }

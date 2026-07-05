@@ -4,7 +4,6 @@ use firefly_ui::Translate;
 pub enum Message {
     // Pages
     Language,
-    DateTime,
     Interface,
     Misc,
     SystemInfo,
@@ -25,9 +24,6 @@ pub enum Message {
     TokiPona,
 
     // Misc
-    Date,
-    Time,
-    Timezone,
     RotateScreen,
     ScreenBrightness,
     ReduceFlashing,
@@ -50,7 +46,6 @@ impl Translate<'static> for Message {
     fn translate_english(&self) -> &'static str {
         match self {
             Self::Language => "Language",
-            Self::DateTime => "Date and time",
             Self::Interface => "Interface",
             Self::Misc => "Misc",
             Self::SystemInfo => "System info",
@@ -69,9 +64,6 @@ impl Translate<'static> for Message {
             Self::Ukrainian => "Ukrainian",
             Self::TokiPona => "Toki Pona",
 
-            Self::Date => "date",
-            Self::Time => "time",
-            Self::Timezone => "timezone",
             Self::RotateScreen => "rotate screen",
             Self::ScreenBrightness => "screen brightness",
             Self::ReduceFlashing => "reduce flashing",
@@ -93,7 +85,6 @@ impl Translate<'static> for Message {
     fn translate_dutch(&self) -> &'static str {
         match self {
             Self::Language => "Taal",
-            Self::DateTime => "Datum en tijd",
             Self::Interface => "Interface",
             Self::Misc => "Diversen",
             Self::SystemInfo => "System info",
@@ -112,9 +103,6 @@ impl Translate<'static> for Message {
             Self::Ukrainian => "Oekraiens",
             Self::TokiPona => "Toki Pona",
 
-            Self::Date => "datum",
-            Self::Time => "tijd",
-            Self::Timezone => "tijdzone",
             Self::RotateScreen => "scherm draaien",
             Self::ScreenBrightness => "schermhelderheid",
             Self::ReduceFlashing => "knipperen verminderen",
@@ -137,7 +125,6 @@ impl Translate<'static> for Message {
         // TODO: Manually validate and correct the machine translation.
         match self {
             Self::Language => "Langue",
-            Self::DateTime => "Date et heure",
             Self::Interface => "Interface",
             Self::Misc => "Divers",
             Self::SystemInfo => "System info",
@@ -156,9 +143,6 @@ impl Translate<'static> for Message {
             Self::Ukrainian => "Ukrainien",
             Self::TokiPona => "Toki Pona",
 
-            Self::Date => "date",
-            Self::Time => "heure",
-            Self::Timezone => "fuseau horaire",
             Self::RotateScreen => "rotation de l'écran",
             Self::ScreenBrightness => "luminosité de l'écran",
             Self::ReduceFlashing => "réduire le clignotement",
@@ -180,7 +164,6 @@ impl Translate<'static> for Message {
     fn translate_german(&self) -> &'static str {
         match self {
             Self::Language => "Sprache",
-            Self::DateTime => "Datum und Uhrzeit",
             Self::Interface => "Schnittstelle",
             Self::Misc => "Verschiedenes",
             Self::SystemInfo => "System info",
@@ -199,9 +182,6 @@ impl Translate<'static> for Message {
             Self::Ukrainian => "Ukrainisch",
             Self::TokiPona => "Toki Pona",
 
-            Self::Date => "Datum",
-            Self::Time => "Uhrzeit",
-            Self::Timezone => "Zeitzone",
             Self::RotateScreen => "Bildschirm drehen",
             Self::ScreenBrightness => "Bildschirmhelligkeit",
             Self::ReduceFlashing => "Blitzlichter vermeiden",
@@ -224,7 +204,6 @@ impl Translate<'static> for Message {
         // TODO: Manually validate and correct the machine translation.
         match self {
             Self::Language => "Lingua",
-            Self::DateTime => "Data e ora",
             Self::Interface => "Interfaccia",
             Self::Misc => "Varie",
             Self::SystemInfo => "System info",
@@ -243,9 +222,6 @@ impl Translate<'static> for Message {
             Self::Ukrainian => "Ucraino",
             Self::TokiPona => "Toki Pona",
 
-            Self::Date => "data",
-            Self::Time => "ora",
-            Self::Timezone => "fuso orario",
             Self::RotateScreen => "ruota schermo",
             Self::ScreenBrightness => "luminosità schermo",
             Self::ReduceFlashing => "riduci lampeggiamento",
@@ -267,7 +243,6 @@ impl Translate<'static> for Message {
     fn translate_polish(&self) -> &'static str {
         match self {
             Self::Language => "Język",
-            Self::DateTime => "Data i czas",
             Self::Interface => "Interfejs",
             Self::Misc => "Pozostałe",
             Self::SystemInfo => "System info",
@@ -286,9 +261,6 @@ impl Translate<'static> for Message {
             Self::Ukrainian => "ukraiński",
             Self::TokiPona => "toki pona",
 
-            Self::Date => "data",
-            Self::Time => "czas",
-            Self::Timezone => "strefa czasowa",
             Self::RotateScreen => "obróć ekran",
             Self::ScreenBrightness => "jasność ekranu",
             Self::ReduceFlashing => "unikaj migotania ekranu",
@@ -310,7 +282,6 @@ impl Translate<'static> for Message {
     fn translate_romanian(&self) -> &'static str {
         match self {
             Self::Language => "Limbă",
-            Self::DateTime => "Data și ora",
             Self::Interface => "Interfață",
             Self::Misc => "Diverse",
             Self::SystemInfo => "System info",
@@ -329,9 +300,6 @@ impl Translate<'static> for Message {
             Self::Ukrainian => "Ucraineană",
             Self::TokiPona => "Toki Pona",
 
-            Self::Date => "dată",
-            Self::Time => "oră",
-            Self::Timezone => "fus orar",
             Self::RotateScreen => "rotire ecran",
             Self::ScreenBrightness => "luminozitate ecran",
             Self::ReduceFlashing => "reducere intermitență",
@@ -353,7 +321,6 @@ impl Translate<'static> for Message {
     fn translate_russian(&self) -> &'static str {
         match self {
             Self::Language => "Язык",
-            Self::DateTime => "Дата и время",
             Self::Interface => "Интерфейс",
             Self::Misc => "Разное",
             Self::SystemInfo => "System info",
@@ -372,9 +339,6 @@ impl Translate<'static> for Message {
             Self::Ukrainian => "украинский",
             Self::TokiPona => "токи пона",
 
-            Self::Date => "дата",
-            Self::Time => "время",
-            Self::Timezone => "часовой пояс",
             Self::RotateScreen => "перевернуть изображение",
             Self::ScreenBrightness => "яркость экрана",
             Self::ReduceFlashing => "уменьшить мигание",
@@ -397,7 +361,6 @@ impl Translate<'static> for Message {
         // TODO: Manually validate and correct the machine translation.
         match self {
             Self::Language => "Idioma",
-            Self::DateTime => "Fecha y hora",
             Self::Interface => "Interfaz",
             Self::Misc => "Varios",
             Self::SystemInfo => "System info",
@@ -416,9 +379,6 @@ impl Translate<'static> for Message {
             Self::Ukrainian => "Ucraniano",
             Self::TokiPona => "Toki Pona",
 
-            Self::Date => "fecha",
-            Self::Time => "hora",
-            Self::Timezone => "zona horaria",
             Self::RotateScreen => "girar pantalla",
             Self::ScreenBrightness => "brillo de pantalla",
             Self::ReduceFlashing => "reducir parpadeo",
@@ -440,7 +400,6 @@ impl Translate<'static> for Message {
     fn translate_swedish(&self) -> &'static str {
         match self {
             Self::Language => "Språk",
-            Self::DateTime => "Datum och tid",
             Self::Interface => "Gränssnitt",
             Self::Misc => "Övrigt",
             Self::SystemInfo => "System info",
@@ -459,9 +418,6 @@ impl Translate<'static> for Message {
             Self::Ukrainian => "Ukrainska",
             Self::TokiPona => "Toki pona",
 
-            Self::Date => "datum",
-            Self::Time => "tid",
-            Self::Timezone => "timezon",
             Self::RotateScreen => "rotera skärmen",
             Self::ScreenBrightness => "skärmljusstyrka",
             Self::ReduceFlashing => "reducera skärmflimmer",
@@ -484,7 +440,6 @@ impl Translate<'static> for Message {
         // TODO: Manually validate and correct the machine translation.
         match self {
             Self::Language => "Dil",
-            Self::DateTime => "Tarih ve saat",
             Self::Interface => "Arayüz",
             Self::Misc => "Diğer",
             Self::SystemInfo => "System info",
@@ -503,9 +458,6 @@ impl Translate<'static> for Message {
             Self::Ukrainian => "Ukraynaca",
             Self::TokiPona => "Toki Pona",
 
-            Self::Date => "tarih",
-            Self::Time => "saat",
-            Self::Timezone => "saat dilimi",
             Self::RotateScreen => "ekranı döndür",
             Self::ScreenBrightness => "ekran parlaklığı",
             Self::ReduceFlashing => "yanıp sönmeyi azalt",
@@ -527,7 +479,6 @@ impl Translate<'static> for Message {
     fn translate_ukrainian(&self) -> &'static str {
         match self {
             Self::Language => "Мова",
-            Self::DateTime => "Дата та час",
             Self::Interface => "Інтерфейс",
             Self::Misc => "Різне",
             Self::SystemInfo => "System info",
@@ -546,9 +497,6 @@ impl Translate<'static> for Message {
             Self::Ukrainian => "українська",
             Self::TokiPona => "токі пона",
 
-            Self::Date => "дата",
-            Self::Time => "час",
-            Self::Timezone => "часовий пояс",
             Self::RotateScreen => "поворот екрана",
             Self::ScreenBrightness => "яскравість екрана",
             Self::ReduceFlashing => "зменшення миготіння",
@@ -570,7 +518,6 @@ impl Translate<'static> for Message {
     fn translate_toki_pona(&self) -> &'static str {
         match self {
             Self::Language => "toki",
-            Self::DateTime => "tenpo",
             Self::Interface => "namako",
             Self::Misc => "ante",
             Self::SystemInfo => "System info",
@@ -589,9 +536,6 @@ impl Translate<'static> for Message {
             Self::Ukrainian => "toki Ukrajini",
             Self::TokiPona => "toki Pona",
 
-            Self::Date => "tenpo suli",
-            Self::Time => "tenpo lili",
-            Self::Timezone => "tenpo ma",
             Self::RotateScreen => "supa nasa",
             Self::ScreenBrightness => "supa suno",
             Self::ReduceFlashing => "suno lili",

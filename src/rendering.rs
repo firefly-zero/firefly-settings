@@ -99,7 +99,6 @@ fn draw_lines(state: &State) {
 fn draw_selections(state: &State) {
     match state.page {
         Page::Language => draw_lang_selection(state),
-        Page::DateTime => draw_datetime_selections(state),
         Page::Interface => draw_interface_selections(state),
         Page::Misc => draw_misc_selections(state),
         Page::SystemInfo => draw_system_info_selections(state),
@@ -128,12 +127,6 @@ fn draw_lang_selection(state: &State) {
         return;
     }
     draw_marker(state, idx);
-}
-
-fn draw_datetime_selections(state: &State) {
-    draw_text_selection(state, 2, "??:??:??");
-    draw_text_selection(state, 3, "2026-??-??");
-    draw_text_selection(state, 4, &state.settings.timezone);
 }
 
 fn draw_interface_selections(state: &State) {
