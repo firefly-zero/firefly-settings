@@ -1,13 +1,14 @@
 use crate::*;
 use core::cell::OnceCell;
 use firefly_rust::*;
-use firefly_types::{Encode, Settings};
+use firefly_types::{DeviceInfo, Encode, Settings};
 use firefly_ui::{InputManager, Translate};
 
 static mut STATE: OnceCell<State> = OnceCell::new();
 
 pub struct State {
     pub settings: Settings,
+    pub device: Option<DeviceInfo>,
     pub font: FileBuf,
     pub input: InputManager,
     pub page: Page,
@@ -81,6 +82,12 @@ pub fn load_state() {
     let encoding = lang.encoding();
     let font = load_file_buf(encoding).unwrap();
 
+    let device = if let Some(raw) = sudo::load_file_buf("sys/device") {
+        DeviceInfo::decode(raw.as_bytes()).ok()
+    } else {
+        None
+    };
+
     // On the first launch, show the "Language" page,
     // so that if the user has a wrong language selected by default
     // and stumbles around trying to fin the language selector,
@@ -106,6 +113,7 @@ pub fn load_state() {
 
     let state = State {
         settings,
+        device,
         font,
         page,
         theme,
