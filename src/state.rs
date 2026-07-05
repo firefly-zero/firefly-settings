@@ -1,6 +1,7 @@
 use crate::*;
 use core::cell::OnceCell;
 use firefly_rust::*;
+use firefly_sudo::sudo;
 use firefly_types::{DeviceInfo, Encode, Settings};
 use firefly_ui::{InputManager, Translate};
 
@@ -9,7 +10,7 @@ static mut STATE: OnceCell<State> = OnceCell::new();
 pub struct State {
     pub settings: Settings,
     pub device: Option<DeviceInfo>,
-    pub font: FileBuf,
+    pub font: FontBuf,
     pub input: InputManager,
     pub page: Page,
     pub theme: ThemeInfo,
@@ -43,7 +44,7 @@ impl State {
     pub fn refresh(&mut self) {
         self.theme = THEMES[self.settings.theme as u8 as usize];
         self.lang = Language::from_code(self.settings.lang).unwrap_or_default();
-        self.font = load_file_buf(self.lang.encoding()).unwrap();
+        self.font = load_file_buf(self.lang.encoding()).unwrap().into_font();
         self.apply_contrast();
     }
 
@@ -76,14 +77,14 @@ pub fn get_state() -> &'static mut State {
 
 pub fn load_state() {
     let raw_settings = sudo::load_file_buf("sys/config").unwrap();
-    let settings = Settings::decode(raw_settings.as_bytes()).unwrap();
+    let settings = Settings::decode(&raw_settings.into_bytes()).unwrap();
     let theme = THEMES[settings.theme as u8 as usize];
     let lang = Language::from_code(settings.lang).unwrap_or_default();
     let encoding = lang.encoding();
-    let font = load_file_buf(encoding).unwrap();
+    let font = load_file_buf(encoding).unwrap().into_font();
 
     let device = if let Some(raw) = sudo::load_file_buf("sys/device") {
-        DeviceInfo::decode(raw.as_bytes()).ok()
+        DeviceInfo::decode(&raw.into_bytes()).ok()
     } else {
         None
     };

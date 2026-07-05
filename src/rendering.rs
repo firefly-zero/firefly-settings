@@ -14,12 +14,12 @@ const PER_PAGE: usize = 8;
 pub fn render_state(state: &State) {
     let theme = cast_theme(state.theme);
     firefly_ui::draw_bg(theme);
-    let font = state.font.as_font();
+    let font = &state.font;
     let jitter = state.input.jitter(state.hitting_wall);
     firefly_ui::draw_cursor(
         u32::from(state.cursor - state.scroll),
         theme,
-        &font,
+        font,
         state.input.pressed(),
         jitter,
     );
@@ -31,10 +31,10 @@ pub fn render_state(state: &State) {
 
 fn draw_title(state: &State) {
     let text = state.translate(state.page.title());
-    let font = state.font.as_font();
+    let font = &state.font;
     let pressed = state.cursor == 0 && state.input.pressed();
     let color = state.theme.accent;
-    firefly_ui::draw_title(text, pressed, &font, color);
+    firefly_ui::draw_title(text, pressed, font, color);
 }
 
 fn draw_title_arrows(state: &State) {
@@ -73,7 +73,7 @@ fn draw_lines(state: &State) {
         lines = &lines[..PER_PAGE];
     }
 
-    let font = state.font.as_font();
+    let font = &state.font;
     let line_h = font.char_height() as i32 + LINE_M;
     for (line, i) in lines.iter().zip(2..) {
         let mut point = Point::new(CURSOR_X, BOX_Y + i * line_h - LINE_M);
@@ -82,7 +82,7 @@ fn draw_lines(state: &State) {
             point.y += 1;
         }
         let line = state.translate(*line);
-        draw_text(line, &font, point, state.theme.primary);
+        draw_text(line, font, point, state.theme.primary);
     }
 
     if has_more {
@@ -179,7 +179,7 @@ fn draw_system_info_selections(state: &State) {
 }
 
 fn draw_text_selection(state: &State, idx: i32, text: &str) {
-    let font = state.font.as_font();
+    let font = &state.font;
     let line_h = font.char_height() as i32 + LINE_M;
     let x = WIDTH - CURSOR_X - font.line_width_utf8(text) as i32;
     let y = BOX_Y + idx * line_h - LINE_M;
@@ -188,11 +188,11 @@ fn draw_text_selection(state: &State, idx: i32, text: &str) {
         point.x += 1;
         point.y += 1;
     }
-    draw_text(text, &font, point, state.theme.accent);
+    draw_text(text, font, point, state.theme.accent);
 }
 
 fn draw_marker(state: &State, idx: i32) {
-    let font = state.font.as_font();
+    let font = &state.font;
     let h = font.char_height() as i32;
     let x = WIDTH - CURSOR_X - h;
     let line_h = font.char_height() as i32 + LINE_M;
@@ -207,10 +207,10 @@ fn draw_marker(state: &State, idx: i32) {
 }
 
 fn draw_switch(state: &State, idx: i32, is_on: bool) {
-    let font = state.font.as_font();
+    let font = &state.font;
     let pressed = idx == i32::from(state.cursor) && state.input.pressed();
     let theme = cast_theme(state.theme);
-    firefly_ui::draw_switch(idx, is_on, pressed, &font, theme);
+    firefly_ui::draw_switch(idx, is_on, pressed, font, theme);
 }
 
 fn cast_theme(theme: ThemeInfo) -> Theme {

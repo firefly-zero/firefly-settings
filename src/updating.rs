@@ -98,7 +98,7 @@ fn select_option(state: &mut State) {
             s.lang = lang.code_array();
             let encoding = lang.encoding();
             if encoding != state.lang.encoding() {
-                state.font = load_file_buf(encoding).unwrap();
+                state.font = load_file_buf(encoding).unwrap().into_font();
             }
             state.lang = lang;
         }
