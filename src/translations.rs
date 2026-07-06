@@ -56,7 +56,7 @@ impl Translate<'static> for Message {
             Self::German => "German",
             Self::Italian => "Italian",
             Self::Polish => "Polish",
-            Self::Romanian => "Romanian", // TODO
+            Self::Romanian => "Romanian",
             Self::Russian => "Russian",
             Self::Spanish => "Spanish",
             Self::Swedish => "Swedish",
@@ -87,7 +87,7 @@ impl Translate<'static> for Message {
             Self::Language => "Taal",
             Self::Interface => "Interface",
             Self::Misc => "Diversen",
-            Self::SystemInfo => "System info",
+            Self::SystemInfo => "System info", // TODO
 
             Self::English => "Engels",
             Self::Dutch => "Nederlands",
@@ -114,10 +114,10 @@ impl Translate<'static> for Message {
             Self::Telemetry => "telemetrie",
             Self::ResetAll => "alle instellingen resetten",
 
-            Self::Name => "name",
-            Self::SerialNumber => "serial number",
-            Self::OS => "OS",
-            Self::Drivers => "drivers",
+            Self::Name => "name",                  // TODO
+            Self::SerialNumber => "serial number", // TODO
+            Self::OS => "OS",                      // TODO
+            Self::Drivers => "drivers",            // TODO
         }
     }
 
@@ -127,7 +127,7 @@ impl Translate<'static> for Message {
             Self::Language => "Langue",
             Self::Interface => "Interface",
             Self::Misc => "Divers",
-            Self::SystemInfo => "System info",
+            Self::SystemInfo => "System info", // TODO
 
             Self::English => "Anglais",
             Self::Dutch => "Néerlandais",
@@ -154,10 +154,10 @@ impl Translate<'static> for Message {
             Self::Telemetry => "télémétrie",
             Self::ResetAll => "réinitialiser tous les paramètres",
 
-            Self::Name => "name",
-            Self::SerialNumber => "serial number",
-            Self::OS => "OS",
-            Self::Drivers => "drivers",
+            Self::Name => "name",                  // TODO
+            Self::SerialNumber => "serial number", // TODO
+            Self::OS => "OS",                      // TODO
+            Self::Drivers => "drivers",            // TODO
         }
     }
 
@@ -166,7 +166,7 @@ impl Translate<'static> for Message {
             Self::Language => "Sprache",
             Self::Interface => "Schnittstelle",
             Self::Misc => "Verschiedenes",
-            Self::SystemInfo => "System info",
+            Self::SystemInfo => "System info", // TODO
 
             Self::English => "Englisch",
             Self::Dutch => "Niederländisch",
@@ -193,10 +193,10 @@ impl Translate<'static> for Message {
             Self::Telemetry => "Telemetrie",
             Self::ResetAll => "Alle Einstellungen zurücksetzen",
 
-            Self::Name => "name",
-            Self::SerialNumber => "serial number",
-            Self::OS => "OS",
-            Self::Drivers => "drivers",
+            Self::Name => "name",                  // TODO
+            Self::SerialNumber => "serial number", // TODO
+            Self::OS => "OS",                      // TODO
+            Self::Drivers => "drivers",            // TODO
         }
     }
 
@@ -206,7 +206,7 @@ impl Translate<'static> for Message {
             Self::Language => "Lingua",
             Self::Interface => "Interfaccia",
             Self::Misc => "Varie",
-            Self::SystemInfo => "System info",
+            Self::SystemInfo => "System info", // TODO
 
             Self::English => "Inglese",
             Self::Dutch => "Olandese",
@@ -233,10 +233,10 @@ impl Translate<'static> for Message {
             Self::Telemetry => "telemetria",
             Self::ResetAll => "ripristina tutte le impostazioni",
 
-            Self::Name => "name",
-            Self::SerialNumber => "serial number",
-            Self::OS => "OS",
-            Self::Drivers => "drivers",
+            Self::Name => "name",                  // TODO
+            Self::SerialNumber => "serial number", // TODO
+            Self::OS => "OS",                      // TODO
+            Self::Drivers => "drivers",            // TODO
         }
     }
 
@@ -245,7 +245,7 @@ impl Translate<'static> for Message {
             Self::Language => "Język",
             Self::Interface => "Interfejs",
             Self::Misc => "Pozostałe",
-            Self::SystemInfo => "System info",
+            Self::SystemInfo => "System info", // TODO
 
             Self::English => "angielski",
             Self::Dutch => "holenderski",
@@ -272,10 +272,10 @@ impl Translate<'static> for Message {
             Self::Telemetry => "telemetria",
             Self::ResetAll => "zresetuj ustawienia",
 
-            Self::Name => "name",
-            Self::SerialNumber => "serial number",
-            Self::OS => "OS",
-            Self::Drivers => "drivers",
+            Self::Name => "name",                  // TODO
+            Self::SerialNumber => "serial number", // TODO
+            Self::OS => "OS",                      // TODO
+            Self::Drivers => "drivers",            // TODO
         }
     }
 
@@ -284,7 +284,7 @@ impl Translate<'static> for Message {
             Self::Language => "Limbă",
             Self::Interface => "Interfață",
             Self::Misc => "Diverse",
-            Self::SystemInfo => "System info",
+            Self::SystemInfo => "System info", // TODO
 
             Self::English => "Engleză",
             Self::Dutch => "Olandeză",
@@ -311,10 +311,10 @@ impl Translate<'static> for Message {
             Self::Telemetry => "telemetrie",
             Self::ResetAll => "resetează toate setările",
 
-            Self::Name => "name",
-            Self::SerialNumber => "serial number",
-            Self::OS => "OS",
-            Self::Drivers => "drivers",
+            Self::Name => "name",                  // TODO
+            Self::SerialNumber => "serial number", // TODO
+            Self::OS => "OS",                      // TODO
+            Self::Drivers => "drivers",            // TODO
         }
     }
 
@@ -323,7 +323,7 @@ impl Translate<'static> for Message {
             Self::Language => "Язык",
             Self::Interface => "Интерфейс",
             Self::Misc => "Разное",
-            Self::SystemInfo => "System info",
+            Self::SystemInfo => "Системная информация",
 
             Self::English => "английский",
             Self::Dutch => "голландский",
@@ -350,10 +350,10 @@ impl Translate<'static> for Message {
             Self::Telemetry => "телеметрия",
             Self::ResetAll => "сбросить все настройки",
 
-            Self::Name => "name",
-            Self::SerialNumber => "serial number",
-            Self::OS => "OS",
-            Self::Drivers => "drivers",
+            Self::Name => "имя",
+            Self::SerialNumber => "серийный номер",
+            Self::OS => "операционка",
+            Self::Drivers => "драйверы",
         }
     }
 
@@ -363,7 +363,7 @@ impl Translate<'static> for Message {
             Self::Language => "Idioma",
             Self::Interface => "Interfaz",
             Self::Misc => "Varios",
-            Self::SystemInfo => "System info",
+            Self::SystemInfo => "System info", // TODO
 
             Self::English => "Inglés",
             Self::Dutch => "Holandés",
@@ -390,10 +390,10 @@ impl Translate<'static> for Message {
             Self::Telemetry => "telemetría",
             Self::ResetAll => "restablecer todos los ajustes",
 
-            Self::Name => "name",
-            Self::SerialNumber => "serial number",
-            Self::OS => "OS",
-            Self::Drivers => "drivers",
+            Self::Name => "name",                  // TODO
+            Self::SerialNumber => "serial number", // TODO
+            Self::OS => "OS",                      // TODO
+            Self::Drivers => "drivers",            // TODO
         }
     }
 
@@ -402,7 +402,7 @@ impl Translate<'static> for Message {
             Self::Language => "Språk",
             Self::Interface => "Gränssnitt",
             Self::Misc => "Övrigt",
-            Self::SystemInfo => "System info",
+            Self::SystemInfo => "System info", // TODO
 
             Self::English => "Engelska",
             Self::Dutch => "Holländska",
@@ -429,10 +429,10 @@ impl Translate<'static> for Message {
             Self::Telemetry => "telemetri",
             Self::ResetAll => "återställ alla inställningar",
 
-            Self::Name => "name",
-            Self::SerialNumber => "serial number",
-            Self::OS => "OS",
-            Self::Drivers => "drivers",
+            Self::Name => "name",                  // TODO
+            Self::SerialNumber => "serial number", // TODO
+            Self::OS => "OS",                      // TODO
+            Self::Drivers => "drivers",            // TODO
         }
     }
 
@@ -442,7 +442,7 @@ impl Translate<'static> for Message {
             Self::Language => "Dil",
             Self::Interface => "Arayüz",
             Self::Misc => "Diğer",
-            Self::SystemInfo => "System info",
+            Self::SystemInfo => "System info", // TODO
 
             Self::English => "İngilizce",
             Self::Dutch => "Hollandaca",
@@ -469,10 +469,10 @@ impl Translate<'static> for Message {
             Self::Telemetry => "telemetri",
             Self::ResetAll => "tüm ayarları sıfırla",
 
-            Self::Name => "name",
-            Self::SerialNumber => "serial number",
-            Self::OS => "OS",
-            Self::Drivers => "drivers",
+            Self::Name => "name",                  // TODO
+            Self::SerialNumber => "serial number", // TODO
+            Self::OS => "OS",                      // TODO
+            Self::Drivers => "drivers",            // TODO
         }
     }
 
@@ -481,7 +481,7 @@ impl Translate<'static> for Message {
             Self::Language => "Мова",
             Self::Interface => "Інтерфейс",
             Self::Misc => "Різне",
-            Self::SystemInfo => "System info",
+            Self::SystemInfo => "System info", // TODO
 
             Self::English => "англійська",
             Self::Dutch => "голландська",
@@ -508,10 +508,10 @@ impl Translate<'static> for Message {
             Self::Telemetry => "телеметраці",
             Self::ResetAll => "скинути всі налаштування",
 
-            Self::Name => "name",
-            Self::SerialNumber => "serial number",
-            Self::OS => "OS",
-            Self::Drivers => "drivers",
+            Self::Name => "name",                  // TODO
+            Self::SerialNumber => "serial number", // TODO
+            Self::OS => "OS",                      // TODO
+            Self::Drivers => "drivers",            // TODO
         }
     }
 
@@ -520,7 +520,7 @@ impl Translate<'static> for Message {
             Self::Language => "toki",
             Self::Interface => "namako",
             Self::Misc => "ante",
-            Self::SystemInfo => "System info",
+            Self::SystemInfo => "sona nasin",
 
             Self::English => "toki Inli",
             Self::Dutch => "toki Netelan",
@@ -547,10 +547,10 @@ impl Translate<'static> for Message {
             Self::Telemetry => "owe",
             Self::ResetAll => "ale li sin",
 
-            Self::Name => "name",
-            Self::SerialNumber => "serial number",
-            Self::OS => "OS",
-            Self::Drivers => "drivers",
+            Self::Name => "nimi",
+            Self::SerialNumber => "nanpa sama",
+            Self::OS => "nasin",
+            Self::Drivers => "ijo tawa",
         }
     }
 }
