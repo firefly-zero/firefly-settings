@@ -145,30 +145,29 @@ fn draw_misc_selections(state: &State) {
 
 fn draw_system_info_selections(state: &State) {
     draw_text_selection(state, 2, &state.settings.name);
-    if let Some(device) = &state.device {
-        let serial = alloc::format!("{}.{:08}", device.model, device.serial);
-        draw_text_selection(state, 3, &serial);
+    let Some(device) = &state.device else { return };
+    let serial = alloc::format!("{}.{:08}", device.model, device.serial);
+    draw_text_selection(state, 3, &serial);
 
-        let (v1, v2, v3) = device.main_version;
-        let part = match device.main_partition {
-            0 => "A",
-            1 => "B",
-            2 => "C",
-            _ => "X",
-        };
-        let v = alloc::format!("v{v1}.{v2:02}.{v3:02} ({part})");
-        draw_text_selection(state, 4, &v);
+    let (v1, v2, v3) = device.main_version;
+    let part = match device.main_partition {
+        0 => "A",
+        1 => "B",
+        2 => "C",
+        _ => "X",
+    };
+    let v = alloc::format!("v{v1}.{v2:02}.{v3:02} ({part})");
+    draw_text_selection(state, 4, &v);
 
-        let (v1, v2, v3) = device.io_version;
-        let part = match device.io_partition {
-            0 => "A",
-            1 => "B",
-            2 => "C",
-            _ => "X",
-        };
-        let v = alloc::format!("v{v1}.{v2:02}.{v3:02} ({part})");
-        draw_text_selection(state, 5, &v);
-    }
+    let (v1, v2, v3) = device.io_version;
+    let part = match device.io_partition {
+        0 => "A",
+        1 => "B",
+        2 => "C",
+        _ => "X",
+    };
+    let v = alloc::format!("v{v1}.{v2:02}.{v3:02} ({part})");
+    draw_text_selection(state, 5, &v);
 }
 
 fn draw_text_selection(state: &State, idx: i32, text: &str) {
