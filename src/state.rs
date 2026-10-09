@@ -62,7 +62,7 @@ impl State {
         if self.page != Page::Language {
             return false;
         }
-        !self.settings.easter_eggs && self.settings.lang != [b't', b'p']
+        !self.settings.easter_eggs && self.settings.lang != *b"tp"
     }
 }
 
