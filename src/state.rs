@@ -1,11 +1,11 @@
 use crate::*;
-use core::cell::OnceCell;
+use core::mem::MaybeUninit;
 use firefly_rust::*;
 use firefly_sudo::sudo;
 use firefly_types::{DeviceInfo, Encode, Settings};
 use firefly_ui::{InputManager, Translate};
 
-static mut STATE: OnceCell<State> = OnceCell::new();
+static mut STATE: MaybeUninit<State> = MaybeUninit::uninit();
 
 pub struct State {
     pub settings: Settings,
@@ -72,7 +72,9 @@ fn encode_color(c: Color) -> u32 {
 
 pub fn get_state() -> &'static mut State {
     #[allow(static_mut_refs)]
-    unsafe { STATE.get_mut() }.unwrap()
+    unsafe {
+        STATE.assume_init_mut()
+    }
 }
 
 pub fn load_state() {
@@ -91,7 +93,7 @@ pub fn load_state() {
 
     // On the first launch, show the "Language" page,
     // so that if the user has a wrong language selected by default
-    // and stumbles around trying to fin the language selector,
+    // and stumbles around trying to find the language selector,
     // we land them right away to the right page.
     // This is also the reason why language selection
     // takes the whole page instead of one line like "color scheme".
@@ -101,9 +103,9 @@ pub fn load_state() {
     let page = if get_file_size("launched") != 0 {
         Page::Interface
     } else {
+        dump_file("launched", b"y");
         Page::Language
     };
-    dump_file("launched", b"y");
 
     // Generally, you never want to use "get_me" peer
     // for anything but visual rendering. However,
@@ -126,5 +128,7 @@ pub fn load_state() {
     };
     state.apply_contrast();
     #[allow(static_mut_refs)]
-    unsafe { STATE.set(state) }.ok().unwrap();
+    unsafe {
+        STATE = MaybeUninit::new(state)
+    };
 }
