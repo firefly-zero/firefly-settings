@@ -96,6 +96,7 @@ fn draw_lines(state: &State) {
     }
 }
 
+/// Render selected values for all options.
 fn draw_selections(state: &State) {
     match state.page {
         Page::Language => draw_lang_selection(state),
@@ -130,11 +131,12 @@ fn draw_lang_selection(state: &State) {
 }
 
 fn draw_interface_selections(state: &State) {
+    draw_text_selection(state, 2, state.theme.name);
     draw_switch(state, 2, state.settings.contrast);
+    draw_brightness(state, 4, state.settings.screen_brightness);
     draw_switch(state, 4, state.settings.reduce_flashing);
     draw_switch(state, 5, state.settings.rotate_screen);
     draw_switch(state, 6, state.settings.auto_lock != 0);
-    draw_text_selection(state, 2, state.theme.name);
 }
 
 fn draw_misc_selections(state: &State) {
@@ -203,6 +205,11 @@ fn draw_switch(state: &State, idx: i32, is_on: bool) {
     let pressed = idx == i32::from(state.cursor) && state.input.pressed();
     let theme = cast_theme(state.theme);
     firefly_ui::draw_switch(idx, is_on, pressed, font, theme);
+}
+
+fn draw_brightness(state: &State, idx: i32, brightness: u8) {
+    let text = alloc::format!("{}%", (brightness / 64 + 1) * 25);
+    draw_text_selection(state, idx, &text);
 }
 
 fn cast_theme(theme: ThemeInfo) -> Theme {

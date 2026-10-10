@@ -111,7 +111,14 @@ fn select_option(state: &mut State) {
                 s.contrast = !s.contrast;
                 state.apply_contrast();
             }
-            3 => s.screen_brightness = s.screen_brightness.wrapping_add(64),
+            3 => {
+                s.screen_brightness = match s.screen_brightness {
+                    0..=63 => 127,
+                    64..=127 => 191,
+                    128..=191 => 255,
+                    192..=255 => 63,
+                }
+            }
             4 => s.reduce_flashing = !s.reduce_flashing,
             5 => s.rotate_screen = !s.rotate_screen,
             6 => s.auto_lock = if s.auto_lock != 0 { 0 } else { 5 },
