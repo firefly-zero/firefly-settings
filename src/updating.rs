@@ -30,10 +30,21 @@ pub fn update_state(state: &mut State) {
                         old_theme - 1
                     };
                     state.set_theme(new_theme);
-                } else {
-                    state.scroll = 0;
-                    state.cursor = 0;
+                    return;
                 }
+                let on_brightness = state.page == Page::Interface && state.cursor == 3;
+                if on_brightness {
+                    let new = match state.settings.screen_brightness {
+                        0..=63 => 255,
+                        64..=127 => 63,
+                        128..=191 => 127,
+                        192..=255 => 191,
+                    };
+                    state.settings.screen_brightness = new;
+                    return;
+                }
+                state.scroll = 0;
+                state.cursor = 0;
             }
         }
         Input::Right => {
@@ -44,6 +55,16 @@ pub fn update_state(state: &mut State) {
                 if on_theme {
                     let new_theme = (state.settings.theme as u8 + 1) % THEMES.len() as u8;
                     state.set_theme(new_theme);
+                }
+                let on_brightness = state.page == Page::Interface && state.cursor == 3;
+                if on_brightness {
+                    let new = match state.settings.screen_brightness {
+                        0..=63 => 127,
+                        64..=127 => 191,
+                        128..=191 => 255,
+                        192..=255 => 63,
+                    };
+                    state.settings.screen_brightness = new;
                 }
             }
         }
