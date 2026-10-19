@@ -245,7 +245,7 @@ impl Translate<'static> for Message {
             Self::Language => "Język",
             Self::Interface => "Interfejs",
             Self::Misc => "Pozostałe",
-            Self::SystemInfo => "System info", // TODO
+            Self::SystemInfo => "Informacje o systemie",
 
             Self::English => "angielski",
             Self::Dutch => "holenderski",
@@ -272,10 +272,10 @@ impl Translate<'static> for Message {
             Self::Telemetry => "telemetria",
             Self::ResetAll => "zresetuj ustawienia",
 
-            Self::Name => "name",                  // TODO
-            Self::SerialNumber => "serial number", // TODO
-            Self::OS => "OS",                      // TODO
-            Self::Drivers => "drivers",            // TODO
+            Self::Name => "nazwa",
+            Self::SerialNumber => "numer seryjny",
+            Self::OS => "system operacyjny",
+            Self::Drivers => "sterowniki",
         }
     }
 
