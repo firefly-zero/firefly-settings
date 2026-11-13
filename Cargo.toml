@@ -1,17 +1,17 @@
 [package]
 name = "settings"
-version = "0.3.0"
+version = "0.3.1"
 edition = "2024"
-rust-version = "1.98.1"
+rust-version = "1.100.0"
 
 [dependencies]
-firefly-rust = { version = "0.16.0", features = ["alloc", "talc"] }
+firefly-rust = { version = "0.17.1", features = ["alloc", "talc"] }
 firefly-types = "0.12.1"
 firefly-sudo = { version = "0.14.5", features = ["alloc"] }
 firefly-ui = "0.3.3"
 
 # https://github.com/johnthagen/min-sized-rust
 [profile.release]
-strip = true    # Automatically strip symbols from the binary.
-opt-level = "s" # Optimize for speed.
-lto = true      # Enable link-time optimization
+strip = true  # Automatically strip symbols from the binary.
+opt-level = 3 # Optimize for speed.
+lto = true    # Enable link-time optimization

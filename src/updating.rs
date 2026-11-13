@@ -138,7 +138,8 @@ fn select_option(state: &mut State) {
                     64..=127 => 191,
                     128..=191 => 255,
                     192..=255 => 63,
-                }
+                };
+                restart();
             }
             4 => s.reduce_flashing = !s.reduce_flashing,
             5 => s.rotate_screen = !s.rotate_screen,
